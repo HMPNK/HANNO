@@ -55,7 +55,7 @@ bash ./scripts/HANNO.v0.1-NCBI.sh genome.fasta workingdir XXX_protein.faa XXX_rn
 mamba activate HANNO
 bash ./scripts/HANNO.v0.1-NCBI+GTF.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir StringTie.gtf > workingdir.log 2>&1
 
-##You may include a second protein database for final functional assignment
+##You may include a second protein database, which is ONLY used for final functional assignment.
 
 mamba activate HANNO
 scripts/HANNO.v0.1-NCBI+REFPROTs.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir REFPROTDB.faa > workingdir.log 2>&1
