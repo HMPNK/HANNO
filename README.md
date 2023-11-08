@@ -4,7 +4,7 @@
 ## Installation
 
 ```sh
-git clone HMPNK/HANNO
+git clone https://github.com/HMPNK/HANNO.git
 cd HANNO
 mamba create -n HANNO bedtools samtools minimap2 miniprot last eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed
 mamba activate HANNO
