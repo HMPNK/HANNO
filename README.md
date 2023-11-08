@@ -3,7 +3,8 @@
 
 ## Installation
 
-```shmkdir HANNO
+```sh
+mkdir HANNO
 cd HANNO
 mamba create -n HANNO bedtools samtools minimap2 miniprot last eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed
 mamba activate HANNO
