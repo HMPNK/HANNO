@@ -1,6 +1,7 @@
-You will need MAMBA for installation!
 
-##Installation
+## You will need MAMBA for installation!
+
+## Installation
 
 ```shmkdir HANNO
 cd HANNO
@@ -11,7 +12,7 @@ mamba install busco
 ##Also need bioperl
 mamba install -c bioconda perl-bioperl
 ##TACO is not compatible with the environment create its own:
-mamba create -n TACO taco```
+mamba create -n TACO taco
 
 ##get EGGNOG DATA
 mkdir EGGNOGG-DBs
@@ -53,6 +54,6 @@ bash ./scripts/HANNO.v0.1-NCBI+GTF.sh genome.fasta workingdir XXX_protein.faa XX
 mamba activate HANNO
 
 scripts/HANNO.v0.1-NCBI+REFPROTs.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir REFPROTDB.faa > workingdir.log 2>&1
-or
-scripts/HANNO.v0.1-NCBI+GTF+REFPROTs.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir StringTie.gtf REFPROTDB.faa > workingdir.log 2>&1
+##or
+scripts/HANNO.v0.1-NCBI+GTF+REFPROTs.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir StringTie.gtf REFPROTDB.faa > workingdir.log 2>&1```
 
