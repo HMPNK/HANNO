@@ -41,7 +41,7 @@ run_BUSCO.py -i assembly_CDS.faa -o BUSCO1 -l $5 -m proteins -c $THREADS -sp hum
 ##map denovo TRANSCRIPTOME same genus
 date
 ln -s ../$4 .
-minimap2 -t $THREADS -x splice -a --junc-bed output/assembly.bed $1  $4 > $4.sam
+minimap2 -I 100G -t $THREADS -x splice -a --junc-bed output/assembly.bed $1  $4 > $4.sam
 samtools sort -o $4.bam $4.sam
 rm -f $4.sam
 
