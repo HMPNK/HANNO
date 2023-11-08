@@ -1,4 +1,3 @@
-..
 
 
 ## HANNO: efficient High-throughput Annotation of eukaryote genomes
