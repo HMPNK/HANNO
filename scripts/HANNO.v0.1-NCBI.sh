@@ -5,7 +5,8 @@ set -o pipefail
 
 export SCRIPTS="/data2/HANNO/scripts";
 MAMBA="/home/kuhl/miniconda2/envs/MAMBA/bin";
-THREADS=40;
+EGGNOG="/data2/HANNO/EGGNOGG-DBs"
+THREADS=24;
 
 ##VARIABLES: $1=genome.fasta, $2=workingdir, $3=protein.faa (from NCBI refSeq), $4=_rna_from_genomic.fna (from NCBI refSeq) $5=BUSCO-LINEAGE-DIR
 
@@ -93,9 +94,9 @@ run_BUSCO.py -i Merged.CDS2.faa -o Merged.CDS2.BUSCO -l $5 -m proteins -c 40 -sp
 
 ##functional annotation with EggNog use before best of cluster selection
 date
-cp -r /data/backup_old_vm/EGGNOGG-DBs /dev/shm/EGGNOGG-DBs
-emapper.py --cpu $THREADS --mp_start_method forkserver --data_dir /dev/shm/EGGNOGG-DBs -o out --output_dir ./ --temp_dir ./ --override -m diamond --dmnd_ignore_warnings -i Merged.CDS2.faa --evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20 --itype proteins --tax_scope auto --target_orthologs all --go_evidence non-electronic --pfam_realign none --report_orthologs --decorate_gff yes --excel  > emapper.out  2>emapper.err
-rm -rf /dev/shm/EGGNOGG-DBs
+#cp -r $EGGNOG /dev/shm/EGGNOGG-DBs
+emapper.py --cpu $THREADS --mp_start_method forkserver --data_dir $EGGNOG -o out --output_dir ./ --temp_dir ./ --override -m diamond --dmnd_ignore_warnings -i Merged.CDS2.faa --evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20 --itype proteins --tax_scope auto --target_orthologs all --go_evidence non-electronic --pfam_realign none --report_orthologs --decorate_gff yes --excel  > emapper.out  2>emapper.err
+#rm -rf /dev/shm/EGGNOGG-DBs
 
 ##functional annotation using custom PROTDB
 date
