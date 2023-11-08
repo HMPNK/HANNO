@@ -32,8 +32,10 @@ rm actinopterygii_odb10.2021-02-19.tar.gz
 
 ##change paths in main scripts starting with "HANNO.v0.1-NCBI"  to fit to your system:
 
-SCRIPTS="path_to/HANNO/scripts";
-MAMBA="path_to/miniconda2/envs/MAMBA/bin";
+SCRIPTS="/path_to/HANNO/scripts";
+MAMBA="/path_to/miniconda2/envs/MAMBA/bin";
+EGGNOG="/path_to/HANNO/EGGNOGG-DBs"
+THREADS=24
 
 ## ready to run ##
 
