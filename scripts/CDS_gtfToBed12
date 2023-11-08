@@ -1,0 +1,2 @@
+#!/bin/bash
+grep -w CDS $1 | gtfToGenePred /dev/stdin /dev/stdout | genePredToBed /dev/stdin /dev/stdout| awk 'BEGIN{OFS="\t";FS="\t";} {c=split($11,a,",");for(x=1;x<=c;x++){s=s+a[x]};$5=s;print;s=""}'
