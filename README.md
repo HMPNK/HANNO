@@ -8,7 +8,7 @@ git clone https://github.com/HMPNK/HANNO.git
 cd HANNO
 mamba create -n HANNO bedtools samtools minimap2 miniprot last eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed
 mamba activate HANNO
-##for some reason I had to install BUSCO after creating the envoronment:
+##for some reason I had to install BUSCO after creating the environment:
 mamba install busco
 ##Also need bioperl
 mamba install -c bioconda perl-bioperl
