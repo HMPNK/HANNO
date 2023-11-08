@@ -4,7 +4,7 @@ set -e
 set -o pipefail
 
 export SCRIPTS="/data2/HANNO/scripts";
-MAMBA="/home/kuhl/miniconda2/envs/MAMBA/bin";
+MAMBA="~/miniconda2/envs/MAMBA/bin";
 EGGNOG="/data2/HANNO/EGGNOGG-DBs"
 THREADS=24;
 
