@@ -33,13 +33,15 @@ MAMBA="path_to/miniconda2/envs/MAMBA/bin";
 
 ## ready to run ##
 
-put your data in the current directory
+# put your data in the current directory! You will need:
 
-genome.fasta = the assembly to be annotated
-workingdir = just a name, this directory will be created
-XXX_protein.faa = a protein fasta file from a NCBI Refseq annotation of a resonably close species (the closer the better, but diverged species work!) Alternatively you may use denovo transcriptome translated ORFs here, if you have RNAseq. You can concatenate multiple Proteomes into the file.
-XXX_rna_from_genomic.fna = a RNA fasta file from a NCBI Refseq annotation of a resonably close species (the closer the better, but diverged species work!) Alterntively, you may use denovo assembled transcripts here if you have RNAseq. You can concatenate multiple transcriptomes in the file.
-busco_lineage_dir = full path to directory ( /your/path/to/actinopterygii_odb10 )  where the BUSCO lineage data ist stored
+# genome.fasta = the assembly to be annotated
+# workingdir = just a name, this directory will be created
+# XXX_protein.faa = a protein fasta file from a NCBI Refseq annotation of a resonably close species (the closer the better, but diverged species work!)
+# Alternatively you may use denovo transcriptome translated ORFs here, if you have RNAseq. You can concatenate multiple Proteomes into the file.
+# XXX_rna_from_genomic.fna = a RNA fasta file from a NCBI Refseq annotation of a resonably close species (the closer the better, but diverged species work!)
+# Alternatively, you may use denovo assembled transcripts here if you have RNAseq. You can concatenate multiple transcriptomes in the file.
+# busco_lineage_dir = full path to directory ( /your/path/to/actinopterygii_odb10 )  where the BUSCO lineage data ist stored
 
 ##run HANNO:
 mamba activate HANNO
@@ -53,8 +55,7 @@ bash ./scripts/HANNO.v0.1-NCBI+GTF.sh genome.fasta workingdir XXX_protein.faa XX
 ##You may include a second protein database for final functional assignment
 
 mamba activate HANNO
-
 scripts/HANNO.v0.1-NCBI+REFPROTs.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir REFPROTDB.faa > workingdir.log 2>&1
-##or
+##or with stringtie GTF
 scripts/HANNO.v0.1-NCBI+GTF+REFPROTs.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir StringTie.gtf REFPROTDB.faa > workingdir.log 2>&1```
 
