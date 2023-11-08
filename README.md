@@ -1,6 +1,6 @@
 
 
-# HANNO: efficient High-throughput ANNOtation of eukaryote genomes
+# HANNO: efficient High-throughput ANNOtation of protein coding genes in eukaryote genomes
 
 ### You will need MAMBA for installation!
 
