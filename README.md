@@ -34,8 +34,8 @@ rm actinopterygii_odb10.2021-02-19.tar.gz
 
 SCRIPTS="/path_to/HANNO/scripts";
 MAMBA="/path_to/miniconda2/envs/MAMBA/bin";
-EGGNOG="/path_to/HANNO/EGGNOGG-DBs"
-THREADS=24
+EGGNOG="/path_to/HANNO/EGGNOGG-DBs";
+THREADS=24;
 
 ## ready to run ##
 
