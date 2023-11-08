@@ -101,7 +101,7 @@ rm -rf /dev/shm/EGGNOGG-DBs
 date
 lastal -P $THREADS -p BL80 -m 100 -K1 PROTDB Merged.CDS2.faa > Merged.CDS2_vs_PROTDB.maf
 grep ">" $3 | awk '{l=length($1);print substr($0,2,l-1)"\t"substr($0,l+2)}' > PROT-DB.desc.txt
-maf-convert tab Merged.CDS2_vs_PROTDB.maf| grep -v '^#'| sed "s/_frame.\t/\t/g" | sed "s/EG2=//g" | sort --buffer-size=128G --parallel=16 -k7,7V -k13,13g | awk '{if($7!=o && $13<=1){print};o=$7}'| awk -v infile=PROT-DB.desc.txt 'BEGIN{while(getline l<infile){split(l,a,"\t");h[a[1]]=a[2]}} {print $7"\t"h[$2]" | "$2"\t"$1" e-val: "$13}' > Merged.CDS2_vs_PROTDB.description.txt &
+maf-convert tab Merged.CDS2_vs_PROTDB.maf| grep -v '^#'| sed "s/_frame.\t/\t/g" | sed "s/EG2=//g" | sort --buffer-size=128G --parallel=16 -k7,7V -k13,13g | awk '{if($7!=o && $13<=1){print};o=$7}'| awk -v infile=PROT-DB.desc.txt 'BEGIN{while(getline l<infile){split(l,a,"\t");h[a[1]]=a[2]}} {print $7"\t"h[$2]" | "$2"\t"$1" e-val: "$13}' > Merged.CDS2_vs_PROTDB.description.txt
 
 ##merge functional annotations
 awk -v eggnog=out.emapper.annotations -v last=Merged.CDS2_vs_PROTDB.description.txt 'BEGIN{OFS="\t";FS="\t";while(getline l < eggnog){n=split(l,a,"\t");if(substr(l,1,1)!="#"){split(a[1],b,".");i++;nlist[i]=b[1];t[b[1]]=1;egg3[b[1]]=a[3];egg4[b[1]]=a[4];egg8[b[1]]=a[8];egg9[b[1]]=a[9];;egg11[b[1]]=a[11];}};while(getline l < last){n=split(l,a,"\t");if(substr(l,1,1)!="#"){split(a[1],b,".");if(t[b[1]]==""){i++;nlist[i]=b[1];};last2[b[1]]=a[2];last3[b[1]]=a[3]}};exit} END{for(x=1;x<=i;x++){y=nlist[x];$0=y"\t"egg9[y]"\t"egg8[y]"\t"egg11[y]"\t"egg3[y]"\t"egg4[y]"\t"last2[y]"\t"last3[y];print}}' | sort -k1,1V > final_description.txt
