@@ -1,10 +1,10 @@
 
 
-# **HANNO**: efficient **H**igh-throughput **ANNO**tation of eukaryote genomes
+# HANNO: efficient High-throughput ANNOtation of eukaryote genomes
 
 ### You will need MAMBA for installation!
 
-## Installation
+### Installation
 
 ```sh
 git clone https://github.com/HMPNK/HANNO.git
