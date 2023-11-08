@@ -1,4 +1,6 @@
 
+## HANNO: efficient High-throughput Annotation of eukaryote genomes
+
 ## You will need MAMBA for installation!
 
 ## Installation
@@ -8,20 +10,20 @@ git clone https://github.com/HMPNK/HANNO.git
 cd HANNO
 mamba create -n HANNO bedtools samtools minimap2 miniprot last eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed
 mamba activate HANNO
-##for some reason I had to install BUSCO after creating the environment:
+## for some reason I had to install BUSCO after creating the environment:
 mamba install busco
-##Also need bioperl
+## Also need bioperl
 mamba install -c bioconda perl-bioperl
-##TACO is not compatible with the environment create its own:
+## TACO is not compatible with the environment create its own:
 mamba create -n TACO taco
 
-##get EGGNOG DATA
+## get EGGNOG DATA
 mkdir EGGNOGG-DBs
 export EGGNOG_DATA_DIR=$PWD/EGGNOGG-DBs/
 download_eggnog_data.py
 
-##get BUSCO databases from https://busco-data.ezlab.org/v5/data/lineages/
-For example fishes:
+## get BUSCO databases from https://busco-data.ezlab.org/v5/data/lineages/
+## For example fishes:
 wget https://busco-data.ezlab.org/v5/data/lineages/actinopterygii_odb10.2021-02-19.tar.gz
 tar xvf actinopterygii_odb10.2021-02-19.tar.gz
 rm actinopterygii_odb10.2021-02-19.tar.gz
