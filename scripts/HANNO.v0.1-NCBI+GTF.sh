@@ -4,8 +4,9 @@ set -e
 set -o pipefail
 
 export SCRIPTS="/data2/HANNO/scripts";
-MAMBA="/home/kuhl/miniconda2/envs/MAMBA/bin";
-THREADS=40;
+MAMBA="~/miniconda2/envs/MAMBA/bin";
+EGGNOG="/data2/HANNO/EGGNOGG-DBs"
+THREADS=24;
 
 ##VARIABLES: $1=genome.fasta, $2=workingdir, $3=protein.faa (from NCBI refSeq), $4=_rna_from_genomic.fna (from NCBI refSeq) $5=BUSCO-LINEAGE-DIR $6=STRINGTIE.gtf(from same genome!)
 
