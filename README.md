@@ -1,8 +1,8 @@
 
 
-## HANNO: efficient High-throughput Annotation of eukaryote genomes
+# **HANNO**: efficient **H**igh-throughput **ANNO**tation of eukaryote genomes
 
-## You will need MAMBA for installation!
+### You will need MAMBA for installation!
 
 ## Installation
 
