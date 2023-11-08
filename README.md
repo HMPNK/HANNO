@@ -2,7 +2,7 @@ You will need MAMBA for installation!
 
 ##Installation
 
-mkdir HANNO
+```shmkdir HANNO
 cd HANNO
 mamba create -n HANNO bedtools samtools minimap2 miniprot last eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed
 mamba activate HANNO
@@ -11,7 +11,7 @@ mamba install busco
 ##Also need bioperl
 mamba install -c bioconda perl-bioperl
 ##TACO is not compatible with the environment create its own:
-mamba create -n TACO taco
+mamba create -n TACO taco```
 
 ##get EGGNOG DATA
 mkdir EGGNOGG-DBs
