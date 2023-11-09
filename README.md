@@ -2,8 +2,7 @@
 
 # HANNO: efficient High-throughput ANNOtation of protein coding genes in eukaryote genomes
 
-### You will need MAMBA for installation! But may work also with conda (replace mamba by conda below)
-
+### You will need MAMBA for installation!
 ### Installation (tested on: Ubuntu 16.04.7 LTS, ... )
 
 
