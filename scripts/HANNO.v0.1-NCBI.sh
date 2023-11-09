@@ -35,7 +35,7 @@ source $MAMBA/deactivate
 ##TEST output
 date
 bedtools getfasta -nameOnly -s -split -bed output/assembly.bed -fi $1 -fo stdout | $SCRIPTS/TRANSLATE.sh > assembly_CDS.faa
-run_BUSCO.py -i assembly_CDS.faa -o BUSCO1 -l $5 -m proteins -c $THREADS -sp human
+run_BUSCO.py -i assembly_CDS.faa -o BUSCO1 -l $5 -m proteins -c $THREADS
 #rm -rf tmp run_BUSCO1
 
 ##map denovo TRANSCRIPTOME same genus
@@ -89,7 +89,7 @@ gtfToGenePred Merged.CDS2.gtf Merged.CDS2.gp
 genePredToBed Merged.CDS2.gp Merged.CDS2.bed12
 bash $SCRIPTS/CDS_gtfToBed12 Merged.CDS2.gtf > Merged.CDS2only.bed12
 bedtools getfasta -split -nameOnly -s -bed Merged.CDS2only.bed12 -fi $1 -fo /dev/stdout | $SCRIPTS/TRANSLATE.sh > Merged.CDS2.faa
-run_BUSCO.py -i Merged.CDS2.faa -o Merged.CDS2.BUSCO -l $5 -m proteins -c 40 -sp human
+run_BUSCO.py -i Merged.CDS2.faa -o Merged.CDS2.BUSCO -l $5 -m proteins -c 40 
 #rm tmp run_Merged.CDS* -rf
 
 ##functional annotation with EggNog use before best of cluster selection
@@ -110,7 +110,7 @@ awk -v eggnog=out.emapper.annotations -v last=Merged.CDS2_vs_PROTDB.description.
 ##BEST MODEL OF GENE
 date
 bash $SCRIPTS/BESTCLUSTERGTF-SEQOUT-e.sh Merged.CDS2.gtf 0.1 $1
-run_BUSCO.py -i Merged.CDS2.gtf.clustered.cds.faa -o Merged.CDS3.BUSCO -l $5 -m proteins -c 40 -sp human
+run_BUSCO.py -i Merged.CDS2.gtf.clustered.cds.faa -o Merged.CDS3.BUSCO -l $5 -m proteins -c 40 
 #rm tmp run_Merged.CDS* -rf
 
 awk -v description=final_description.txt 'BEGIN{OFS="\t";FS="\t";while(getline l < description){split(l,a,"\t");egs[a[1]]=a[6];ege[a[1]]=a[5];egg[a[1]]=a[2];egd[a[1]]=substr(a[3],1,140)}} {split($4,a,".");$4=a[1]; if(egg[$4]!="" && egg[$4]!="-"){$4=$4" | "egg[$4]" | "egd[$4]" | eggnog score: "egs[$4]" evalue: "ege[$4]};print}' Merged.CDS2.bed12  | sed "s/ /_/g" >  final.all.eggnog.bed12
