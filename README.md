@@ -79,7 +79,7 @@ out.emapper.annotations.xlsx -> same as above in Excel format
 final_description.txt -> gathered information from EGGNOG and LAST agianst protein database to populate the bed12 name fields  
 
 # annotated bed12 output:
-final.all.eggnog.bed12 -> all transcripts with eggnog annotations (eggnog results are more reliable than LAST, but also fewer annotatted transcripts)
-final.all.last.bed12 ->  all transcripts with annotations from protein database (no score/evalue cut-off values below score 200 to be treated with care!), gene symbols are taken from eggnog
-final.best.eggnog.bed12 -> one transcripts per gene (longest Orf) with eggnog annotations
-final.best.last.bed12 -> one transcripts per gene (longest Orf) with with annotations from protein database (no score/evalue cut-off values below score 200 to be treated with care!), gene symbols are taken from eggnog
+final.all.eggnog.bed12 -> all transcripts with eggnog annotations (eggnog results are more reliable than LAST, but also fewer annotatted transcripts)  
+final.all.last.bed12 ->  all transcripts with annotations from protein database (no score/evalue cut-off values below score 200 to be treated with care!), gene symbols are taken from eggnog  
+final.best.eggnog.bed12 -> one transcripts per gene (longest Orf) with eggnog annotations  
+final.best.last.bed12 -> one transcripts per gene (longest Orf) with with annotations from protein database (no score/evalue cut-off values below score 200 to be treated with care!), gene symbols are taken from eggnog  
