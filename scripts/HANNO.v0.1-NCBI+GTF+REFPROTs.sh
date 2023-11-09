@@ -95,8 +95,8 @@ run_BUSCO.py -i Merged.CDS2.faa -o Merged.CDS2.BUSCO -l $5 -m proteins -c 40 -sp
 
 ##functional annotation with EggNog use before best of cluster selection
 date
-#cp -r $EGGNOGG /dev/shm/EGGNOGG-DBs
-emapper.py --cpu $THREADS --mp_start_method forkserver --data_dir $EGGNOGG -o out --output_dir ./ --temp_dir ./ --override -m diamond --dmnd_ignore_warnings -i Merged.CDS2.faa --evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20 --itype proteins --tax_scope auto --target_orthologs all --go_evidence non-electronic --pfam_realign none --report_orthologs --decorate_gff yes --excel  > emapper.out  2>emapper.err
+#cp -r $EGGNOG /dev/shm/EGGNOGG-DBs
+emapper.py --cpu $THREADS --mp_start_method forkserver --data_dir $EGGNOG -o out --output_dir ./ --temp_dir ./ --override -m diamond --dmnd_ignore_warnings -i Merged.CDS2.faa --evalue 0.001 --score 60 --pident 40 --query_cover 20 --subject_cover 20 --itype proteins --tax_scope auto --target_orthologs all --go_evidence non-electronic --pfam_realign none --report_orthologs --decorate_gff yes --excel  > emapper.out  2>emapper.err
 #rm -rf /dev/shm/EGGNOGG-DBs
 
 ##functional annotation using custom PROTDB
