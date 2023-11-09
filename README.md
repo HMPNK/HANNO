@@ -22,14 +22,13 @@ conda activate MAMBA
 git clone https://github.com/HMPNK/HANNO.git
 cd HANNO
 chmod -R 750 scripts/*
-mamba create -n HANNO bedtools samtools minimap2 miniprot last eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed
+mamba create -n HANNO -c conda-forge -c bioconda bedtools samtools minimap2 miniprot last eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed
 mamba activate HANNO
 ## for some reason I had to install BUSCO after creating the environment:
-mamba install busco
+mamba install -c conda-forge -c bioconda busco
 ## Also need bioperl
 mamba install -c bioconda perl-bioperl
 ## TACO is not compatible with the environment create its own:
-mamba create -n TACO taco
 
 ## get EGGNOG DATA
 mkdir EGGNOGG-DBs
