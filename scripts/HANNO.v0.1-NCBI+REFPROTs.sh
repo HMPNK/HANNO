@@ -118,5 +118,8 @@ awk -v description=final_description.txt 'BEGIN{OFS="\t";FS="\t";while(getline l
 awk -v description=final_description.txt 'BEGIN{OFS="\t";FS="\t";while(getline l < description){split(l,a,"\t");egs[a[1]]=a[6];ege[a[1]]=a[5];egg[a[1]]=a[2];egd[a[1]]=substr(a[3],1,140)}} {split($4,a,".");$4=a[1]; if(egg[$4]!="" && egg[$4]!="-"){$4=$4" | "egg[$4]" | "egd[$4]" | eggnog score: "egs[$4]" evalue: "ege[$4]};print}' Merged.CDS2.gtf.clustered.bed12  | sed "s/ /_/g" >  final.best.eggnog.bed12
 awk -v description=final_description.txt 'BEGIN{OFS="\t";FS="\t";while(getline l < description){split(l,a,"\t");gene[a[1]]=a[2];lastd[a[1]]=a[7];lasts[a[1]]=a[8]};laste[a[1]]=a[9]} {split($4,a,".");$4=a[1];if(gene[$4]==""){gene[$4]="-"};if(lasts[$4]!=""){$4=$4" | "gene[$4]" | "lastd[$4]" | last score: "lasts[$4]" "laste[$4]};print}' Merged.CDS2.gtf.clustered.bed12  | sed "s/ /_/g" >  final.best.last.bed12
 
+##clean-up
+ls | grep -vE 'final|out.emapper.annotations' | xargs rm -rf
+
 date
 ##END
