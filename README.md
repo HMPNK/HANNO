@@ -9,7 +9,7 @@
 ```sh
 git clone https://github.com/HMPNK/HANNO.git
 cd HANNO
-chmod -R 770 scripts/*
+chmod -R 750 scripts/*
 mamba create -n HANNO bedtools samtools minimap2 miniprot last eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed
 mamba activate HANNO
 ## for some reason I had to install BUSCO after creating the environment:
