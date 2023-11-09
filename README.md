@@ -4,7 +4,8 @@
 
 ### You will need MAMBA for installation!
 
-### Installation
+### Installation (tested on: Ubuntu 16.04.7 LTS, ... )
+
 
 ```sh
 git clone https://github.com/HMPNK/HANNO.git
