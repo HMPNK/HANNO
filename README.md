@@ -72,6 +72,7 @@ Output will bed12 format, you may convert to gtf using the scripts:
 bed12ToGTF.awk file.bed12 > file.gtf
 bed12ToGTF_addscore.awk file.bed12 > file.gtf # here the score field of CDS will be the total length of the ORF
 ```
+
 # Functional annotations for all transcripts with assigned CDS are in tables:
 out.emapper.annotations -> all EGGNOG annotations
 out.emapper.annotations.xlsx -> same as above in Excel format
