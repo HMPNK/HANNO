@@ -65,3 +65,10 @@ scripts/HANNO.v0.1-NCBI+REFPROTs.sh genome.fasta workingdir XXX_protein.faa XXX_
 ##or with stringtie GTF
 scripts/HANNO.v0.1-NCBI+GTF+REFPROTs.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir StringTie.gtf REFPROTDB.faa > workingdir.log 2>&1```
 
+## OUTPUT
+Output will bed12 format, you may convert to gtf using the scripts:
+```sh
+bed12ToGTF.awk file.bed12 > file.gtf
+bed12ToGTF_addscore.awk file.bed12 > file.gtf # here the score field of CDS will be the total length of the ORF
+```
+
