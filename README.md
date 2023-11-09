@@ -9,6 +9,12 @@
 
 
 ### You will need MAMBA for installation!
+```sh
+#if you have conda already installed do
+conda create -n MAMBA -c conda-forge mamba
+conda activate MAMBA
+```
+
 ### Installation (tested on: Ubuntu 16.04.7 LTS, ... )
 
 
