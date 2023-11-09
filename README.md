@@ -76,7 +76,7 @@ bed12ToGTF_addscore.awk file.bed12 > file.gtf # here the score field of CDS will
 # Functional annotations for all transcripts with assigned CDS are in tables:
 **out.emapper.annotations** -> all EGGNOG annotations  
 **out.emapper.annotations.xlsx** -> same as above in Excel format  
-**final_description.txt** -> gathered information from EGGNOG and LAST agianst protein database to populate the bed12 name fields  
+**final_description.txt** -> gathered information from EGGNOG and LAST against protein database to populate the bed12 name fields  
 
 # annotated bed12 output:
 **final.all.eggnog.bed12** -> all transcripts including eggnog annotations (eggnog results are more reliable than LAST, but also fewer annotatted transcripts)  
