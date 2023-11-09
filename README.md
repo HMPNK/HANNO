@@ -46,6 +46,14 @@ MAMBA="/path_to/miniconda2/envs/MAMBA/bin";
 EGGNOG="/path_to/HANNO/EGGNOGG-DBs";
 THREADS=24;
 
+#IMPORTANT add BUSCO to PATH
+find $HOME/ | grep HANNO | grep run_BUSCO.py$
+#this should output /path/to/run_BUSCO.py
+#change permissions for this file:
+chmod 770 /path/to/run_BUSCO.py
+#copy file to bin directory of HANNO environment, similar like this example:
+cp /home/user/miniconda2/envs/MAMBA/envs/HANNO/lib/python3.7/site-packages/busco/run_BUSCO.py /home/user/miniconda2/envs/MAMBA/envs/HANNO/bin/run_BUSCO.py
+
 ## now it should be ready to run ##
 
 # put your data in the current directory! You will need:
