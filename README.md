@@ -66,7 +66,7 @@ scripts/HANNO.v0.1-NCBI+REFPROTs.sh genome.fasta workingdir XXX_protein.faa XXX_
 scripts/HANNO.v0.1-NCBI+GTF+REFPROTs.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir StringTie.gtf REFPROTDB.faa > workingdir.log 2>&1
 ```
 
-# OUTPUT
+# Output files
 Output will bed12 format, you may convert to gtf using the scripts:
 ```sh
 bed12ToGTF.awk file.bed12 > file.gtf
@@ -78,7 +78,7 @@ bed12ToGTF_addscore.awk file.bed12 > file.gtf # here the score field of CDS will
 **out.emapper.annotations.xlsx** -> same as above in Excel format  
 **final_description.txt** -> gathered information from EGGNOG and LAST against protein database to populate the bed12 name fields  
 
-### annotated bed12 output:
+### Annotated bed12 output:
 **final.all.eggnog.bed12** -> all transcripts including eggnog annotations (eggnog results are more reliable than LAST, but also fewer annotatted transcripts)  
 **final.all.last.bed12** ->  all transcripts including annotations from protein database (no score/evalue cut-off values below score 200 to be treated with care!), gene symbols are taken from eggnog  
 **final.best.eggnog.bed12** -> one transcripts per gene (longest Orf) including eggnog annotations  
