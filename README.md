@@ -48,11 +48,11 @@ THREADS=24;
 
 ## In some cases the script "run_BUSCO.py" is not provided after "mamba activate HANNO" in this case find it manually by:
 find $HOME/ | grep -w HANNO | grep run_BUSCO.py
-## then copy it in the /path_to/MAMBA/envs/HANNO/bin/ directory and change permissions to execiutable for example:
-cp $HOME/miniconda2/envs/MAMBA/envs/HANNO/lib/python3.7/site-packages/busco/run_BUSCO.py $HOME/miniconda2/envs/MAMBA/envs/HANNO/bin/run_BUSCO.py
+## then link it in the /path_to/MAMBA/envs/HANNO/bin/ directory and change permissions to execiutable for example:
+ln -s $HOME/miniconda2/envs/MAMBA/envs/HANNO/lib/python3.7/site-packages/busco/run_BUSCO.py $HOME/miniconda2/envs/MAMBA/envs/HANNO/bin/run_BUSCO.py
 chmod 750 $HOME/miniconda2/envs/MAMBA/envs/HANNO/bin/run_BUSCO.py
 
-## ready to run ##
+## now it should be ready to run ##
 
 # put your data in the current directory! You will need:
 
