@@ -2,7 +2,7 @@
 
 # HANNO: efficient High-throughput ANNOtation of protein coding genes in eukaryote genomes
 * annotates a vertebrate genome in below 1h  
-* transcripts models include UTRs  
+* transcript models include UTRs  
 * can work completely compartively (using NCBI Refseq annotations), no need for RNAseq from your organism (but still beneficial of course)  
 * completely evidence based (no weird gene models from *ab initio* prediction)
 * includes functional annotation from eggNog and protein homology
