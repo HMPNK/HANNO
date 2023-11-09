@@ -15,7 +15,7 @@ conda create -n MAMBA -c conda-forge mamba
 conda activate MAMBA
 ```
 
-### Installation (tested on: Ubuntu 16.04.7 LTS, ... )
+### Installation (tested on: Ubuntu 16.04.7 LTS, Ubuntu 22.04.3 LTS)
 
 
 ```sh
