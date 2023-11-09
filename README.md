@@ -1,6 +1,12 @@
 
 
 # HANNO: efficient High-throughput ANNOtation of protein coding genes in eukaryote genomes
+* annotates a vertebrate genome in below 1h  
+* transcripts models include UTRs  
+* can work completely comapartively, no need for RNAseq from your organism (but still beneficial of course)  
+* completely evidence based (no weird gene models from ab initio prediction)
+* includes functional annotation from eggNog and protein homology
+
 
 ### You will need MAMBA for installation!
 ### Installation (tested on: Ubuntu 16.04.7 LTS, ... )
