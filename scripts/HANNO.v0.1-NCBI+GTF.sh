@@ -23,7 +23,7 @@ samtools faidx $1
 date
 ln -s ../$3 .
 miniprot -t $THREADS -d $1.mpi $1
-miniprot -Iu -t $THREADS --gtf $1.mpi $3 | gtfToGenePred stdin stdout | genePredToBed stdin stdout | awk -f $SCRIPTS/bed12ToGTF_addscore-tacoFake.awk > $3.stringtie-like.gtf
+miniprot --outn=10 -p 0.5 --outc=0.5 --outs=0.5 -Iu -t $THREADS --gtf $1.mpi $3 | gtfToGenePred stdin stdout | genePredToBed stdin stdout | awk -f $SCRIPTS/bed12ToGTF_addscore-tacoFake.awk > $3.stringtie-like.gtf
 
 ##merge protein mappings using TACO
 date
