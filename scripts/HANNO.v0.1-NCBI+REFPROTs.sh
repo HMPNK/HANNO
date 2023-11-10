@@ -29,7 +29,7 @@ miniprot --outn=10 -p 0.5 --outc=0.5 --outs=0.5 -Iu -t $THREADS --gtf $1.mpi $3 
 date
 source $MAMBA/activate TACO
 ls $3.stringtie-like.gtf > $3.gtf.list
-taco_run --ref-genome-fasta $1 -p $THREADS -o output $3.gtf.list
+taco_run --max-isoforms 7 --ref-genome-fasta $1 -p $THREADS -o output $3.gtf.list
 source $MAMBA/deactivate
 
 ##TEST output
@@ -55,7 +55,7 @@ date
 source $MAMBA/activate TACO
 cat output/assembly.bed $4.stranded.bed12 | awk -f $SCRIPTS/bed12ToGTF_addscore-tacoFake.awk > prot-denovo.stringtie-like.gtf
 ls prot-denovo.stringtie-like.gtf > $3.gtf.list2
-taco_run --ref-genome-fasta $1 -p $THREADS -o output2 $3.gtf.list2
+taco_run --max-isoforms 7 --ref-genome-fasta $1 -p $THREADS -o output2 $3.gtf.list2
 source $MAMBA/deactivate
 
 ##TRANSDECODER
