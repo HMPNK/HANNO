@@ -9,6 +9,6 @@ $SCRIPTS/CDS_gtfToBed12 $1.clustered.gtf > $1.clustered.cds.bed12
 
 bedtools getfasta -s -split -name -bed  $1.clustered.cds.bed12  -fi $3 -fo /dev/stdout | cut -f1 -d '(' | $SCRIPTS/TRANSLATE.sh > $1.clustered.cds.faa
 
-gtfToGenePred Merged.CDS2.gtf.clustered.gtf Merged.CDS2.gtf.clustered.gp
+gtfToGenePred $1.clustered.gtf $1.clustered.gp
 gtfToGenePred $1.clustered.gtf $1.clustered.gp
 genePredToBed $1.clustered.gp $1.clustered.bed12
