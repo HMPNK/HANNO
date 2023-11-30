@@ -22,7 +22,7 @@ conda activate MAMBA
 git clone https://github.com/HMPNK/HANNO.git
 cd HANNO
 chmod -R 750 scripts/*
-mamba create -n HANNO -c conda-forge -c bioconda bedtools samtools minimap2 miniprot last stringtie eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed busco perl-bioperl parallel
+mamba create -n HANNO -c conda-forge -c bioconda bedtools samtools minimap2 miniprot last stringtie eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed busco perl-bioperl
 mamba activate HANNO
 
 ## TACO is not compatible with the environment create its own:
