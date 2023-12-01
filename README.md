@@ -39,12 +39,11 @@ wget https://busco-data.ezlab.org/v5/data/lineages/actinopterygii_odb10.2021-02-
 tar xvf actinopterygii_odb10.2021-02-19.tar.gz
 rm actinopterygii_odb10.2021-02-19.tar.gz
 
-##change paths in main scripts starting with "HANNO.v0.1-NCBI"  to fit to your system:
+##change paths in main scripts starting with "HANNO.v0.3.pl" to fit to your system:
 
-SCRIPTS="/path_to/HANNO/scripts";
-MAMBA="/path_to/miniconda2/envs/MAMBA/bin";
-EGGNOG="/path_to/HANNO/EGGNOGG-DBs";
-THREADS=24;
+my $scr = "/path_to/HANNO/scripts";
+my $mamba="/path_to/miniconda2/envs/MAMBA/bin";
+my $eggnog="/path_to/HANNO/EGGNOGG-DBs";
 
 #IMPORTANT sometimes the script run_BUSCO.py is not available (check by "which run_BUSCO.py" !). If it is not available, add it like this to the HANNO environment bin dir:
 find $HOME/ | grep HANNO | grep run_BUSCO.py$
@@ -57,18 +56,8 @@ cp /home/user/miniconda2/envs/MAMBA/envs/HANNO/lib/python3.7/site-packages/busco
 which run_BUSCO.py
 
 ## now it should be ready to run ##
+##test HANNO INSTALLATION:
 
-# put your data in the current directory! You will need:
-
-# genome.fasta = the assembly to be annotated
-# workingdir = just a name, this directory will be created
-# XXX_protein.faa = a protein fasta file from a NCBI Refseq annotation of a resonably close species (the closer the better, but diverged species work!)
-# Alternatively you may use denovo transcriptome translated ORFs here, if you have RNAseq. You can concatenate multiple Proteomes into the file.
-# XXX_rna_from_genomic.fna = a RNA fasta file from a NCBI Refseq annotation of a resonably close species (the closer the better, but diverged species work!)
-# Alternatively, you may use denovo assembled transcripts here if you have RNAseq. You can concatenate multiple transcriptomes in the file.
-# busco_lineage_dir = full path to directory ( /your/path/to/actinopterygii_odb10 )  where the BUSCO lineage data ist stored
-
-##run HANNO:
 mamba activate HANNO
 bash ./scripts/HANNO.v0.1-NCBI.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir > workingdir.log 2>&1
 
