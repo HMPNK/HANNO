@@ -56,6 +56,31 @@ cp /home/user/miniconda2/envs/MAMBA/envs/HANNO/lib/python3.7/site-packages/busco
 which run_BUSCO.py
 
 ## now it should be ready to run ##
+../scripts/HANNO.v0.3.pl
+
+HANNO version 0.2 (High-throughput ANNOtation for eukaryote genomes)
+Author: Heiner Kuhl, Phd (heiner.kuhl@igb-berlin.de)
+
+THIS SCRIPT CREATES THE PIPELINE AS A BASH script
+
+INPUT DATA: genome assembly, proteins and mRNAs from related organism or denovo transcriptome assemblies, gtf from stringtie reference guided transcriptome assembly, BUSCO database
+
+ALWAYS USE RELATIVE PATH (e.g. "../../assembly/asm.fasta"), IF INPUT data is not in current directory!
+
+      Options:
+                -a your genome assembly (fasta, fasta.gz)
+                -d output directory to be created
+                -p proteins used for gene-modeling (fasta, fasta.gz)
+                -r mRNAs to be used for gene modeling (fasta, fasta.gz)
+                -g stringtie assembled transcripts (gtf, be sure the gtf was created using the genome assembly provided with "-a" )
+                -b path to busco lineage database (e.g. /home/user/eukaryota_odb9)
+                -P PROTEIN DB for functional annotation (fasta)
+                -t number of threads to use (default 8)
+                -E skip EGGNOG functional annotation (0 or 1, default=0)
+
+This script generates a bash script for running the pipeline! Write script to file and run by: nohup bash <script> & !
+ERROR: NEED an assembly to annotate!!!
+
 ## test HANNO INSTALLATION:
 unzip TTN-TEST-RUNS.zip
 mamba activate HANNO
