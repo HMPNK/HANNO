@@ -71,11 +71,19 @@ Output will bed12 format, you may convert to gtf using the scripts:
 ```sh
 cut -f 1-12 ALLMODELS.bed12 | awk -f bed12ToGTF.awk > ALLMODELS.gtf
 cut -f 1-12 ALLMODELS.bed12 | awk -f bed12ToGTF_addscore.awk > ALLMODELS.gtf # here the score field of CDS will be the total length of the ORF
+
 #only the putative "best" model of a cluster of Models
-cut -f 1-12 ALLMODELS.bed12 | grep -wFf BESTofCDScluster.list | awk -f bed12ToGTF.awk > ALLMODELS.gtf
-cut -f 1-12 ALLMODELS.bed12 | grep -wFf BESTofCDScluster.list | > ALLMODELS.gtf
+cut -f 1-12 ALLMODELS.bed12 | grep -wFf BESTofCDScluster.list | awk -f bed12ToGTF.awk > BESTMODELS.gtf
+cut -f 1-12 ALLMODELS.bed12 | grep -wFf BESTofCDScluster.list | awk -f bed12ToGTF.awk > BESTMODELS.gtf
+
+#similarly, you can extract sequences of the putative "best" model of a cluster of Models
+seqtk subseq ALLMODELS.faa BESTofCDScluster.list > BESTMODELS.faa
+seqtk subseq ALLMODELS.cds.fa BESTofCDScluster.list > BESTMODELS.cds.fa
+seqtk subseq ALLMODELS.mRNA.fa BESTofCDScluster.list > BESTMODELS.mRNA.fa
 ```
 
 ### Functional annotations for all transcripts with assigned CDS are in tables:
 ALLMODELS.lastp.description.txt  
 ALLMODELS.eggnog.description.txt
+
+### Future deveopments will combine all information in a single database file from which functional annotated bed12/gtf/gff3/nt-seq/aa-seq can be extracted
