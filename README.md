@@ -55,10 +55,10 @@ cp /home/user/miniconda2/envs/MAMBA/envs/HANNO/lib/python3.7/site-packages/busco
 #check again
 which run_BUSCO.py
 
-## now it should be ready to run ##
-../scripts/HANNO.v0.3.pl
+## now it should be ready to run, try to execute:
+scripts/HANNO.v0.3.pl
 
-HANNO version 0.2 (High-throughput ANNOtation for eukaryote genomes)
+HANNO version 0.3 (High-throughput ANNOtation for eukaryote genomes)
 Author: Heiner Kuhl, Phd (heiner.kuhl@igb-berlin.de)
 
 THIS SCRIPT CREATES THE PIPELINE AS A BASH script
