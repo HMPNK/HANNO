@@ -29,7 +29,7 @@ getopts("a:d:p:P:m:b:g:t:r:E:", \%options);
 
 if(! $ARGV[0] && ! $options{a})       {
        print STDERR "
-HANNO version 0.2 (High-throughput ANNOtation for eukaryote genomes)
+HANNO version 0.3 (High-throughput ANNOtation for eukaryote genomes)
 Author: Heiner Kuhl, Phd (heiner.kuhl\@igb-berlin.de)
 
 THIS SCRIPT CREATES THE PIPELINE AS A BASH script
