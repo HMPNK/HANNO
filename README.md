@@ -77,5 +77,5 @@ cut -f 1-12 ALLMODELS.bed12 | grep -wFf BESTofCDScluster.list | > ALLMODELS.gtf
 ```
 
 ### Functional annotations for all transcripts with assigned CDS are in tables:
-ALLMODELS.lastp.description.txt 
+ALLMODELS.lastp.description.txt  
 ALLMODELS.eggnog.description.txt
