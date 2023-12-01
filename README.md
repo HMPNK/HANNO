@@ -56,38 +56,26 @@ cp /home/user/miniconda2/envs/MAMBA/envs/HANNO/lib/python3.7/site-packages/busco
 which run_BUSCO.py
 
 ## now it should be ready to run ##
-##test HANNO INSTALLATION:
-
+## test HANNO INSTALLATION:
+unzip TTN-TEST-RUNS.zip
 mamba activate HANNO
-bash ./scripts/HANNO.v0.1-NCBI.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir > workingdir.log 2>&1
+bash TTN-TEST-RUNS.sh
 
-##You may also include stringtie transcriptome assemblies as gtf file in the annotation (make sure you have used the same genome reference for hisat"/stringtie as you are using here("genome.fasta")):
-
-mamba activate HANNO
-bash ./scripts/HANNO.v0.1-NCBI+GTF.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir StringTie.gtf > workingdir.log 2>&1
-
-##You may include a second protein database, which is ONLY used for final functional assignment.
-
-mamba activate HANNO
-scripts/HANNO.v0.1-NCBI+REFPROTs.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir REFPROTDB.faa > workingdir.log 2>&1
-##or with stringtie GTF
-scripts/HANNO.v0.1-NCBI+GTF+REFPROTs.sh genome.fasta workingdir XXX_protein.faa XXX_rna_from_genomic.fna busco_lineage_dir StringTie.gtf REFPROTDB.faa > workingdir.log 2>&1
+##This will run all use cases of the pipeline on the largest known vertebrate gene TTN
+##CHECK the logs for early stops
+##If the pipeline finishes successfully all logs will start and end with a date
 ```
 
 # Output files
 Output will bed12 format, you may convert to gtf using the scripts:
 ```sh
-bed12ToGTF.awk file.bed12 > file.gtf
-bed12ToGTF_addscore.awk file.bed12 > file.gtf # here the score field of CDS will be the total length of the ORF
+cut -f 1-12 ALLMODELS.bed12 | awk -f bed12ToGTF.awk > ALLMODELS.gtf
+cut -f 1-12 ALLMODELS.bed12 | awk -f bed12ToGTF_addscore.awk > ALLMODELS.gtf # here the score field of CDS will be the total length of the ORF
+#only the putative "best" model of a cluster of Models
+cut -f 1-12 ALLMODELS.bed12 | grep -wFf BESTofCDScluster.list | awk -f bed12ToGTF.awk > ALLMODELS.gtf
+cut -f 1-12 ALLMODELS.bed12 | grep -wFf BESTofCDScluster.list | > ALLMODELS.gtf
 ```
 
 ### Functional annotations for all transcripts with assigned CDS are in tables:
-**out.emapper.annotations** -> all EGGNOG annotations  
-**out.emapper.annotations.xlsx** -> same as above in Excel format  
-**final_description.txt** -> gathered information from EGGNOG and LAST against protein database to populate the bed12 name fields  
-
-### Annotated bed12 output:
-**final.all.eggnog.bed12** -> all transcripts including eggnog annotations (eggnog results are more reliable than LAST, but also fewer annotatted transcripts)  
-**final.all.last.bed12** ->  all transcripts including annotations from protein database (no score/evalue cut-off values below score 200 to be treated with care!), gene symbols are taken from eggnog  
-**final.best.eggnog.bed12** -> one transcripts per gene (longest Orf) including eggnog annotations  
-**final.best.last.bed12** -> one transcripts per gene (longest Orf) including annotations from protein database (no score/evalue cut-off values below score 200 to be treated with care!), gene symbols are taken from eggnog  
+ALLMODELS.lastp.description.txt
+ALLMODELS.eggnog.description.txt
