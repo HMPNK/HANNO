@@ -39,7 +39,7 @@ wget https://busco-data.ezlab.org/v5/data/lineages/actinopterygii_odb10.2021-02-
 tar xvf actinopterygii_odb10.2021-02-19.tar.gz
 rm actinopterygii_odb10.2021-02-19.tar.gz
 
-##change paths in main scripts starting with "HANNO.v0.3.pl" to fit to your system:
+##change paths in main script "HANNO.v0.3.pl" to fit to your system:
 
 my $scr = "/path_to/HANNO/scripts";
 my $mamba="/path_to/miniconda2/envs/MAMBA/bin";
