@@ -73,7 +73,7 @@ ALWAYS USE RELATIVE PATH (e.g. "../../assembly/asm.fasta"), IF INPUT data is not
                 -p proteins used for gene-modeling (fasta, fasta.gz)
                 -r mRNAs to be used for gene modeling (fasta, fasta.gz)
                 -g stringtie assembled transcripts (gtf, be sure the gtf was created using the genome assembly provided with "-a" )
-                -b path to busco lineage database (e.g. /home/user/eukaryota_odb9)
+                -b path to busco lineage database (e.g. ../home/user/eukaryota_odb9)
                 -P PROTEIN DB for functional annotation (fasta)
                 -t number of threads to use (default 8)
                 -E skip EGGNOG functional annotation (0 or 1, default=0)
@@ -92,7 +92,7 @@ bash TTN-TEST-RUNS.sh
 ```
 
 # Output files
-Output will bed12 format, you may convert to gtf using the scripts:
+Output will bed12 format, you may convert to gtf using scripts:
 ```sh
 cut -f 1-12 ALLMODELS.bed12 | awk -f bed12ToGTF.awk > ALLMODELS.gtf
 cut -f 1-12 ALLMODELS.bed12 | awk -f bed12ToGTF_addscore.awk > ALLMODELS.gtf # here the score field of CDS will be the total length of the ORF
@@ -111,4 +111,4 @@ seqtk subseq ALLMODELS.mRNA.fa BESTofCDScluster.list > BESTMODELS.mRNA.fa
 ALLMODELS.lastp.description.txt  
 ALLMODELS.eggnog.description.txt
 
-### Future deveopments will combine all information in a single database file from which functional annotated bed12/gtf/gff3/nt-seq/aa-seq can be extracted
+### Future developments will combine all information in a single database file from which functional annotated bed12/gtf/gff3/nt-seq/aa-seq can be extracted
