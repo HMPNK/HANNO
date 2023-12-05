@@ -93,10 +93,9 @@ bash TTN-TEST-RUNS.sh
 ##If the pipeline finishes successfully all logs will start and end with a date
 ```
 
-# Output file 
-Output is bed12 format plus functional annotations, you may convert to gtf using scripts:
-```sh
-cut -f 1-12 ALLMODELS.bed12 | awk -f bed12ToGTF.awk > ALLMODELS.gtf
-cut -f 1-12 ALLMODELS.bed12 | awk -f bed12ToGTF_addscore.awk > ALLMODELS.gtf # here the score field of CDS will be the total length of the ORF
+# Output files
+
+
+
 
 
