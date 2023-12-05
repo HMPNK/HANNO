@@ -247,13 +247,13 @@ if($odb ne "")  {
 $COMMAND = "$COMMAND
 echo Analysis of BUSCOs in BESTMODELS-FINAL.bedDB
 echo Complete BUSCOs C:
-cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \- | grep -E 'Complete|Duplicated' | cut -f 1 | sort | uniq | wc -l
+cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \\- | grep -E 'Complete|Duplicated' | cut -f 1 | sort | uniq | wc -l
 echo Complete single copy BUSCOs S:
-cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \- | grep -E 'Complete|Duplicated' | cut -f 1 | sort | uniq -u | wc -l
+cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \\- | grep -E 'Complete|Duplicated' | cut -f 1 | sort | uniq -u | wc -l
 echo Complete duplicates BUSCOs D:
-cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \- | grep -E 'Complete|Duplicated' | cut -f 1 | sort | uniq -d | wc -l
+cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \\- | grep -E 'Complete|Duplicated' | cut -f 1 | sort | uniq -d | wc -l
 echo Fragmented BUSCOs F:
-cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \- | grep -Ev 'Complete|Duplicated' | grep -v busco1 | cut -f 1 | sort | uniq  | wc -l
+cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \\- | grep -Ev 'Complete|Duplicated' | grep -v busco1 | cut -f 1 | sort | uniq  | wc -l
 ";
                 }
 
