@@ -40,7 +40,7 @@ wget https://busco-data.ezlab.org/v5/data/lineages/actinopterygii_odb10.2021-02-
 tar xvf actinopterygii_odb10.2021-02-19.tar.gz
 rm actinopterygii_odb10.2021-02-19.tar.gz
 
-##change paths in main script "HANNO.v0.3.pl" to fit to your system:
+##change paths in main script "HANNO.v0.4.pl" to fit to your system:
 
 my $scr = "/path_to/HANNO/scripts";
 my $mamba="/path_to/miniconda2/envs/MAMBA/bin";
@@ -57,9 +57,9 @@ cp /home/user/miniconda2/envs/MAMBA/envs/HANNO/lib/python3.7/site-packages/busco
 which run_BUSCO.py
 
 ## now it should be ready to run, try to execute:
-scripts/HANNO.v0.3.pl
+scripts/HANNO.v0.4.pl
 
-HANNO version 0.3 (High-throughput ANNOtation for eukaryote genomes)
+HANNO version 0.4 (High-throughput ANNOtation for eukaryote genomes)
 Author: Heiner Kuhl, Phd (heiner.kuhl@igb-berlin.de)
 
 THIS SCRIPT CREATES THE PIPELINE AS A BASH script
@@ -92,24 +92,10 @@ bash TTN-TEST-RUNS.sh
 ##If the pipeline finishes successfully all logs will start and end with a date
 ```
 
-# Output files
-Output will bed12 format, you may convert to gtf using scripts:
+# Output file 
+Output is bed12 format plus functional annotations, you may convert to gtf using scripts:
 ```sh
 cut -f 1-12 ALLMODELS.bed12 | awk -f bed12ToGTF.awk > ALLMODELS.gtf
 cut -f 1-12 ALLMODELS.bed12 | awk -f bed12ToGTF_addscore.awk > ALLMODELS.gtf # here the score field of CDS will be the total length of the ORF
 
-#only the putative "best" model of a cluster of Models
-cut -f 1-12 ALLMODELS.bed12 | grep -wFf BESTofCDScluster.list | awk -f bed12ToGTF.awk > BESTMODELS.gtf
-cut -f 1-12 ALLMODELS.bed12 | grep -wFf BESTofCDScluster.list | awk -f bed12ToGTF.awk > BESTMODELS.gtf
 
-#similarly, you can extract sequences of the putative "best" model of a cluster of Models
-seqtk subseq ALLMODELS.faa BESTofCDScluster.list > BESTMODELS.faa
-seqtk subseq ALLMODELS.cds.fa BESTofCDScluster.list > BESTMODELS.cds.fa
-seqtk subseq ALLMODELS.mRNA.fa BESTofCDScluster.list > BESTMODELS.mRNA.fa
-```
-
-### Functional annotations for all transcripts with assigned CDS are in tables:
-ALLMODELS.lastp.description.txt  
-ALLMODELS.eggnog.description.txt
-
-### Future developments will combine all information in a single database file from which functional annotated bed12/gtf/gff3/nt-seq/aa-seq can be extracted
