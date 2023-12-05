@@ -239,13 +239,21 @@ $COMMAND = "$COMMAND
 ##create Final DB that contains all results
 bash $scr/CREATE-DB.sh ALLMODELS.bed12 ALLMODELS.bed12.model_clusters.tsv ALLMODELS.lastp.description.txt ALLMODELS.eggnog.description.txt ALLMODELS.BUSCO.tsv > ALLMODELS-FINAL.bedDB
 rm -f ALLMODELS.bed12 ALLMODELS.bed12.model_clusters.tsv ALLMODELS.cds.fa ALLMODELS.eggnog.description.txt ALLMODELS.faa ALLMODELS.lastp.description.txt ALLMODELS.mRNA.fa ALLMODELS.BUSCO.tsv orf.length
+sort -k14,14n -k5,5rn ALLMODELS-FINAL.bedDB | awk \'{if(o!=\$14){print};o=\$14}\' > BESTMODELS-FINAL.bedDB
 ";
 
-##optional BUSCO3
-if($odb ne "" && $ort == 1)  {
+##summarize BUSCO from BESTMODELS-FINAL.bedDB
+if($odb ne "")  {
 $COMMAND = "$COMMAND
-##TEST BY BUSCO using $odb
-#run_BUSCO.py -i BESTMODELS2.faa -o BUSCO3 -l ../$odb -m proteins -c $cpu -f
+echo Analysis of BUSCOs in BESTMODELS-FINAL.bedDB
+echo Complete BUSCOs C:
+cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \- | grep -E 'Complete|Duplicated' | cut -f 1 | sort | uniq | wc
+echo Complete single copy BUSCOs S:
+cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \- | grep -E 'Complete|Duplicated' | cut -f 1 | sort | uniq -u | wc
+echo Complete duplicates BUSCOs D:
+cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \- | grep -E 'Complete|Duplicated' | cut -f 1 | sort | uniq -d | wc
+echo Fragmented BUSCOs F:
+cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \- | grep -Ev 'Complete|Duplicated' | grep -v PFAM | cut -f 1 | sort | uniq  | wc
 ";
                 }
 
