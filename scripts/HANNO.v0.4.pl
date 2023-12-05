@@ -257,12 +257,12 @@ $COMMAND="$COMMAND
 cut -f 1-12 BESTMODELS-FINAL.bedDB | bedtools getfasta -split -s -name -bed - -fi asm.fa -fo BESTMODELS-FINAL.mRNA.fa
 cut -f 1-12 BESTMODELS-FINAL.bedDB | awk -f $scr/bed12ToGTF.awk | $scr/CDS_gtfToBed12 | bedtools getfasta -split -s -name -bed - -fi asm.fa -fo BESTMODELS-FINAL.CDS.fa
 $scr/TRANSLATE.sh BESTMODELS-FINAL.CDS.fa > BESTMODELS-FINAL.AA.faa
+rm asm.fa asm.fa.fai
 
 date
-##END HANNO assembly pipeline
-
+##END HANNO pipeline
 ";
-##CREATE HANNO assembly pipeline END
+##CREATE HANNO pipeline END
 
 
 ##OUTPUT HANNO PIPELINE SCRIPT
