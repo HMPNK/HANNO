@@ -18,12 +18,12 @@ if(n1!=n2) {print "Problem with number of exons in BED12" ;exit}
 
 #convert exon coords
 $9=$4;
-for(x=2;x<=n1;x++){es=$4+c[x];$9=$9","es};
+for(x=2;x<n1;x++){es=$4+c[x];$9=$9","es};
 $9=$9",";
 
 #convert cds coords and set score to cd length
 $10=$4+b[1];
-for(x=2;x<=n2;x++){ee=$4+c[x]+b[x];$10=$10","ee;};
+for(x=2;x<n2;x++){ee=$4+c[x]+b[x];$10=$10","ee;};
 $10=$10",";
 
 #do not need score here:
