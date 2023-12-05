@@ -125,7 +125,8 @@ samtools sort -o rna.input.bam rna.input.sam
 rm -f rna.input.sam
 ##convert to bed12 and correct strands and check for bad transcripts (\"exon length 0\")
 samtools view rna.input.bam | awk \'BEGIN{OFS=\"\\t\";FS=\"\\t\";} {counter[\$1]++;\$1=\$1\"_\"counter[\$1];n=split(\$0,a,\"\\t\");printf \$1\"\\t\";for(x=1;x<=n;x++){if(substr(a[x],1,3)==\"ts:\"){printf a[x]}};printf \"\\n\"}\' | grep \"ts:A:\" | sed \"s/ts:A://g\" > rna.strands
-bamToBed -split -bed12 -i rna.input.bam > rna.bed12
+##BUG FIX HERE: bamToBed output misses commas at end of field 11 and 12!!! Needs Correction by awk script, otherwise bed12ToGTF.awk or bed12ToGTF_addscore-tacoFake.awk will miss terminal exons, which leads to missing UTRs!
+bamToBed -split -bed12 -i rna.input.bam | awk 'BEGIN{OFS=\"\\t\";FS=OFS;}{\$11=\$11\",\";\$12=\$12\",\";print}' > rna.bed12
 awk -v infile=rna.strands \'BEGIN{OFS=\"\\t\";FS=\"\\t\";while(getline l < infile){split(l,a,\"\\t\");h[a[1]]=a[2]}} {if(\$10==1){frame=\".\"} else{frame=\$6};counter[\$4]++;\$4=\$4\"_\"counter[\$4];if(h[\$4]==\"-\" && h[\$4]!=\"\"){if(\$6==\"+\"){\$6=\"-\"} else{\$6=\"+\"}};if(frame==\".\"){\$6=\".\"};print}' rna.bed12 | awk \'{n=split(\$11,a,\",\");for(x=1;x<n;x++){if(a[x]==0){t=1} else{t=0}};if(t==0){print}}\' > rna.stranded.bed12
 ";
 		}
