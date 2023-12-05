@@ -253,7 +253,7 @@ cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \- | grep -E 'Complete|Duplicated'
 echo Complete duplicates BUSCOs D:
 cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \- | grep -E 'Complete|Duplicated' | cut -f 1 | sort | uniq -d | wc
 echo Fragmented BUSCOs F:
-cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \- | grep -Ev 'Complete|Duplicated' | grep -v PFAM | cut -f 1 | sort | uniq  | wc
+cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v \- | grep -Ev 'Complete|Duplicated' | grep -v busco1 | cut -f 1 | sort | uniq  | wc
 ";
                 }
 
