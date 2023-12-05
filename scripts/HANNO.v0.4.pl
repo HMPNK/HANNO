@@ -22,7 +22,7 @@ my $cpu = 8;
 my $files = "";
 my $gtf2 = "";
 my $egg = 0;
-my $boff = 0;
+my $ort = 0;
 
 ##GET OPTIONS
 my %options=();
@@ -46,7 +46,7 @@ ALWAYS USE RELATIVE PATH (e.g. \"../../assembly/asm.fasta\"), IF INPUT data is n
 		-r mRNAs to be used for gene modeling (fasta, fasta.gz)
 		-g stringtie assembled transcripts (gtf, be sure the gtf was created using the genome assembly provided with \"-a\" )
 		-b path to busco lineage database (e.g. /home/user/eukaryota_odb9)
-		-B BUSCO only on final best of cluster genes (0=off; 1=on, default=0)
+		-B BUSCO only on all Models (0=on; 1=off, default=0)
 		-P PROTEIN DB for functional annotation (fasta)
 		-t number of threads to use (default 8)
 		-E skip EGGNOG functional annotation (0 or 1=skip, default=0)
@@ -66,7 +66,7 @@ $odb = $options{b} if($options{b});
 $pdb = $options{P} if($options{P});
 $cpu = $options{t} if($options{t});
 $egg = $options{E} if($options{E});
-$boff = $options{B} if($options{B});
+$ort = $options{B} if($options{B});
 
 ##GET OPTIONS END
 ##CHECK FILE PATHs
@@ -79,6 +79,7 @@ die "\nERROR: Invalid (-P) protein file $pdb ... Check PATH ...Exiting.\n\n" if(
 ##CREATE HANNO assembly pipeline:
 my $COMMAND = "#!/usr/bash\nset -e\nset -o pipefail\n
 export SCRIPTS=$scr
+
 ##RUN HANNO assembly pipeline:\n
 mkdir $dir
 cd $dir
@@ -106,7 +107,7 @@ rm -f prot.merge1* prot.merge2*
 ";
 
 ##optional BUSCO
-if($odb ne "" && $boff ne "1")	{
+if($odb ne "" && $ort == 1)	{
 $COMMAND = "$COMMAND
 ##TEST BY BUSCO using $odb
 run_BUSCO.py -i MODELS1.faa -o BUSCO1 -l ../$odb -m proteins -c $cpu -f
@@ -191,31 +192,19 @@ awk -f  $scr/TRANSDECODER-newversion-GFF3toGTF.awk MODELS2.CDS2.gff3 > MODELS2.C
 gtfToGenePred MODELS2.CDS2.gtf MODELS2.CDS2.gp
 genePredToBed MODELS2.CDS2.gp MODELS2.CDS2.bed12
 bash $scr/CDS_gtfToBed12 MODELS2.CDS2.gtf > MODELS2.CDS2only.bed12
-bedtools getfasta -split -nameOnly -s -bed MODELS2.CDS2.bed12 -fi asm.fa -fo /dev/stdout > MODELS2.CDS2.mRNA.fa
-bedtools getfasta -split -nameOnly -s -bed MODELS2.CDS2only.bed12 -fi asm.fa -fo /dev/stdout > MODELS2.CDS2.fa
+bedtools getfasta -split -name -s -bed MODELS2.CDS2.bed12 -fi asm.fa -fo /dev/stdout > MODELS2.CDS2.mRNA.fa
+bedtools getfasta -split -name -s -bed MODELS2.CDS2only.bed12 -fi asm.fa -fo /dev/stdout > MODELS2.CDS2.fa
 $scr/TRANSLATE.sh MODELS2.CDS2.fa > MODELS2.CDS2.faa
 ##CLEAN-UP
 ls MODELS2* | grep -v MODELS2.CDS2 | xargs rm
 ";		
 
 ##optional BUSCO2
-if($odb ne "" && $boff ne "1")  {
-$COMMAND = "$COMMAND
-##TEST BY BUSCO using $odb
-run_BUSCO.py -i MODELS2.CDS2.faa -o BUSCO2 -l ../$odb -m proteins -c $cpu -f
-";
-                }
-
-$COMMAND = "$COMMAND
-##BEST MODEL PER GENE
-bash $scr/BESTCLUSTERGTF-SEQOUT-e.sh MODELS2.CDS2.gtf 0.1 asm.fa
-";
-
-##optional BUSCO3
 if($odb ne "")  {
 $COMMAND = "$COMMAND
 ##TEST BY BUSCO using $odb
-run_BUSCO.py -i MODELS2.CDS2.gtf.clustered.cds.faa -o BUSCO3 -l ../$odb -m proteins -c $cpu -f
+run_BUSCO.py -i MODELS2.CDS2.faa -o BUSCO2 -l ../$odb -m proteins -c $cpu -f
+mv run_BUSCO2/full_table_BUSCO2.tsv ALLMODELS.BUSCO.tsv
 ";
                 }
 
@@ -240,10 +229,25 @@ mv MODELS2.CDS2.bed12 ALLMODELS.bed12
 mv MODELS2.CDS2.faa ALLMODELS.faa
 mv MODELS2.CDS2.fa ALLMODELS.cds.fa
 mv MODELS2.CDS2.mRNA.fa ALLMODELS.mRNA.fa
-cut -f 4 MODELS2.CDS2.gtf.clustered.bed12  > BESTofCDScluster.list
 mv MODELS2.CDS2_vs_PROTDB.description.txt ALLMODELS.lastp.description.txt
-ls | grep -Ev \'ALLMODELS.bed12|ALLMODELS.faa|ALLMODELS.mRNA.fa|ALLMODELS.cds.fa|BESTofCDScluster.list|ALLMODELS.lastp.description.txt|ALLMODELS.eggnog.description.txt\' | xargs rm -rf
+#CLUSTER MODELS BY CDS
+$scr/CLUSTERBYCDS.sh ALLMODELS.bed12 0.1
+ls | grep -Ev \'ALLMODELS.BUSCO.tsv|ALLMODELS.bed12|ALLMODELS.faa|ALLMODELS.mRNA.fa|ALLMODELS.cds.fa|ALLMODELS.lastp.description.txt|ALLMODELS.eggnog.description.txt\' | xargs rm -rf
 ";
+
+$COMMAND = "$COMMAND
+##create Final DB that contains all results
+bash $scr/CREATE-DB.sh ALLMODELS.bed12 ALLMODELS.bed12.model_clusters.tsv ALLMODELS.lastp.description.txt ALLMODELS.eggnog.description.txt ALLMODELS.BUSCO.tsv > ALLMODELS-FINAL.bedDB
+rm -f ALLMODELS.bed12 ALLMODELS.bed12.model_clusters.tsv ALLMODELS.cds.fa ALLMODELS.eggnog.description.txt ALLMODELS.faa ALLMODELS.lastp.description.txt ALLMODELS.mRNA.fa ALLMODELS.BUSCO.tsv orf.length
+";
+
+##optional BUSCO3
+if($odb ne "" && $ort == 1)  {
+$COMMAND = "$COMMAND
+##TEST BY BUSCO using $odb
+#run_BUSCO.py -i BESTMODELS2.faa -o BUSCO3 -l ../$odb -m proteins -c $cpu -f
+";
+                }
 
 $COMMAND="$COMMAND\ndate\n##END HANNO assembly pipeline\n";
 ##CREATE HANNO assembly pipeline END
