@@ -93,9 +93,10 @@ bash TTN-TEST-RUNS.sh
 ##If the pipeline finishes successfully all logs will start and end with a date
 ```
 
-# Output files
-
-
-
-
-
+### Output files
+ALLMODELS-FINAL.bedDB -> Database of all transcript models and all assigned functional information   
+BESTMODELS-FINAL.bedDB -> putative best scoring transcript model of a gene from above   
+BESTMODELS-FINAL.gtf -> same as above as gtf format   
+BESTMODELS-FINAL.mRNA.fa -> corresponding mRNA sequences as fasta   
+BESTMODELS-FINAL.CDS.fa -> corresponding CDS sequences as fasta   
+BESTMODELS-FINAL.AA.faa -> corresponding aminoacid sequences as fasta   
