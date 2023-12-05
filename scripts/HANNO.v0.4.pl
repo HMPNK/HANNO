@@ -257,6 +257,8 @@ $COMMAND="$COMMAND
 cut -f 1-12 BESTMODELS-FINAL.bedDB | bedtools getfasta -split -s -name -bed - -fi asm.fa -fo BESTMODELS-FINAL.mRNA.fa
 cut -f 1-12 BESTMODELS-FINAL.bedDB | awk -f $scr/bed12ToGTF.awk | $scr/CDS_gtfToBed12 | bedtools getfasta -split -s -name -bed - -fi asm.fa -fo BESTMODELS-FINAL.CDS.fa
 $scr/TRANSLATE.sh BESTMODELS-FINAL.CDS.fa > BESTMODELS-FINAL.AA.faa
+##OUTPUT gtf
+cut -f 1-12 BESTMODELS-FINAL.bedDB | awk -f $scr/bed12ToGTF.awk > BESTMODELS-FINAL.gtf
 rm asm.fa asm.fa.fai
 
 date
