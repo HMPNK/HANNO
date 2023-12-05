@@ -232,7 +232,7 @@ mv MODELS2.CDS2.mRNA.fa ALLMODELS.mRNA.fa
 mv MODELS2.CDS2_vs_PROTDB.description.txt ALLMODELS.lastp.description.txt
 #CLUSTER MODELS BY CDS
 $scr/CLUSTERBYCDS.sh ALLMODELS.bed12 0.1
-ls | grep -Ev \'ALLMODELS.BUSCO.tsv|ALLMODELS.bed12|ALLMODELS.faa|ALLMODELS.mRNA.fa|ALLMODELS.cds.fa|ALLMODELS.lastp.description.txt|ALLMODELS.eggnog.description.txt\' | xargs rm -rf
+ls | grep -Ev \'asm.fa|ALLMODELS.BUSCO.tsv|ALLMODELS.bed12|ALLMODELS.faa|ALLMODELS.mRNA.fa|ALLMODELS.cds.fa|ALLMODELS.lastp.description.txt|ALLMODELS.eggnog.description.txt\' | xargs rm -rf
 ";
 
 $COMMAND = "$COMMAND
@@ -252,7 +252,16 @@ cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v '\\-' | grep -Ev 'Complete|Duplica
 ";
                 }
 
-$COMMAND="$COMMAND\ndate\n##END HANNO assembly pipeline\n";
+$COMMAND="$COMMAND
+##OUTPUT fasta files of mRNA, CDS and aminoacid
+cut -f 1-12 BESTMODELS-FINAL.bedDB | bedtools getfasta -split -s -name -bed - -fi asm.fa -fo BESTMODELS-FINAL.mRNA.fa
+cut -f 1-12 BESTMODELS-FINAL.bedDB | awk -f $scr/bed12ToGTF.awk | $scr/CDS_gtfToBed12 | bedtools getfasta -split -s -name -bed - -fi asm.fa -fo BESTMODELS-FINAL.CDS.fa
+$scr/TRANSLATE.sh BESTMODELS-FINAL.CDS.fa > BESTMODELS-FINAL.AA.faa
+
+date
+##END HANNO assembly pipeline
+
+";
 ##CREATE HANNO assembly pipeline END
 
 
