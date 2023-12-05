@@ -22,7 +22,7 @@ conda activate MAMBA
 git clone https://github.com/HMPNK/HANNO.git
 cd HANNO
 chmod -R 750 scripts/*
-mamba create -n HANNO -c conda-forge -c bioconda bedtools=2.27.1 samtools minimap2 miniprot last stringtie eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed busco perl-bioperl
+mamba create -n HANNO -c conda-forge -c bioconda bedtools=2.27.1 seqtk samtools minimap2 miniprot last stringtie eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed busco perl-bioperl
 #it is important to install bedtools=2.27.1 , I had massive issues using bedtools v2.31.1 ("bedtools intersect" showing strange behaviour!)
 mamba activate HANNO
 
