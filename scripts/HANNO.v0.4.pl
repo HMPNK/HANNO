@@ -251,7 +251,7 @@ cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v '\\-' | grep  -E 'Complete|Duplica
 cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v '\\-' | grep  -E 'Complete|Duplicated|busco1' | cut -f 1 | sort | uniq -u | awk -v max=\$OUTPUT 'BEGIN{i=0} {i++} END{print \"S: n=\"i-1\" / \"100*(i-1)/max\" percent\"}'
 cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v '\\-' | grep  -E 'Complete|Duplicated|busco1' | cut -f 1 | sort | uniq -d | awk -v max=\$OUTPUT 'BEGIN{i=0} {i++} END{print \"D: n=\"i\" / \"100*(i-1)/max\" percent\"}'
 cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v '\\-' | grep -Ev 'Complete|Duplicated'        | cut -f 1 | sort | uniq    | awk -v max=\$OUTPUT 'BEGIN{i=0} {i++} END{print \"F: n=\"i-1\" / \"100*(i-1)/max\" percent\"}'
-cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v '\\-' | grep  -E 'Complete|Duplicated|busco1|Fragmented' | cut -f 1 | sort | uniq | awk -v max=\$OUTPUT 'BEGIN{i=0} {i++} END{print \"M: n=\"max-i\" / \"100-100*(i-1)/max\" percent\\n\"}'
+cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v '\\-' | grep  -E 'Complete|Duplicated|busco1|Fragmented' | cut -f 1 | sort | uniq | awk -v max=\$OUTPUT 'BEGIN{i=0} {i++} END{print \"M: n=\"max-(i-1)\" / \"100-100*(i-1)/max\" percent\\n\"}'
 ";
                 }
 
