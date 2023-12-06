@@ -249,7 +249,7 @@ $COMMAND = "$COMMAND
 cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v '\\-' | grep  -E 'Complete|Duplicated|busco1' | cut -f 1 | sort | uniq    | awk 'BEGIN{i=0} {i++} END{print \"\\nAnalysis of BUSCOs in BESTMODELS-FINAL.bedDB\\n\\nComplete BUSCOs C: \"i-1}'
 cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v '\\-' | grep  -E 'Complete|Duplicated|busco1' | cut -f 1 | sort | uniq -u | awk 'BEGIN{i=0} {i++} END{print \"Complete single copy BUSCOs S: \"i-1}'
 cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v '\\-' | grep  -E 'Complete|Duplicated|busco1' | cut -f 1 | sort | uniq -d | awk 'BEGIN{i=0} {i++} END{print \"Complete duplicates BUSCOs D: \"i}'
-cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v '\\-' | grep -Ev 'Complete|Duplicated'        | cut -f 1 | sort | uniq    | awk 'BEGIN{i=0} {i++} END{print \"print Fragmented BUSCOs F: \"i-1\"\\n\"}'
+cut -f 39-42 BESTMODELS-FINAL.bedDB | grep -v '\\-' | grep -Ev 'Complete|Duplicated'        | cut -f 1 | sort | uniq    | awk 'BEGIN{i=0} {i++} END{print \"Fragmented BUSCOs F: \"i-1\"\\n\"}'
 ";
                 }
 
