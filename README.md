@@ -85,7 +85,6 @@ This script generates a bash script for running the pipeline! Write script to fi
 ERROR: NEED an assembly to annotate!!!
 
 ## test HANNO INSTALLATION:
-unzip TTN-TEST-RUNS.zip
 mamba activate HANNO
 bash TTN-TEST-RUNS.sh
 
