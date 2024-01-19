@@ -92,6 +92,7 @@ bash TTN-TEST-RUNS.sh
 ##This will run all use cases of the pipeline on the largest known vertebrate gene TTN
 ##CHECK the logs for early stops
 ##If the pipeline finishes successfully all logs will start and end with a date
+##Do not wonder that BUSCO results are 0%, the TTN gene tested is not present in the BUSCO db used. 
 ```
 
 ### Output files
