@@ -8,7 +8,6 @@
 * includes functional annotation using eggNog and protein homology
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/1ffd4d02-f148-4214-90ad-628ce828d050)
-![image](https://github.com/HMPNK/HANNO/assets/51913753/1ffd4d02-f148-4214-90ad-628ce828d050)
 
 ### You will need MAMBA for installation!
 ```sh
