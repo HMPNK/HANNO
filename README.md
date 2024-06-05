@@ -105,7 +105,7 @@ BESTMODELS-FINAL.AA.faa -> corresponding aminoacid sequences as fasta
 
 ### RESULTS OF TEST-RUNS ON VERTEBRATE GENOMES
 
-HANNO was tested on fish(n=8), amphibian(n=6), bird(n=6) and mammal genomes(n=11), by transferring Refseq Annotations (from _P. flavescens_, _B. bufo_, _T. guttata_ and _H. sapiens_) to closely related and diverged species, results below show the trends for "Complete" and "Missing" BUSCOs for species ordered by divergence time from reference species (from www.timetree.org). Annotating species with divergence time of less than 100 MYA typically resulted in >95% Complete BUSCOs and <2% Missing BUSCOs.
+HANNO was tested on fish (n=8), amphibian (n=6), bird (n=6) and mammal genomes (n=11), by transferring Refseq Annotations (from _P. flavescens_, _B. bufo_, _T. guttata_ and _H. sapiens_) to closely related and diverged species, results below show the trends for "Complete" and "Missing" BUSCOs for species ordered by divergence time from reference species (from www.timetree.org). Annotating species with divergence time of less than 100 MYA typically resulted in >95% Complete BUSCOs and <2% Missing BUSCOs.
 
 Runtimes on a Server (Intel(R) Xeon(R) CPU E7-8890 v4 @ 2.20GHz; 96-threads; 1TB RAM) were:
 approx. 3h:00m for Fish (8 CPU threads)
