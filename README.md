@@ -97,8 +97,11 @@ bash TTN-TEST-RUNS.sh
 
 ### Output files
 ALLMODELS-FINAL.bedDB -> bed12 like Database of all transcript models and all assigned functional information   
-BESTMODELS-FINAL.bedDB -> putative best scoring transcript models for each transcript cluster from above   
+BESTMODELS-FINAL.bedDB -> putative best scoring transcript models for each transcript cluster from above
 BESTMODELS-FINAL.gtf -> same as above as gtf format   
-BESTMODELS-FINAL.mRNA.fa -> corresponding mRNA sequences as fasta   
+BESTMODELS-FINAL.mRNA.fa -> corresponding mRNA sequences as fasta
 BESTMODELS-FINAL.CDS.fa -> corresponding CDS sequences as fasta   
 BESTMODELS-FINAL.AA.faa -> corresponding aminoacid sequences as fasta   
+
+### RESULTS TEST RUNS ON VERTEBRATE GENOMES
+![image](https://github.com/HMPNK/HANNO/assets/51913753/29eb589b-d4c0-42da-8849-802d959a56b9)
