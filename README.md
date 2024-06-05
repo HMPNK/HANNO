@@ -104,4 +104,7 @@ BESTMODELS-FINAL.CDS.fa -> corresponding CDS sequences as fasta
 BESTMODELS-FINAL.AA.faa -> corresponding aminoacid sequences as fasta   
 
 ### RESULTS TEST RUNS ON VERTEBRATE GENOMES
-![image](https://github.com/HMPNK/HANNO/assets/51913753/29eb589b-d4c0-42da-8849-802d959a56b9)
+
+
+![image](https://github.com/HMPNK/HANNO/assets/51913753/cb7c15f9-9d46-4999-b27d-530a37695638)
+
