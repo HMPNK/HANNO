@@ -103,15 +103,15 @@ BESTMODELS-FINAL.mRNA.fa -> corresponding mRNA sequences as fasta
 BESTMODELS-FINAL.CDS.fa -> corresponding CDS sequences as fasta   
 BESTMODELS-FINAL.AA.faa -> corresponding aminoacid sequences as fasta   
 
-### RESULTS TEST RUNS ON VERTEBRATE GENOMES
+### RESULTS OF TEST-RUNS ON VERTEBRATE GENOMES
 
-HANNO was tested on fish(n=8), amphibian(n=6), bird(n=6) and mammal genomes(n=11), by transferring Refseq Annotations (P. flavescens, B. bufo, T. guttata and H. sapiens) to closely related and diverged species, results below show the trends for "Complete" and "Missing" BUSCOs ordered by divergence time (from www.timetree.org) 
+HANNO was tested on fish(n=8), amphibian(n=6), bird(n=6) and mammal genomes(n=11), by transferring Refseq Annotations (_P. flavescens_, _B. bufo_, _T. guttata_ and _H. sapiens_) to closely related and diverged species, results below show the trends for "Complete" and "Missing" BUSCOs for species ordered by divergence time from reference species (from www.timetree.org) 
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/cb7c15f9-9d46-4999-b27d-530a37695638)
 
 ```sh
 
-#TEST runs on diverged vertebrate genomes
+#test-runs on diverged vertebrate genomes
 
 #AMPHIBIANS                 
 ../scripts/HANNO.v0.4.pl -t 12 -d HANNO-BUFVIR-v0.4 -a GCA_037900795.1_ASM3790079v1_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_rna_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-BUFVIR-v0.4.log 2>&1
