@@ -109,12 +109,21 @@ HANNO was tested on fish (n=8), amphibian (n=6), bird (n=6) and mammal genomes (
 
 HANNO benchmark runtimes on different vertebrate clades (HPC-server: Intel(R) Xeon(R) CPU E7-8890 v4 @ 2.20GHz; 96-threads; 1TB RAM). Note that we ran 6 (Birds, Amphibians), 8 (Fish) and 11 (Mammals) genome annotations in parallel.
 
-![image](https://github.com/HMPNK/HANNO/assets/51913753/1c2f13d4-61e7-449b-ac00-75f962596111)
+![image](https://github.com/HMPNK/HANNO/assets/51913753/eeb80ea5-dc7b-4a29-9b87-8bada1712076)
 
 
 
 
-![image](https://github.com/HMPNK/HANNO/assets/51913753/4ec2ec6c-0c27-4ee1-93dc-a58e5fa410c2)
+
+![image](https://github.com/HMPNK/HANNO/assets/51913753/f4999199-4201-48b2-9bae-5c111140f800)
+
+![image](https://github.com/HMPNK/HANNO/assets/51913753/eecac7a4-ed4a-46bd-89ec-50de9d6312cf)
+
+![image](https://github.com/HMPNK/HANNO/assets/51913753/d9abbcff-7a4b-4118-96ef-1fd81cb7da52)
+
+![image](https://github.com/HMPNK/HANNO/assets/51913753/ac033564-21fe-4f82-8711-236c13f8cd6d)
+
+
 
 ```sh
 
