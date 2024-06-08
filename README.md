@@ -196,4 +196,5 @@ cat ESOLUC.OVARY.gtf ESOLUC.TESTIS.gtf ESOLUC.BRAIN.gtf > ESOLUC.O+T+B.gtf
 #Run HANNO with diverged proteins and mRNA and assembled transcript from same species:
 ../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4-TRANS -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa -r GCF_004354835.1_PFLA_1.0_rna_from_genomic.fna -b ../../../home/osboxes/BUSCOVM/lineages/actinopterygii_odb9 -g ESOLUC.O+T+B.gtf | bash > HANNO-ESOLUC-V0.4-TRANS.log 2>&1
 
+#Using 80 threads HANNO finished in 48 minutes!
 ```
