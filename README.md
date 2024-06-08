@@ -185,6 +185,7 @@ samtools sort -@16 -m 10G -o ESOLUC.BRAIN.srt.bam ESOLUC.BRAIN.sam
 samtools sort -@16 -m 10G -o ESOLUC.OVARY.srt.bam ESOLUC.OVARY.sam
 samtools sort -@16 -m 10G -o ESOLUC.TESTIS.srt.bam ESOLUC.TESTIS.sam
 
+#This took about 20 minutes (if running the 3 hisat2 jobs and the 3 samtools jobs in parallel)
 #remove SAM files to free disk:
 rm *sam
 
