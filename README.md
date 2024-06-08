@@ -109,7 +109,7 @@ HANNO benchmark runtimes on different vertebrate clades (HPC-server: Intel(R) Xe
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/eeb80ea5-dc7b-4a29-9b87-8bada1712076)
 
-HANNO was tested on fish (n=8), amphibian (n=6), bird (n=6) and mammal genomes (n=11), by transferring Refseq Annotations (from _P. flavescens_, _B. bufo_, _T. guttata_ and _H. sapiens_) to closely related and diverged species. Results below show the trends for "Complete", "Fragmented" and "Missing" BUSCOs for species ordered by divergence time from reference species (confidence intervalls from www.timetree.org). Hannotations of genomes by reference proteins and mRNA that diverged less than 50MYA are typically yielding good results in terms of total recovered CDS and UTR sequences and BUSCO statistics.
+HANNO was tested on fish (n=8), amphibian (n=6), bird (n=6) and mammal genomes (n=11), by transferring Refseq Annotations (from _P. flavescens_, _B. bufo_, _T. guttata_ and _H. sapiens_) to closely related and diverged species. Results below show the trends for "Complete", "Fragmented" and "Missing" BUSCOs for species ordered by divergence time from reference species (confidence intervalls from www.timetree.org). HANNOtations of genomes by reference proteins and mRNA that diverged less than 50MYA are typically yielding good results in terms of total recovered CDS and UTR sequences and BUSCO statistics.
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/97d72096-64d2-4624-bda3-5f6f1f338772)
 
