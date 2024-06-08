@@ -167,8 +167,8 @@ HANNO was tested on fish (n=8), amphibian (n=6), bird (n=6) and mammal genomes (
 
 ```
 
-### IMPROVING ANNOTATION BY ADDING TRANSCRIPTOME DATA
-To benchmark improvement of annotation by adding RNAseq the _E. lucius_ run from above, was supported by _E. lucius_ Brain, Ovary and Testis RNAseq data:
+### IMPROVING ANNOTATION BY ADDING SPECIES-LEVEL TRANSCRIPTOME DATA (genus-level should work,too)
+To benchmark improvement of annotation by adding RNAseq the _E. lucius_ run from above, was supported by _E. lucius_ brain, ovary and testis RNAseq data:
 
 ```sh
 #Build hisat2 index for genome to be annotated
