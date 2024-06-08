@@ -5,7 +5,7 @@
 * works well with medium diverged input evidence (i.e. using NCBI Refseq annotations of species that diverged less than 50 MYA ), no need for RNAseq from your organism (but still beneficial of course)  
 * transcript models include UTRs  
 * completely evidence based (no weird gene models from *ab initio* prediction)
-* includes functional annotation using eggNog and protein homology
+* includes functional annotation using eggNog, protein homology and BUSCO
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/1ffd4d02-f148-4214-90ad-628ce828d050)
 
