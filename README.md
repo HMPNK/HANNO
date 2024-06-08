@@ -111,18 +111,13 @@ HANNO benchmark runtimes on different vertebrate clades (HPC-server: Intel(R) Xe
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/eeb80ea5-dc7b-4a29-9b87-8bada1712076)
 
+![image](https://github.com/HMPNK/HANNO/assets/51913753/97d72096-64d2-4624-bda3-5f6f1f338772)
 
+![image](https://github.com/HMPNK/HANNO/assets/51913753/784a1528-f595-4a7e-8b55-30d35e4780e0)
 
+![image](https://github.com/HMPNK/HANNO/assets/51913753/0f3ebb3b-51c7-47d3-b1ab-b5c390d5f16e)
 
-
-![image](https://github.com/HMPNK/HANNO/assets/51913753/f4999199-4201-48b2-9bae-5c111140f800)
-
-![image](https://github.com/HMPNK/HANNO/assets/51913753/eecac7a4-ed4a-46bd-89ec-50de9d6312cf)
-
-![image](https://github.com/HMPNK/HANNO/assets/51913753/d9abbcff-7a4b-4118-96ef-1fd81cb7da52)
-
-![image](https://github.com/HMPNK/HANNO/assets/51913753/ac033564-21fe-4f82-8711-236c13f8cd6d)
-
+![image](https://github.com/HMPNK/HANNO/assets/51913753/4bbe958d-e508-4239-8442-464fbfdf4446)
 
 
 ```sh
