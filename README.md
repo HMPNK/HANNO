@@ -166,3 +166,34 @@ HANNO was tested on fish (n=8), amphibian (n=6), bird (n=6) and mammal genomes (
 ../scripts/HANNO.v0.4.pl -t 6 -d OrcOrc.0.4 -a GCF_937001465.1_mOrcOrc1.1_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_rna_from_genomic.fna.gz -b mammalia_odb10 | bash > OrcOrc.0.4.log 2>&1
 
 ```
+
+### IMPROVING ANNOTATION BY ADDING TRANSCRIPTOME DATA
+To benchmark improvement of annotation by adding RNAseq from your species we use the _E. lucius_ run from above, but this time support it with _E. lucius_ Brain, Ovary and Testis RNAseq data:
+
+```sh
+#Build hisat2 index for genome to be annotated
+hisat2-build -p 24 GCF_011004845.1_fEsoLuc1.pri_genomic.fna ESOLUC
+#Map RNAseq data
+hisat2 -p 16 --dta --summary-file ESOLUC.BRAIN.log -x ESOLUC -1 SRR1533652_1.fastq.gz -2 SRR1533652_2.fastq.gz -S ESOLUC.BRAIN.sam
+hisat2 -p 16 --dta --summary-file ESOLUC.OVARY.log -x ESOLUC -1 SRR1533651_1.fastq.gz -2 SRR1533651_2.fastq.gz -S ESOLUC.OVARY.sam
+hisat2 -p 16 --dta --summary-file ESOLUC.TESTIS.log -x ESOLUC -1 SRR1533661_1.fastq.gz -2 SRR1533661_2.fastq.gz -S ESOLUC.TESTIS.sam
+#Convert SAM to BAM and sort
+samtools sort -@16 -m 10G -o ESOLUC.BRAIN.srt.bam ESOLUC.BRAIN.sam
+samtools sort -@16 -m 10G -o ESOLUC.OVARY.srt.bam ESOLUC.OVARY.sam
+samtools sort -@16 -m 10G -o ESOLUC.TESTIS.srt.bam ESOLUC.TESTIS.sam
+
+#remove SAM files to free disk:
+rm *sam
+
+#assemble transcripts from BAM-files:
+stringtie -p 16 -l BRAIN -o ESOLUC.BRAIN.gtf ESOLUC.BRAIN.srt.bam
+stringtie -p 16 -l OVARY -o ESOLUC.OVARY.gtf ESOLUC.OVARY.srt.bam
+stringtie -p 16 -l TESTIS -o ESOLUC.TESTIS.gtf ESOLUC.TESTIS.srt.bam
+
+#Merge assembled trancript gtf-files priot feeding it into HANNO:
+cat ESOLUC.OVARY.gtf ESOLUC.TESTIS.gtf ESOLUC.BRAIN.gtf > ESOLUC.O+T+B.gtf
+
+#Run HANNO with diverged proteins and mRNA and assembled transcript from same species:
+../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4-TRANS -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa -r GCF_004354835.1_PFLA_1.0_rna_from_genomic.fna -b ../../../home/osboxes/BUSCOVM/lineages/actinopterygii_odb9 -g ESOLUC.O+T+B.gtf | bash > HANNO-ESOLUC-V0.4-TRANS.log 2>&1
+
+```
