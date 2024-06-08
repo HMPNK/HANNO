@@ -2,7 +2,7 @@
 
 # HANNO: efficient High-throughput ANNOtation of protein coding genes in eukaryote genomes
 * high speed, can annotate a large vertebrate genome in below 1h  
-* works well with diverged input evidence (i.e. using NCBI Refseq annotations of species that diverged less than 50 MYA ), no need for RNAseq from your organism (but still beneficial of course)  
+* works well with medium diverged input evidence (i.e. using NCBI Refseq annotations of species that diverged less than 50 MYA ), no need for RNAseq from your organism (but still beneficial of course)  
 * transcript models include UTRs  
 * completely evidence based (no weird gene models from *ab initio* prediction)
 * includes functional annotation using eggNog and protein homology
