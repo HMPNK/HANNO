@@ -103,7 +103,7 @@ BESTMODELS-FINAL.mRNA.fa -> corresponding mRNA sequences as fasta
 BESTMODELS-FINAL.CDS.fa -> corresponding CDS sequences as fasta   
 BESTMODELS-FINAL.AA.faa -> corresponding aminoacid sequences as fasta   
 
-### BUSCO RESULTS OF TEST-RUNS ON VERTEBRATE GENOMES
+### BENCHMARKING HANNO BY TEST-RUNS ON VERTEBRATE GENOMES
 
 HANNO benchmark runtimes on different vertebrate clades (HPC-server: Intel(R) Xeon(R) CPU E7-8890 v4 @ 2.20GHz; 96-threads; 1TB RAM). Note that 6 (Birds, Amphibians), 8 (Fish) and 11 (Mammals) genome annotations were run in parallel.
 
