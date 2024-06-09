@@ -194,7 +194,7 @@ stringtie -p 16 -l BRAIN -o ESOLUC.BRAIN.gtf ESOLUC.BRAIN.srt.bam
 stringtie -p 16 -l OVARY -o ESOLUC.OVARY.gtf ESOLUC.OVARY.srt.bam
 stringtie -p 16 -l TESTIS -o ESOLUC.TESTIS.gtf ESOLUC.TESTIS.srt.bam
 
-#Merge assembled trancript gtf-files priot feeding it into HANNO:
+#Merge assembled trancript gtf-files prior to feeding it into HANNO:
 cat ESOLUC.OVARY.gtf ESOLUC.TESTIS.gtf ESOLUC.BRAIN.gtf > ESOLUC.O+T+B.gtf
 
 #Run HANNO with diverged proteins and mRNA and assembled transcript from same species:
