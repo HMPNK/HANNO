@@ -1,4 +1,4 @@
-
+[![DOI](https://zenodo.org/badge/716269109.svg)](https://zenodo.org/doi/10.5281/zenodo.11532369)
 
 # HANNO: efficient High-throughput ANNOtation of protein coding genes in eukaryote genomes
 * high speed, can annotate a large vertebrate genome in below 1h  
