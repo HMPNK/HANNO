@@ -202,3 +202,14 @@ cat ESOLUC.OVARY.gtf ESOLUC.TESTIS.gtf ESOLUC.BRAIN.gtf > ESOLUC.O+T+B.gtf
 
 #Using 80 threads HANNO finished in 48 minutes!
 ```
+### UNDER DEVELOPMENT
+
+* converter for bedDB to NCBI Refseq-like gtf and gff3 files
+* filter some strange gene models that appear (introns spanning multiple gene models)
+* improve annotation of tandem gene copies
+
+### HISTORY AND ACKNOWLEDGEMENTS
+This tool has been reaping in my mind over more than a decade and developed with every genome project I have been involved with. I thank all those colleagues who worked with me in those genome projects.
+Special thanks go out to Heng Li for his ground breaking work in bioinformatic tools. His MINIPROT tool has replaced SPALN2 in prior versions of HANNO and made the whole pipeline much more efficient and easy-to-use.
+Parts of this work were supported by my by DFG grant KU 3596/1-1; project number:
+324050651).
