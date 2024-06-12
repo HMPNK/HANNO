@@ -103,7 +103,7 @@ bash TTN-TEST-RUNS.sh
 * BESTMODELS-FINAL.CDS.fa -> corresponding CDS sequences as fasta   
 * BESTMODELS-FINAL.AA.faa -> corresponding aminoacid sequences as fasta
   
-  Note that "*.bedDB" files can be viewed in IGV, after renaming them to "*.bed". Due to the one-line format, they can also be browsed and edited in a table calculation software. For instance one can add fields of functional annotations (fields 13 to xy) to the bed name field (field 4) to add more information to the IGV visualization.   
+  Note that "\*.bedDB" files can be viewed in IGV, after renaming them to "\*.bed". Due to the one-line format, they can also be browsed and edited in a table calculation software. For instance one can add fields of functional annotations (fields 13 to xy) to the bed name field (field 4) to add more information to the IGV visualization.   
 
 ### BENCHMARKING HANNO BY TEST-RUNS ON VERTEBRATE GENOMES
 
