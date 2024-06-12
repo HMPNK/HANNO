@@ -101,7 +101,9 @@ bash TTN-TEST-RUNS.sh
 * BESTMODELS-FINAL.gtf -> same as above as gtf format   
 * BESTMODELS-FINAL.mRNA.fa -> corresponding mRNA sequences as fasta
 * BESTMODELS-FINAL.CDS.fa -> corresponding CDS sequences as fasta   
-* BESTMODELS-FINAL.AA.faa -> corresponding aminoacid sequences as fasta   
+* BESTMODELS-FINAL.AA.faa -> corresponding aminoacid sequences as fasta
+  
+  Note that "*.bedDB" files can be viewed in IGV, after renaming them to "*.bed". Due to the one-line format, they can also be browsed and edited in a table calculation software. For instance one can add fields (fields 13 to xy) of functional annotation to the bed name field to add more information to the IGV visualization.   
 
 ### BENCHMARKING HANNO BY TEST-RUNS ON VERTEBRATE GENOMES
 
