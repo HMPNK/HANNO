@@ -104,7 +104,7 @@ bash TTN-TEST-RUNS.sh
 * long RNA sequence (Refseq mRNA, ISOSEQ from your organism) should be input via "-r"
 * short read RNAseq should be assembled reference guided by stringtie and the resulting gtf should be input by "-g"
 * Alternatively, but time consuming, denovo assemblies of short read RNAseq can be input via "-r".
-* Currently, HANNO will run only, if a protein input is provided. To override this to check performance on pure transcript data, one may add input a single mappable protein via "-p".
+* Currently, HANNO will run only, if a protein input is provided. To override this to check performance on pure transcript data, one may input a single mappable protein via "-p".
 * see use cases below
   
 ### Output files
