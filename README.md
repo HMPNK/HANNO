@@ -209,7 +209,7 @@ stringtie -p 16 -l BRAIN -o ESOLUC.BRAIN.gtf ESOLUC.BRAIN.srt.bam
 stringtie -p 16 -l OVARY -o ESOLUC.OVARY.gtf ESOLUC.OVARY.srt.bam
 stringtie -p 16 -l TESTIS -o ESOLUC.TESTIS.gtf ESOLUC.TESTIS.srt.bam
 
-#Merge assembled trancript gtf-files prior to feeding it into HANNO:
+#just concatenate assembled trancript gtf-files prior to feeding it into HANNO:
 cat ESOLUC.OVARY.gtf ESOLUC.TESTIS.gtf ESOLUC.BRAIN.gtf > ESOLUC.O+T+B.gtf
 
 #TEST HANNO with transcriptome only (use dummy file to override HANNOS need for input "-p")
