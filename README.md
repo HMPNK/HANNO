@@ -200,7 +200,6 @@ samtools sort -@16 -m 10G -o ESOLUC.BRAIN.srt.bam ESOLUC.BRAIN.sam
 samtools sort -@16 -m 10G -o ESOLUC.OVARY.srt.bam ESOLUC.OVARY.sam
 samtools sort -@16 -m 10G -o ESOLUC.TESTIS.srt.bam ESOLUC.TESTIS.sam
 
-#This took about 20 minutes (if running the 3 hisat2 jobs and the 3 samtools jobs in parallel)
 #remove SAM files to free disk:
 rm *sam
 
@@ -208,6 +207,7 @@ rm *sam
 stringtie -p 16 -l BRAIN -o ESOLUC.BRAIN.gtf ESOLUC.BRAIN.srt.bam
 stringtie -p 16 -l OVARY -o ESOLUC.OVARY.gtf ESOLUC.OVARY.srt.bam
 stringtie -p 16 -l TESTIS -o ESOLUC.TESTIS.gtf ESOLUC.TESTIS.srt.bam
+#This took about 20 minutes (if running the 3 hisat2 jobs, the 3 samtools and the 3 stringtie jobs in parallel)
 
 #just concatenate assembled trancript gtf-files prior to feeding it into HANNO:
 cat ESOLUC.OVARY.gtf ESOLUC.TESTIS.gtf ESOLUC.BRAIN.gtf > ESOLUC.O+T+B.gtf
