@@ -95,6 +95,16 @@ bash TTN-TEST-RUNS.sh
 ##Do not wonder that BUSCO results are 0%, the TTN gene tested is not present in the BUSCO db used. 
 ```
 
+### Input files
+* Proteins ("-p" / "-P") should be formatted like they come from NCBI to make use of it in functional annotation: >XP_032605298.2 titin [Taeniopygia guttata]
+* If no input via "-P", protein input via "-p" will be used for gene-modeling and for functional annotation.
+* If input via "-p" and "-P", "-p" will be use for modelling and -P will be used for functional annotation.
+* long RNA sequence (Refseq mRNA, ISOSEQ from your organism) should be input via "-r"
+* short read RNAseq should be assembled reference guided by stringtie and the resulting gtf should be input by "-g"
+* Alternatively, but time consuming, denovo assemblies of short read RNAseq can be input via "-r".
+* Currently, HANNO will run only, if a protein input is provided. To override this to check performance on pure transcript data, one may add input a single mappable protein via "-p".
+* see use cases below
+  
 ### Output files
 * ALLMODELS-FINAL.bedDB -> bed12 like Database of all transcript models and all assigned functional information   
 * BESTMODELS-FINAL.bedDB -> putative best scoring transcript models for each transcript cluster from above
