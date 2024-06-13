@@ -97,7 +97,7 @@ bash TTN-TEST-RUNS.sh
 
 ### Input files
 * Proteins ("-p" / "-P") should be formatted like they come from NCBI to make use of it in functional annotation:
-  >XP_032605298.2 titin [Taeniopygia guttata]
+  >\>XP_032605298.2 titin [Taeniopygia guttata]
   MTTKAPTFTQPLQSVVALEGSAATFEAHISGFPVPEVNWFRDGQVLSAATLPGVQISFSDGRARLVIP...
 * If no input via "-P", protein input via "-p" will be used for gene-modeling and for functional annotation.
 * If input via "-p" and "-P", "-p" will be use for modelling and -P will be used for functional annotation.
