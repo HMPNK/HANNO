@@ -100,7 +100,7 @@ bash TTN-TEST-RUNS.sh
   >\>XP_032605298.2 titin [Taeniopygia guttata]
   MTTKAPTFTQPLQSVVALEGSAATFEAHISGFPVPEVNWFRDGQVLSAATLPGVQISFSDGRARLVIP...
 * If no input via "-P", protein input via "-p" will be used for gene-modeling and for functional annotation.
-* If input via "-p" and "-P", "-p" will be use for modelling and -P will be used for functional annotation.
+* If input via "-p" and "-P", "-p" will be used for modelling and -P will be used for functional annotation.
 * long RNA sequence (Refseq mRNA, ISOSEQ from your organism) should be input via "-r"
 * short read RNAseq should be assembled reference guided by stringtie and the resulting gtf should be input by "-g"
 * Alternatively, but time consuming, denovo assemblies of short read RNAseq can be input via "-r".
