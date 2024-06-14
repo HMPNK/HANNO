@@ -7,7 +7,7 @@
 * completely evidence based (no weird gene models from *ab initio* prediction)
 * includes functional annotation using eggNog, protein homology and BUSCO
 
-<img src="https://github.com/HMPNK/HANNO/assets/51913753/1ffd4d02-f148-4214-90ad-628ce828d050" width="50%" height="50%">
+<img src="https://github.com/HMPNK/HANNO/assets/51913753/1ffd4d02-f148-4214-90ad-628ce828d050" width="75%" height="75%">
 
 ### You will need MAMBA for installation!
 ```sh
@@ -127,7 +127,7 @@ HANNO was tested on fish (n=8), amphibian (n=6), bird (n=6) and mammal genomes (
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/97d72096-64d2-4624-bda3-5f6f1f338772)
 
-<img src="https://github.com/HMPNK/HANNO/assets/51913753/2da669c8-f4f6-46fb-8440-b9fc05a29cbb" width="50%" height="50%">
+<img src="https://github.com/HMPNK/HANNO/assets/51913753/2da669c8-f4f6-46fb-8440-b9fc05a29cbb" width="70%" height="70%">
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/784a1528-f595-4a7e-8b55-30d35e4780e0)
 
