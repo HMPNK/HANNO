@@ -7,7 +7,7 @@
 * completely evidence based (no weird gene models from *ab initio* prediction)
 * includes functional annotation using eggNog, protein homology and BUSCO
 
-![image](https://github.com/HMPNK/HANNO/assets/51913753/1ffd4d02-f148-4214-90ad-628ce828d050)
+<img src="https://github.com/HMPNK/HANNO/assets/51913753/1ffd4d02-f148-4214-90ad-628ce828d050" width="50%" height="50%">
 
 ### You will need MAMBA for installation!
 ```sh
