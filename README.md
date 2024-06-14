@@ -9,7 +9,7 @@
 
 <p align="center">
 <img src="https://github.com/HMPNK/HANNO/assets/51913753/1ffd4d02-f148-4214-90ad-628ce828d050" width="75%" height="75%">
-<\p>
+</p>
 
 ### You will need MAMBA for installation!
 ```sh
