@@ -192,6 +192,9 @@ To benchmark improvement of annotation by adding species-level RNAseq short read
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/6f544bc9-9535-4cfa-a977-9b2b6bcd6c90)
 
+<p align="center">
+<img src="https://github.com/HMPNK/HANNO/assets/51913753/19abcb98-0f01-40eb-a2f9-7c448428831c" width="65%" height="65%">
+</p>
 
 
 ```sh
