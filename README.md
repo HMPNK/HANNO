@@ -228,11 +228,11 @@ cat ESOLUC.OVARY.gtf ESOLUC.TESTIS.gtf ESOLUC.BRAIN.gtf > ESOLUC.O+T+B.gtf
 #create "dummy.faa" first that contains only a single protein sequence (must be a mappable one otherwise HANNO will stop, because miniprot gtf is empty)
 seqtk seq -l 0 GCF_004354835.1_PFLA_1.0_protein.faa | head -2 > dummy.faa
 #Run HANNO (use all proteins via "-P" in functional annotation only)
-../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4-TRANS-only -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p dummy.faa -b ../../../home/osboxes/BUSCOVM/lineages/actinopterygii_odb9 -g ESOLUC.O+T+B.gtf -P GCF_004354835.1_PFLA_1.0_protein.faa | bash > HANNO-ESOLUC-V0.4-TRANS-only.log 2>&1
+../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4-TRANS-only -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p dummy.faa -b actinopterygii_odb9 -g ESOLUC.O+T+B.gtf -P GCF_004354835.1_PFLA_1.0_protein.faa | bash > HANNO-ESOLUC-V0.4-TRANS-only.log 2>&1
 #Using 80 threads this took 34 minutes (mainly due to BUSCO and eggNog)!
 
 #Run HANNO with proteins and mRNA from a diverged species and reference guided transcript assemblies from same species:
-../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4-TRANS -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa -r GCF_004354835.1_PFLA_1.0_rna_from_genomic.fna -b ../../../home/osboxes/BUSCOVM/lineages/actinopterygii_odb9 -g ESOLUC.O+T+B.gtf | bash > HANNO-ESOLUC-V0.4-TRANS.log 2>&1
+../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4-TRANS -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa -r GCF_004354835.1_PFLA_1.0_rna_from_genomic.fna -b actinopterygii_odb9 -g ESOLUC.O+T+B.gtf | bash > HANNO-ESOLUC-V0.4-TRANS.log 2>&1
 
 #Using 80 threads HANNO finished in 48 minutes!
 #It was also tested to input denovo assembled instead of reference guided transcripts from the same species, but it delivers similar results and is much less efficient in terms of computing time (denovo transcript assembly takes too much time!)
@@ -241,8 +241,22 @@ seqtk seq -l 0 GCF_004354835.1_PFLA_1.0_protein.faa | head -2 > dummy.faa
 
 ### INCLUDING HELIXER ANNOTATION IN HANNO
 
-![image](https://github.com/HMPNK/HANNO/assets/51913753/63adddb4-928f-47b9-b43b-43b7f2d18a18)
+Including the Helixer annotation into HANNO via the "-g" parameter can improve BUSCO scoring, but will cost a bit of gene-level F1 score. It is a good choice, if only diverged reference proteins/mRNAs are available for your species.
 
+![image](https://github.com/HMPNK/HANNO/assets/51913753/c4fe5b73-5cb1-471a-bc60-bb7d02e99044)
+
+```sh
+#convert Helixer gff3 to stringtie-like gtf first:
+#create helixer gtf as input for HANNO "-g"
+awk -f ../scripts/helixergff3Togtf.awk HELIXER-GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gff3 |gtfToGenePred stdin stdout | genePredToBed stdin stdout | awk -f ../scripts/bed12ToGTF_addscore-tacoFake.awk > helixer-input.gtf
+
+#run HANNO with Helixer-annotation input via "-g"
+../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4+helixer -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa -r GCF_004354835.1_PFLA_1.0_rna_from_genomic.fna -b actinopterygii_odb9 -g helixer-input.gtf | bash > HANNO-ESOLUC-V0.4+helixer.log 2>&1
+
+#to also add RNAseq, just concatenate helixer and stringtie gtfs
+cat ESOLUC.O+T+B.gtf helixer-input.gtf > ESOLUC.O+T+B+Helixer.gtf
+../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4-trans+helixer -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa -r GCF_004354835.1_PFLA_1.0_rna_from_genomic.fna -b actinopterygii_odb9 -g ESOLUC.O+T+B+Helixer.gtf | bash > HANNO-ESOLUC-V0.4-trans+helixer.log 2>&1
+```
 
 ### UNDER DEVELOPMENT
 
