@@ -241,7 +241,10 @@ seqtk seq -l 0 GCF_004354835.1_PFLA_1.0_protein.faa | head -2 > dummy.faa
 
 ### INCLUDING HELIXER ANNOTATION IN HANNO
 
-Including the Helixer annotation into HANNO via the "-g" parameter can improve BUSCO scoring, but will cost a bit of gene-level F1 score. It is a good choice, if only diverged reference proteins/mRNAs are available for your species.
+Including the Helixer annotation into HANNO via the "-g" parameter can improve BUSCO scoring, but may cost a bit of gene-level F1 score. It seems to be a good choice, if only diverged reference proteins/mRNAs are available for your species.
+
+![image](https://github.com/HMPNK/HANNO/assets/51913753/4015ddd6-bfd6-4cd3-bab4-e57beac7e7e3)
+
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/c4fe5b73-5cb1-471a-bc60-bb7d02e99044)
 
