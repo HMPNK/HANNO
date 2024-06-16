@@ -238,6 +238,12 @@ seqtk seq -l 0 GCF_004354835.1_PFLA_1.0_protein.faa | head -2 > dummy.faa
 #It was also tested to input denovo assembled instead of reference guided transcripts from the same species, but it delivers similar results and is much less efficient in terms of computing time (denovo transcript assembly takes too much time!)
 
 ```
+
+### INCLUDING HELIXER ANNOTATION IN HANNO
+
+![image](https://github.com/HMPNK/HANNO/assets/51913753/63adddb4-928f-47b9-b43b-43b7f2d18a18)
+
+
 ### UNDER DEVELOPMENT
 
 * converter for bedDB to NCBI Refseq-like gtf and gff3 files
