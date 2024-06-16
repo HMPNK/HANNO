@@ -190,7 +190,7 @@ HANNO was tested on fish (n=8), amphibian (n=6), bird (n=6) and mammal genomes (
 ```
 
 ### IMPROVING ANNOTATION BY ADDING SPECIES-LEVEL TRANSCRIPTOME DATA (genus-level should work, too)
-To benchmark improvement of annotation by adding species-level RNAseq short reads, the _E. lucius_ run from above was supported by _E. lucius_ brain, ovary and testis data. Results show improvement in BUSCO statistics is due to reduced number of fragmented BUSCOs. Annotated CDS-length is improved by 18% and UTR-length shows massive improvement.
+To benchmark improvement of annotation by adding species-level RNAseq short reads, the _E. lucius_ run from above was supported by _E. lucius_ brain, ovary and testis data. Results show improvement in BUSCO statistics is due to reduced number of fragmented BUSCOs. Annotated CDS-length is improved by 18% and UTR-length shows massive improvement. We also added a run of Helixer AI gene prediction for comparison.
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/614249c3-c844-4b5b-b704-1d519ce426ff)
 
