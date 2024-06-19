@@ -110,6 +110,9 @@ bash TTN-TEST-RUNS.sh
 ```sh
 #remove non-coding RNAs from NCBI RefSeq "*rna_from_genomic*" input:
 seqtk comp GCF_009914755.1_T2T-CHM13v2.0_rna_from_genomic.fna.gz | grep  -vE 'miscrna|ncrna|precursorrna|rrna|trna' | cut -f 1 | seqtk subseq GCF_009914755.1_T2T-CHM13v2.0_rna_from_genomic.fna.gz /dev/stdin | gzip -c > GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz
+
+#Alternatively, screen functionally annotated after HANNO run:
+awk 'BEGIN{OFS="\t";FS="\t"} {if($26!="-" || $39!="-" || ($21>60 || $17>300)){print}}' BESTMODELS-FINAL.bedDB > BESTMODELS-FINAL-with-DB-hits.bedDB
 ```
 * short read RNAseq should be assembled reference guided by stringtie and the resulting gtf should be input by "-g"
 * Alternatively, but time consuming, denovo assemblies of short read RNAseq can be input via "-r".
