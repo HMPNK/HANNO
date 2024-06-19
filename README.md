@@ -107,6 +107,10 @@ bash TTN-TEST-RUNS.sh
 * If input via "-p" and "-P", "-p" will be used for modelling and -P will be used for functional annotation.
 * long RNA sequence (Refseq mRNA, ISOSEQ from your organism) should be input via "-r"
 * If using NCBI Refseq \*rna_from_genomic\* files, consider removing "miscrna", "ncrna", "precursorrna", "rrna" and "trna" to increase gene-level specificity! This is especially true, if the human genome reference geneset is used as it contains much more of these non-coding RNAs than other annotations, which will induce HANNO to build more spurious gene-models!
+```sh
+#remove non-coding RNAs from input:
+seqtk comp GCF_009914755.1_T2T-CHM13v2.0_rna_from_genomic.fna.gz | grep  -vE 'miscrna|ncrna|precursorrna|rrna|trna' | cut -f 1 | seqtk subseq GCF_009914755.1_T2T-CHM13v2.0_rna_from_genomic.fna.gz /dev/stdin | gzip -c > GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz
+```
 * short read RNAseq should be assembled reference guided by stringtie and the resulting gtf should be input by "-g"
 * Alternatively, but time consuming, denovo assemblies of short read RNAseq can be input via "-r".
 * Currently, HANNO will run only, if a protein input is provided. To override this to check performance on pure transcript data, one may input a single mappable protein via "-p".
