@@ -106,12 +106,12 @@ bash TTN-TEST-RUNS.sh
 * If no input via "-P", protein input via "-p" will be used for gene-modeling and for functional annotation.
 * If input via "-p" and "-P", "-p" will be used for modelling and -P will be used for functional annotation.
 * long RNA sequence (Refseq mRNA, ISOSEQ from your organism) should be input via "-r"
-* If using NCBI Refseq \*rna_from_genomic\* files, <ins>**consider removing "miscrna", "ncrna", "precursorrna", "rrna" and "trna" to increase gene-level specificity!**</ins> This is especially true, if the human genome reference geneset is used as it contains much more of these non-coding RNAs than other annotations, which will induce HANNO to build more spurious gene-models! Similarly, if too many genes are predicted when using RNAseq inputs (often occurs, if _de novo_ transcript assemblies are used!), one may consider removing transcripts which have no functional annotations by eggNog, BUSCO or protein homology from the output files.
+* If using NCBI Refseq \*rna_from_genomic\* files, <ins>**consider removing "miscrna", "ncrna", "precursorrna", "rrna" and "trna" to increase gene-level specificity!**</ins> This is especially true, if the human genome reference geneset is used as it contains much more of these non-coding RNAs than other annotations, which will induce HANNO to build more spurious gene-models! Similarly, if too many genes are predicted when using RNAseq or Helixer inputs (often occurs, if _de novo_ transcript assemblies are used!), one may consider removing transcripts which have no functional annotations by eggNog, BUSCO or protein homology from the output files.
 ```sh
 #remove non-coding RNAs from NCBI RefSeq "*rna_from_genomic*" input:
 seqtk comp GCF_009914755.1_T2T-CHM13v2.0_rna_from_genomic.fna.gz | grep  -vE 'miscrna|ncrna|precursorrna|rrna|trna' | cut -f 1 | seqtk subseq GCF_009914755.1_T2T-CHM13v2.0_rna_from_genomic.fna.gz /dev/stdin | gzip -c > GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz
 
-#Alternatively, screen functionally annotated after HANNO run (if de novo or reference guided assembled RNAseq or Helixer annotation was used as input):
+#Alternatively, screen functionally annotated gene models after HANNO run (if de novo or reference guided assembled RNAseq or Helixer annotation was used as input):
 awk 'BEGIN{OFS="\t";FS="\t"} {if($26!="-" || $39!="-" || ($21>60 || $17>300)){print}}' BESTMODELS-FINAL.bedDB > BESTMODELS-FINAL-with-DB-hits.bedDB
 ```
 * short read RNAseq should be assembled reference guided by stringtie and the resulting gtf should be input by "-g"
