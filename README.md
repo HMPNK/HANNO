@@ -139,18 +139,13 @@ Note that speed of HANNO can be increased significantly by switching off BUSCO a
 
 HANNO was tested on fish (n=8), amphibian (n=6), bird (n=6) and mammal genomes (n=11), by transferring Refseq Annotations (from _P. flavescens_, _B. bufo_, _T. guttata_ and _H. sapiens_) to closely related and diverged species. Results below show the trends for "Complete", "Fragmented" and "Missing" BUSCOs for species ordered by divergence time from reference species (confidence intervalls from www.timetree.org) as well as total recovery of CDS and UTR compared to the 0 MYA diverged reference genome. HANNOtations of genomes by reference proteins and mRNA that diverged less than 50 MYA are typically yielding good results in terms of total recovered CDS and UTR sequences and BUSCO statistics for all vertebrate clades tested.
 
-![image](https://github.com/HMPNK/HANNO/assets/51913753/97d72096-64d2-4624-bda3-5f6f1f338772)
+![image](https://github.com/HMPNK/HANNO/assets/51913753/55905ae2-0c2d-4468-9881-5609a66b525d)
 
-<p align="center">
-<img src="https://github.com/HMPNK/HANNO/assets/51913753/2da669c8-f4f6-46fb-8440-b9fc05a29cbb" width="65%" height="65%">
-</p>
-	
-![image](https://github.com/HMPNK/HANNO/assets/51913753/784a1528-f595-4a7e-8b55-30d35e4780e0)
+![image](https://github.com/HMPNK/HANNO/assets/51913753/61d148f2-8a46-42c3-aa27-62796ec124ae)
 
-![image](https://github.com/HMPNK/HANNO/assets/51913753/0f3ebb3b-51c7-47d3-b1ab-b5c390d5f16e)
+![image](https://github.com/HMPNK/HANNO/assets/51913753/d3d0a892-7a5d-4659-886f-b2ee32db788f)
 
-![image](https://github.com/HMPNK/HANNO/assets/51913753/4bbe958d-e508-4239-8442-464fbfdf4446)
-
+![image](https://github.com/HMPNK/HANNO/assets/51913753/b628356e-a8ce-42a1-bd2e-a96bdfd7844c)
 
 ```sh
 
