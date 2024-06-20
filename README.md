@@ -147,6 +147,10 @@ HANNO was tested on fish (n=8), amphibian (n=6), bird (n=6) and mammal genomes (
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/b628356e-a8ce-42a1-bd2e-a96bdfd7844c)
 
+![image](https://github.com/HMPNK/HANNO/assets/51913753/d8a5f37b-543e-4114-9d02-398006d0579c)
+
+![image](https://github.com/HMPNK/HANNO/assets/51913753/c9532e67-d571-4040-894b-5b7db450bb3f)
+
 ```sh
 
 #test-runs on diverged vertebrate genomes
