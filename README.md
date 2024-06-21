@@ -13,7 +13,9 @@
 <img src="https://github.com/HMPNK/HANNO/assets/51913753/1ffd4d02-f148-4214-90ad-628ce828d050" width="75%" height="75%">
 </p>
 
-![image](https://github.com/HMPNK/HANNO/assets/51913753/4d1a49ee-c794-47e1-a8cc-49895e2c3f8e)
+### Merging gene-models from protein (miniprot) and mRNA(minimap2) evidence improves recall and precision
+
+![image](https://github.com/HMPNK/HANNO/assets/51913753/46a48aa3-becf-4a3d-b2ec-f08f09190b1d)
 
 
 ### You will need MAMBA for installation!
