@@ -13,6 +13,9 @@
 <img src="https://github.com/HMPNK/HANNO/assets/51913753/1ffd4d02-f148-4214-90ad-628ce828d050" width="75%" height="75%">
 </p>
 
+![image](https://github.com/HMPNK/HANNO/assets/51913753/4d1a49ee-c794-47e1-a8cc-49895e2c3f8e)
+
+
 ### You will need MAMBA for installation!
 ```sh
 #if you have conda already installed do
