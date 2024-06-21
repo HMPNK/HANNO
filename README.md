@@ -213,7 +213,8 @@ To benchmark improvement of annotation by adding species-level RNAseq short read
 
 Including the Helixer annotation into HANNO via the "-g" parameter can improve BUSCO scoring, but may cost a bit of gene-level F1 score. It seems to be a good choice, if only diverged reference proteins/mRNAs are available for your species.
 
-![image](https://github.com/HMPNK/HANNO/assets/51913753/c9ad7e3e-9210-41f7-8895-98eb17f3ee28)
+![image](https://github.com/HMPNK/HANNO/assets/51913753/7a019f27-83ff-4bff-a03d-8968f9e3fca6)
+
 
 
 
