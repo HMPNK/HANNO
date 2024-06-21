@@ -13,10 +13,6 @@
 <img src="https://github.com/HMPNK/HANNO/assets/51913753/1ffd4d02-f148-4214-90ad-628ce828d050" width="75%" height="75%">
 </p>
 
-### Merging gene-models from protein (miniprot) and mRNA(minimap2) evidence improves recall and precision
-
-![image](https://github.com/HMPNK/HANNO/assets/51913753/46a48aa3-becf-4a3d-b2ec-f08f09190b1d)
-
 
 ### You will need MAMBA for installation!
 ```sh
@@ -278,6 +274,13 @@ awk -f ../scripts/helixergff3Togtf.awk HELIXER-GCF_011004845.1_fEsoLuc1.pri_geno
 cat ESOLUC.O+T+B.gtf helixer-input.gtf > ESOLUC.O+T+B+Helixer.gtf
 ../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4-trans+helixer -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 -g ESOLUC.O+T+B+Helixer.gtf | bash > HANNO-ESOLUC-V0.4-trans+helixer.log 2>&1
 ```
+
+### Merging gene-models from protein (miniprot) and mRNA(minimap2) evidence improves recall and precision by 20 - 25% on average
+a short glimpse how HANNO performs with protein input only compared to protein + mRNA input (25 vertebrate species from above)
+
+![image](https://github.com/HMPNK/HANNO/assets/51913753/46a48aa3-becf-4a3d-b2ec-f08f09190b1d)
+
+
 
 ### UNDER DEVELOPMENT
 
