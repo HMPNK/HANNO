@@ -278,7 +278,8 @@ cat ESOLUC.O+T+B.gtf helixer-input.gtf > ESOLUC.O+T+B+Helixer.gtf
 ### Merging gene-models from protein (miniprot) and mRNA(minimap2) evidence improves recall and precision
 A short glimpse how HANNO performs with **protein only** input compared to **protein + mRNA** input (using 25 vertebrate species from above)
 
-![image](https://github.com/HMPNK/HANNO/assets/51913753/46a48aa3-becf-4a3d-b2ec-f08f09190b1d)
+![image](https://github.com/HMPNK/HANNO/assets/51913753/2a7c6bd1-4582-422f-b02a-8aed9e778290)
+
 
 
 
