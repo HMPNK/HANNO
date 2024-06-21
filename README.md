@@ -262,7 +262,7 @@ seqtk seq -l 0 GCF_004354835.1_PFLA_1.0_protein.faa.gz | head -2 > dummy.faa
 ```
 
 
-```sh
+```
 #convert Helixer gff3 to stringtie-like gtf first:
 #create helixer gtf as input for HANNO "-g"
 awk -f ../scripts/helixergff3Togtf.awk HELIXER-GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gff3 |gtfToGenePred stdin stdout | genePredToBed stdin stdout | awk -f ../scripts/bed12ToGTF_addscore-tacoFake.awk > helixer-input.gtf
