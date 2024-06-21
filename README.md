@@ -209,12 +209,12 @@ seqtk comp GCF_009914755.1_T2T-CHM13v2.0_rna_from_genomic.fna.gz | grep  -vE 'mi
 ### IMPROVING ANNOTATION BY ADDING SPECIES-LEVEL TRANSCRIPTOME DATA (genus-level should work, too)
 To benchmark improvement of annotation by adding species-level RNAseq short reads, the _E. lucius_ run from above was supported by _E. lucius_ brain, ovary and testis data. Results show improvement in BUSCO statistics is due to reduced number of fragmented BUSCOs. Annotated CDS-length is improved by 18% and UTR-length shows massive improvement. A run of Helixer AI gene prediction was added for comparison.
 
-![image](https://github.com/HMPNK/HANNO/assets/51913753/614249c3-c844-4b5b-b704-1d519ce426ff)
+### INCLUDING HELIXER ANNOTATION IN HANNO
 
+Including the Helixer annotation into HANNO via the "-g" parameter can improve BUSCO scoring, but may cost a bit of gene-level F1 score. It seems to be a good choice, if only diverged reference proteins/mRNAs are available for your species.
 
-<p align="center">
-<img src="https://github.com/HMPNK/HANNO/assets/51913753/091f3fb0-bfac-433a-90bf-63736942c8cd" width="65%" height="65%">
-</p>
+![image](https://github.com/HMPNK/HANNO/assets/51913753/c9ad7e3e-9210-41f7-8895-98eb17f3ee28)
+
 
 
 ```sh
@@ -256,14 +256,6 @@ seqtk seq -l 0 GCF_004354835.1_PFLA_1.0_protein.faa.gz | head -2 > dummy.faa
 
 ```
 
-### INCLUDING HELIXER ANNOTATION IN HANNO
-
-Including the Helixer annotation into HANNO via the "-g" parameter can improve BUSCO scoring, but may cost a bit of gene-level F1 score. It seems to be a good choice, if only diverged reference proteins/mRNAs are available for your species.
-
-![image](https://github.com/HMPNK/HANNO/assets/51913753/4015ddd6-bfd6-4cd3-bab4-e57beac7e7e3)
-
-
-![image](https://github.com/HMPNK/HANNO/assets/51913753/c4fe5b73-5cb1-471a-bc60-bb7d02e99044)
 
 ```sh
 #convert Helixer gff3 to stringtie-like gtf first:
