@@ -43,9 +43,9 @@ download_eggnog_data.py
 
 ## get BUSCO databases from https://busco-data.ezlab.org/v5/data/lineages/
 ## For example fishes:
-wget https://busco-data.ezlab.org/v5/data/lineages/actinopterygii_odb10.2021-02-19.tar.gz
-tar xvf actinopterygii_odb10.2021-02-19.tar.gz
-rm actinopterygii_odb10.2021-02-19.tar.gz
+wget https://busco-data.ezlab.org/v5/data/lineages/actinopterygii_odb10.2024-01-08.tar.gz
+tar xvf actinopterygii_odb10.2024-01-08.tar.gz
+rm actinopterygii_odb10.2024-01-08.tar.gz
 
 ##change paths in main script "HANNO.v0.4.pl" to fit to your system:
 
