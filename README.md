@@ -131,7 +131,7 @@ awk 'BEGIN{OFS="\t";FS="\t"} {if($26!="-" || $39!="-" || ($21>60 || $17>300)){pr
   Note that "\*.bedDB" files can be viewed in IGV, after renaming them to "\*.bed". Due to the one-line format, they can also be browsed and edited in a table calculation software. For instance one can add fields of functional annotations (fields 13 to xy) to the bed name field (field 4) to add more information to the IGV visualization.
 ```sh
 #Example for adding functional annotation from ".bedDB" to ".bed" for viewing in IGV (using field 26=gene symbol by eggNog and field 15=description from best protein hit):
-awk 'BEGIN{FS="\t";OFS="\t"} {$4=$4"|"$26"|"$15;print}' BESTMODELS-FINAL.bedDB | cut -f1-12 > BESTMODELS-FINAL.for-IGV.bed
+awk 'BEGIN{FS="\t";OFS="\t"} {$4=$26"|"$15"|"$4;print}' BESTMODELS-FINAL.bedDB | cut -f1-12 > BESTMODELS-FINAL.for-IGV.bed
 ```     
 
 ### BENCHMARKING HANNO BY TEST-RUNS ON VERTEBRATE GENOMES
