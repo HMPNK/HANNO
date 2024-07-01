@@ -284,7 +284,7 @@ A short glimpse how HANNO performs with **protein only** input compared to **pro
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/1f4495d0-202d-40be-9686-17cc35bf4303)
 
-Alignments of mRNAs strongly support recall of small terminal exons (start and stop codons next to or interrupted by splice sites), these are hard to find with protein alignment alone. This helping effect is limited by the divergence of the input dataset, as it is dependent on UTR alignability.
+Alignments of mRNAs strongly support recall of small terminal cds exons (start and stop codons next to or interrupted by splice sites), these are hard to find with protein alignment alone. This helping effect is limited by the divergence of the input dataset, as it is dependent on UTR alignability.
 
 <p align="center">
 <img src="https://github.com/HMPNK/HANNO/assets/51913753/62c4c214-7c7a-4fb3-8026-0d4752618053" width="75%" height="75%">
