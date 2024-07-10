@@ -291,7 +291,7 @@ Alignments of mRNAs strongly support recall of small terminal cds exons (start a
 </p>
 
 ### HANNO compared to other pipelines
-The Gallus dataset (proteins and transcriptomes) used in the [Braker3 manuscript](https://genome.cshlp.org/content/early/2024/05/28/gr.278090.123.abstract) was used with HANNO. HANNO was tested with different evidences (P=protein, R=mRNA corresponding to P, T=transcriptome and combinations thereof) and the results were compared to the results for Braker1-3, Maker2, Funnotate and GenMarkETP, which used (A=ab initio predictions, P and T). HANNO outperforms all methods in speed by a factor of at least 10-20X, while being in the top field of gene predictors regarding precision on the cds gene-level (48 CPU threads were used as in the Braker3 manuscript). Regarding annotation completeness, BUSCO seem to be more meaningful than sensitivity.
+The Gallus dataset (proteins and transcriptomes) used in the [Braker3 manuscript](https://genome.cshlp.org/content/early/2024/05/28/gr.278090.123.abstract) was used with HANNO. HANNO was tested with different evidences (P=protein, R=mRNA corresponding to P, T=transcriptome and combinations thereof) and the results were compared to the results for Braker1-3, Maker2, Funnotate and GenMarkETP, which used (A=ab initio predictions, P and T). HANNO outperforms all methods in speed by a factor of at least 10-20X, while being in the top field of gene predictors regarding precision on the cds gene-level (48 CPU threads were used as in the Braker3 manuscript). Regarding annotation completeness, BUSCO scores seem to be more meaningful than sensitivity.
 
 ![image](https://github.com/HMPNK/HANNO/assets/51913753/aebca552-5b66-4c0b-916f-7c82013adb3b)
 
