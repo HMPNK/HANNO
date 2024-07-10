@@ -290,6 +290,12 @@ Alignments of mRNAs strongly support recall of small terminal cds exons (start a
 <img src="https://github.com/HMPNK/HANNO/assets/51913753/62c4c214-7c7a-4fb3-8026-0d4752618053" width="75%" height="75%">
 </p>
 
+### HANNO compared to other pipelines
+The Gallus dataset (proteins and transcriptomes) used in the Braker3 manuscript was used with HANNO. HANNO was tested with different evidences (P=protein, R=mRNA, T=transcriptome and combinations there of) and the results were compared to the results for Braker1-3, Maker2, Funnotate and GenMarkETP, which used (A=ab initio predictions, P and T). HANNO outperforms all methods in speed by a factor of at least 10-20X, while being in the top field of gene predictors.
+
+![image](https://github.com/HMPNK/HANNO/assets/51913753/826ebc75-380d-45c8-91f3-ccb954ece402)
+
+
 ### UNDER DEVELOPMENT
 
 * converter for bedDB to NCBI Refseq-like gtf and gff3 files
