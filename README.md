@@ -1,12 +1,15 @@
 [![DOI](https://zenodo.org/badge/716269109.svg)](https://zenodo.org/doi/10.5281/zenodo.11532369)
 
 ### HANNO: efficient High-throughput ANNOtation of protein coding genes in eukaryote genomes
-* high speed, can annotate a large vertebrate genome in below 1h  
-* works well with medium diverged input evidence (i.e. using NCBI Refseq annotations of species that diverged less than 50 MYA ), no need for RNAseq from your organism (but still beneficial of course)  
-* transcript models include UTRs  
-* completely evidence based (no weird gene models from *ab initio* prediction)
-* includes functional annotation using eggNog, protein homology and BUSCO
-* no repeatmasking necessary
+* Outperforms most methods in speed by a factor of at least 10-20X
+* Can annotate a large vertebrate genome in below 1h.
+* Includes functional annotation using eggNog, protein homology and BUSCO.
+* Transcript models include UTRs
+* Works well with medium diverged input evidence (i.e. using NCBI Refseq annotations of species that diverged less than 50 MYA).
+* No need for RNAseq from your organism (but still beneficial of course)
+* Completely evidence based.
+* No repeat masking necessary
+* Tested on: Ubuntu 16.04.7 LTS, Ubuntu 22.04.3 LTS
 
   
 <p align="center">
