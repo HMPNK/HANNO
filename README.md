@@ -294,9 +294,10 @@ Alignments of mRNAs strongly support recall of small terminal cds exons (start a
 </p>
 
 ### HANNO compared to other pipelines
-The Gallus dataset (proteins and transcriptomes) used in the [Braker3 manuscript](https://genome.cshlp.org/content/early/2024/05/28/gr.278090.123.abstract) was used with HANNO. HANNO was tested with different evidences (P=protein, R=mRNA corresponding to P, T=transcriptome and combinations thereof) and the results were compared to the results for Braker1-3, Maker2, Funnotate and GenMarkETP, which used (A=ab initio predictions, P and T). HANNO outperforms all methods in speed by a factor of at least 10-20X, while being in the top field of gene predictors regarding precision on the cds gene-level (48 CPU threads were used as in the Braker3 manuscript). Regarding annotation completeness, BUSCO scores seem to be more meaningful than sensitivity. (TO BE UPDATED, currently trying to re-evaluate some of the values shown in recent papers by my own braker3 run...)
+The _Gallus gallus_ dataset (proteins and transcriptomes, RefSeq annotation GCF_000002315.6_GRCg6a_genomic.gff for comparison) used in the [Braker3 manuscript](https://genome.cshlp.org/content/early/2024/05/28/gr.278090.123.abstract) was used with HANNO. HANNO was tested with different evidences (P = protein, R = mRNA corresponding to P, T = transcriptome and combinations thereof). Braker3 (including GeneMarkETP and using A = _ab initio_ predictions, P and T) was re-run for evaluation. A Helixer annotation was done on a Nvidia RTX6000 Ada GPU. The Braker ("braker.gtf") and GeneMarkETP ("genemark_supported.gtf") results were also piped through HANNO to accomodate for its gene selection by functional annotation. Values for Braker1,2, Maker2 and Funnotate were taken directly from the publication (they might be lower). HANNO outperforms all methods in speed by a factor of at least 10-20X (same number of CPU threads, Xeon-CPU from 2017), while being in the top field of gene predictors regarding precision on the cds gene-level. Regarding annotation completeness, HANNO achieves the highest BUSCO scores, and precicion is inbetween GeneMarkETP and Braker3. It should be mentioned that HANNO produces respectable results on "same order mRNA-only" input (R), which no other method seems to be capable of. This makes HANNO promising for gene annotation with mRNA like ISOseq.
 
-![image](https://github.com/HMPNK/HANNO/assets/51913753/495c2edd-11e4-4e06-9418-ad9c9b7a55bd)
+![image](https://github.com/user-attachments/assets/e11757e1-3b47-433e-b563-578d82802d63)
+
 
 
 
