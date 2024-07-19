@@ -9,7 +9,7 @@
 * No need for RNAseq from your organism (but still beneficial of course)
 * Completely evidence based.
 * No repeat masking necessary
-* Tested on: Ubuntu 16.04.7 LTS, Ubuntu 22.04.3 LTS
+* Tested on: Ubuntu 16.04.7 LTS, Ubuntu 22.04.3 LTS, Fedora 8.8
 
   
 <p align="center">
@@ -298,6 +298,13 @@ The _Gallus gallus_ dataset (proteins and transcriptomes, RefSeq annotation GCF_
 
 ![image](https://github.com/user-attachments/assets/49fcbffd-3c4b-446d-b017-15c6cc38ad20)
 
+### INDEPENDENT TESTING BY COLLABORATORS
+Martin Racoupeau and Christophe Klopp (INRAE, Toulouse, France) tested HANNO on a newly assembled Plant genome (245 Mbp, contig N50 22.25 Mbp) and compared results to Braker3 and Helixer. They used RNAseq data from the same species and protein data from related species.
+To make HANNO run on their cluster, they had to change "source path/to/activate" with "conda activate" in the bash script.
+
+![image](https://github.com/user-attachments/assets/221ba526-aff5-4089-9005-fb3c01003f28)
+
+
 
 ### UNDER DEVELOPMENT
 
@@ -306,7 +313,7 @@ The _Gallus gallus_ dataset (proteins and transcriptomes, RefSeq annotation GCF_
 * improve annotation of tandem gene copies
 
 ### HISTORY AND ACKNOWLEDGEMENTS
-This tool has been reaping in my mind over more than a decade and developed with every genome project I have been involved with. I thank all those colleagues who worked with me in those genome projects.
+This tool has been reaping in my mind over more than a decade and developed with every genome project I have been involved with. I thank all those colleagues who worked with me in those genome projects. I thank Martin Racoupeau and Christophe Klopp from INRAE, Toulouse for independent testing.
 Special thanks go out to Heng Li for his ground breaking work in bioinformatic tools. His MINIPROT tool has replaced SPALN2 in prior versions of HANNO and made the whole pipeline much more efficient and easy-to-use.
 Parts of this work were supported by my by DFG grant KU 3596/1-1; project number:
 324050651).
