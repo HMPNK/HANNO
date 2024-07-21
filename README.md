@@ -31,9 +31,10 @@ conda activate MAMBA
 git clone https://github.com/HMPNK/HANNO.git
 cd HANNO
 chmod -R 750 scripts/*
-mamba create -n HANNO -c conda-forge -c bioconda bedtools=2.27.1 seqtk samtools minimap2 miniprot last stringtie eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed busco=3.0.2 perl-bioperl mawk
+mamba create -n HANNO -c conda-forge -c bioconda bedtools=2.27.1 seqtk samtools minimap2 miniprot=0.12 last stringtie eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed busco=3.0.2 perl-bioperl mawk
 #it is important to install bedtools=2.27.1 , I had massive issues using bedtools v2.31.1 ("bedtools intersect" showing strange behaviour!)
 #it is important to install busco=3.0.2 as some important outputs changed in newer version!
+#currently uses miniprot=0.12, new treatment of stop codons in gtf output in version 0.13 might need some adaptions of scripts
 mamba activate HANNO
 
 ## TACO is not compatible with the environment create its own:
