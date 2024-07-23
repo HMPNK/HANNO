@@ -299,6 +299,12 @@ The _Gallus gallus_ dataset (proteins and transcriptomes, RefSeq annotation GCF_
 
 ![image](https://github.com/user-attachments/assets/49fcbffd-3c4b-446d-b017-15c6cc38ad20)
 
+Very recently, LiftOn, a tool similar to HANNO (both use combinations of minimap2 and miniprot), has been made available by the Salzberg lab (https://www.biorxiv.org/content/10.1101/2024.05.16.593026v1). Comparing both tools by transfering the _Lagopus leucura_ RefSeq Annotation to _Gallus gallus_ (divergence time ~36 MYA) showed highly similar results (the longest CDS model per gene were compared to the chicken reference annotation). Though both tools have their pro's and cons, HANNO is still faster and scales better with multi-threading.
+
+![image](https://github.com/user-attachments/assets/01994cf2-8823-4ee3-b957-670ce88343f9)
+
+
+
 ### INDEPENDENT TESTING BY COLLABORATORS
 Martin Racoupeau and Christophe Klopp (INRAE, Toulouse, France) tested HANNO on a newly assembled Plant genome (245 Mbp, contig N50 22.25 Mbp) and compared results to Braker3 and Helixer. They used RNAseq data from the same species and protein data from related species.
 To make HANNO run on their cluster, they had to change "source path/to/activate" with "conda activate" in the bash script.
