@@ -306,7 +306,8 @@ Very recently, LiftOn, a tool similar to HANNO (both use combinations of minimap
 Even more recently, Tiberius a new AI based annotation tool has been published (https://www.biorxiv.org/content/10.1101/2024.07.21.604459v1). It outperforms helixer in speed and precision (but does not annotate UTRs). It has been promoted as the “fastest state-of-the-art gene prediction method”. Tiberius, Hanno, LiftOn and Helixer were run on the human T2T genome. The two homology-based methods used the Callithrix jacchus RefSeq annotation (Homo/Callithrix div. time 43 MYA, corresponding to the minimal distance sequence data present the Tiberius training data). In contrast to the tests above a state-of-the-art HPC-server 
  from 2023 was used. Tiberius used an RTX 6000 Ada GPU, Hanno used up to 112 CPU threads. Speed limiting steps in Hanno (BUSCO/eggNog) were switched off, as the other methods do not perform such functional annotation steps. HANNO scaled well in the range of up to 20 threads in this scenario, higher thread values did only yielded minor speed improvements. Maximum RAM usage was 29GB (enabling annotation on modern laptops). At maximum speed HANNO annotated the Human genome in about 15 minutes, way faster than any other method. Further parallelization was checked also by running multiple human genome annotations in parallel at lower threads per HANNO job. This showed that HANNO is capable to annotate 8 - 9 human genomes per hour on contemporary HPC servers. All three methods, show similar precision, recall and BUSCO C: on the CDS gene-level (here we used all predicted isoforms for comparisons with the reference, to get the maximum values possible for HANNO and LiftOn, which are capable to predict isoforms).
 
-![image](https://github.com/user-attachments/assets/ffa3dc65-7c25-4416-a0e8-d530851122cf)
+![image](https://github.com/user-attachments/assets/32ea5ec6-f1a6-49ef-b6f2-d4ba5ff30b6d)
+
 
 
 ### INDEPENDENT TESTING BY COLLABORATORS
