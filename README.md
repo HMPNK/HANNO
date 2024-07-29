@@ -315,7 +315,7 @@ Martin Racoupeau and Christophe Klopp (INRAE, Toulouse, France) tested HANNO on 
 To make HANNO run on their cluster, they had to change "source path/to/activate" with "conda activate" in the bash script.
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/221ba526-aff5-4089-9005-fb3c01003f28" width="75%" height="75%">
+<img src="https://github.com/user-attachments/assets/221ba526-aff5-4089-9005-fb3c01003f28" width="50%" height="50%">
 </p>
 
 
