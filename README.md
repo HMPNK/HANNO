@@ -314,7 +314,9 @@ Even more recently, Tiberius a new AI based annotation tool has been published (
 Martin Racoupeau and Christophe Klopp (INRAE, Toulouse, France) tested HANNO on a newly assembled Plant genome (245 Mbp, contig N50 22.25 Mbp) and compared results to Braker3 and Helixer. They used RNAseq data from the same species and protein data from related species.
 To make HANNO run on their cluster, they had to change "source path/to/activate" with "conda activate" in the bash script.
 
-![image](https://github.com/user-attachments/assets/221ba526-aff5-4089-9005-fb3c01003f28)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/221ba526-aff5-4089-9005-fb3c01003f28" width="75%" height="75%">
+</p>
 
 
 
