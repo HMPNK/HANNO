@@ -307,9 +307,8 @@ Even more recently, Tiberius a new AI based annotation tool has been published (
  from 2023 was used. Tiberius used an RTX 6000 Ada GPU, Hanno used up to 112 CPU threads. Speed limiting steps in Hanno (BUSCO/eggNog) were switched off, as the other methods do not perform such functional annotation steps. HANNO scaled well in the range of up to 20 threads in this scenario, higher thread values did only yielded minor speed improvements. Maximum RAM usage was 29GB (enabling annotation on modern laptops). At maximum speed HANNO annotated the Human genome in about 15 minutes, way faster than any other method. Further parallelization was checked also by running multiple human genome annotations in parallel at lower threads per HANNO job. This showed that HANNO is capable to annotate 8 - 9 human genomes per hour on contemporary HPC servers. All three methods, show similar precision, recall and BUSCO C: on the CDS gene-level (here we used all predicted isoforms for comparisons with the reference, to get the maximum values possible for HANNO and LiftOn, which are capable to predict isoforms).
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/32ea5ec6-f1a6-49ef-b6f2-d4ba5ff30b6d" width="75%" height="75%">
+<img src="https://github.com/user-attachments/assets/f4a2c061-2260-4b82-a523-6eff690765a0" width="75%" height="75%">
 </p>
-
 
 
 ### INDEPENDENT TESTING BY COLLABORATORS
