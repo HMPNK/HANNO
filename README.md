@@ -294,7 +294,7 @@ Alignments of mRNAs strongly support recall of small terminal cds exons (start a
 <img src="https://github.com/HMPNK/HANNO/assets/51913753/62c4c214-7c7a-4fb3-8026-0d4752618053" width="75%" height="75%">
 </p>
 
-### HANNO compared to other pipelines
+### HANNO compared to other annotation pipelines and tools
 The _Gallus gallus_ dataset (proteins and transcriptomes, RefSeq annotation GCF_000002315.6_GRCg6a_genomic.gff for comparison) used in the [Braker3 manuscript](https://genome.cshlp.org/content/early/2024/05/28/gr.278090.123.abstract) was used with HANNO. HANNO was tested with different evidences (P = protein, R = mRNA corresponding to P, T = transcriptome and combinations thereof). Braker1/2/3 (including GeneMarkET/EP/ETP and using A = _ab initio_ predictions, P and T) were re-run for evaluation. A Helixer annotation was done on a Nvidia RTX6000 Ada GPU. The Braker3 ("braker.gtf") and GeneMarkETP ("genemark_supported.gtf") results were also piped through HANNO to accomodate for its gene selection by functional annotation. Values for Maker2 and Funnotate were taken directly from the publication. HANNO outperforms all methods in speed by a factor of at least 10-20X (same number of CPU threads, Intel(R) Xeon(R) CPU E7-8890 v4 @ 2.20GHz from 2017), while being in the top field of gene predictors regarding precision on the cds gene-level. Regarding annotation completeness, HANNO achieves the highest BUSCO scores and precision is inbetween GeneMarkETP and Braker3. It should be mentioned that HANNO produces respectable results on "same order mRNA-only" input (R), which no other method seems to be capable of. This makes HANNO promising for gene annotation with mRNA-like ISOseq data (to be tested).
 
 ![image](https://github.com/user-attachments/assets/49fcbffd-3c4b-446d-b017-15c6cc38ad20)
@@ -307,8 +307,9 @@ Even more recently, Tiberius a new AI based annotation tool has been published (
  from 2023 was used. Tiberius used an RTX 6000 Ada GPU, Hanno used up to 112 CPU threads. Speed limiting steps in Hanno (BUSCO/eggNog) were switched off, as the other methods do not perform such functional annotation steps. HANNO scaled well in the range of up to 20 threads in this scenario, higher thread values did only yielded minor speed improvements. Maximum RAM usage was 29GB (enabling annotation on modern laptops). At maximum speed HANNO annotated the Human genome in about 15 minutes, way faster than any other method. Further parallelization was checked also by running multiple human genome annotations in parallel at lower threads per HANNO job. This showed that HANNO is capable to annotate 8 - 9 human genomes per hour on contemporary HPC servers. All three methods, show similar precision, recall and BUSCO C: on the CDS gene-level (here we used all predicted isoforms for comparisons with the reference, to get the maximum values possible for HANNO and LiftOn, which are capable to predict isoforms).
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/f4a2c061-2260-4b82-a523-6eff690765a0" width="75%" height="75%">
+<img src="https://github.com/user-attachments/assets/4021e01f-ada4-4a55-90ca-7ee8f39dea28" width="75%" height="75%">
 </p>
+
 
 
 ### INDEPENDENT TESTING BY COLLABORATORS
