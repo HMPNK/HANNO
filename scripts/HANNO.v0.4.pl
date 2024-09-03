@@ -77,7 +77,7 @@ die "\nERROR: Invalid (-r) mRNA file $rna ... Check PATH ...Exiting.\n\n" if(! -
 die "\nERROR: Invalid (-g) GTF file $gtf ... Check PATH ...Exiting.\n\n" if(! -e $gtf && $gtf ne "");
 die "\nERROR: Invalid (-P) protein file $pdb ... Check PATH ...Exiting.\n\n" if(! -e $pdb && $pdb ne "");
 ##CREATE HANNO assembly pipeline:
-my $COMMAND = "#!/usr/bash\nset -e\nset -o pipefail\n
+my $COMMAND = "#!/usr/bash\n#set -e\nset -o pipefail\n
 export SCRIPTS=$scr
 
 ##RUN HANNO assembly pipeline:\n
