@@ -18,6 +18,8 @@
 
 
 ### You will need MAMBA for installation!
+To install conda/mamba see https://github.com/conda-forge/miniforge
+
 ```sh
 #if you have conda already installed do
 conda create -n MAMBA -c conda-forge mamba
