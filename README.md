@@ -36,6 +36,7 @@ chmod -R 750 scripts/*
 mamba create -n HANNO -c conda-forge -c bioconda python=3.11.8 bedtools=2.27.1 seqtk samtools minimap2 miniprot last stringtie eggnog-mapper transdecoder ucsc-gtftogenepred ucsc-genepredtobed busco=3.0.2 perl-bioperl mawk
 #it is important to install bedtools=2.27.1 , I had massive issues using bedtools v2.31.1 ("bedtools intersect" showing strange behaviour!)
 #it is important to install busco=3.0.2 as some important outputs changed in newer version!
+#it is important to install python=3.11.8 as we recently had issues using python 3.12.8 (BUSCO failed)
 
 mamba activate HANNO
 
