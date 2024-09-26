@@ -40,6 +40,9 @@ mamba create -n HANNO -c conda-forge -c bioconda python=3.11.8 bedtools=2.27.1 s
 
 mamba activate HANNO
 
+pip install pandas
+#library needed for "bedDB_to_gtf_gff.py" the new bedDB to NCBI refSeq-like gff/gtf converter
+
 ## TACO is not compatible with the environment create its own:
 mamba create -n TACO -c conda-forge -c bioconda taco
 
@@ -140,6 +143,29 @@ awk 'BEGIN{OFS="\t";FS="\t"} {if($26!="-" || $39!="-" || ($21>60 || $17>300)){pr
 #Example for adding functional annotation from ".bedDB" to ".bed" for viewing in IGV (using field 26=gene symbol by eggNog and field 15=description from best protein hit):
 awk 'BEGIN{FS="\t";OFS="\t"} {$4=$26" | "$15" | "$4;print}' BESTMODELS-FINAL.bedDB | cut -f1-12 > BESTMODELS-FINAL.for-IGV.bed
 ```     
+### bedDB to NCBI refSeq-like GFF3/GTF conversion
+A more convinient way to view annotations in IGV and for usage in other tools is the conversion of the *bedDB files to NCBI compatible gff or gtf. This is now possible with the script "bedDB_to_gtf_gff.py". Here you will also have options to extract annotated fasta files of mRNA and CDS sequences, if a genome fasta file is provided. This also allows for viewing mRNA and CDS sequences in IGV, when clicking on a transcript model.
+
+```sh
+#Examples for bedDB_to_gtf_gff.py
+
+#Convert to NCBI RefSeq-like gtf
+python /path_to_scripts/bedDB_to_gtf_gff.py BESTMODELS-FINAL.bedDB -o refSeq-like.gtf
+
+#Convert to NCBI RefSeq-like gff
+python /path_to_scripts/bedDB_to_gtf_gff.py BESTMODELS-FINAL.bedDB --gff -o refSeq-like.gff
+
+#Convert to NCBI RefSeq-like gff including mRNA and CDS sequence in gff
+python /path_to_scripts/bedDB_to_gtf_gff.py BESTMODELS-FINAL.bedDB --gff --genome assembly.fasta -o refSeq-like.gff
+
+#Convert to NCBI RefSeq-like gff including mRNA and CDS sequence in gff and fasta files
+python /path_to_scripts/bedDB_to_gtf_gff.py BESTMODELS-FINAL.bedDB --gff --fasta --genome assembly.fasta -o refSeq-like.gff
+#CDS fasta can be translated to protein fasta
+cat CDS_sequences.fasta | /path_to_scripts/translate.pl > AA_sequences.fasta
+
+#You can also do the above for "ALLMODELS-FINAL.bedDB", if you are interested in alternative gene models / isoforms
+```
+
 
 ### BENCHMARKING HANNO BY TEST-RUNS ON VERTEBRATE GENOMES
 
@@ -326,12 +352,11 @@ To make HANNO run on their cluster, they had to change "source path/to/activate"
 
 ### UNDER DEVELOPMENT
 
-* converter for bedDB to NCBI Refseq-like gtf and gff3 files
 * filter some strange gene models that appear (introns spanning multiple gene models)
 * improve annotation of tandem gene copies
 
 ### HISTORY AND ACKNOWLEDGEMENTS
-This tool has been reaping in my mind over more than a decade and developed with every genome project I have been involved with. I thank all those colleagues who worked with me in those genome projects. I thank Martin Racoupeau and Christophe Klopp from INRAE, Toulouse for independent testing.
+This tool has been reaping in my mind over more than a decade and developed with every genome project I have been involved with. I thank all those colleagues who worked with me in those genome projects. Clara Dassio did a great job during her internship and wrote the bedDB to NCBI compatible GFF and GTF converter. I thank Martin Racoupeau and Christophe Klopp from INRAE, Toulouse for independent testing.
 Special thanks go out to Heng Li for his ground breaking work in bioinformatic tools. His MINIPROT tool has replaced SPALN2 in prior versions of HANNO and made the whole pipeline much more efficient and easy-to-use.
 Parts of this work were supported by my by DFG grant KU 3596/1-1; project number:
 324050651).
