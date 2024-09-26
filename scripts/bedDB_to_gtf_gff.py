@@ -1,6 +1,6 @@
 # Author: C. Dassio
 #
-# This program takes a bedDB (created by HANNO) or BED12 file and produces a GTF or GFF3 file (with optional information chosen by the user) (default GTF)
+# This program takes a bedDB (created by HANNO) or BED4, BED5, BED6, BED12 file and produces a GTF or GFF3 file (with optional information chosen by the user) (default GTF)
 # v1: supports GFF format for bedDB and BED12 input
 # v2: added optional second input (genomic file) to give sequence for every entry
 # v3: parsing the genome is now done with SeqIO from Biopython
