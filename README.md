@@ -356,7 +356,7 @@ To make HANNO run on their cluster, they had to change "source path/to/activate"
 * improve annotation of tandem gene copies
 
 ### HISTORY AND ACKNOWLEDGEMENTS
-This tool has been reaping in my mind over more than a decade and developed with every genome project I have been involved with. I thank all those colleagues who worked with me in those genome projects. Clara Dassio did a great job during her internship and wrote the bedDB to NCBI compatible GFF and GTF converter. I thank Martin Racoupeau and Christophe Klopp from INRAE, Toulouse for independent testing.
+This tool has been reaping in my mind over more than a decade and developed with every genome project I have been involved with. I thank all those colleagues who worked with me in those genome projects. Clara Daßio did a great job during her internship and wrote the bedDB to NCBI compatible GFF and GTF converter. I thank Martin Racoupeau and Christophe Klopp from INRAE, Toulouse for independent testing.
 Special thanks go out to Heng Li for his ground breaking work in bioinformatic tools. His MINIPROT tool has replaced SPALN2 in prior versions of HANNO and made the whole pipeline much more efficient and easy-to-use.
 Parts of this work were supported by my by DFG grant KU 3596/1-1; project number:
 324050651).
