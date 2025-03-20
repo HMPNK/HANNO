@@ -161,7 +161,7 @@ python /path_to_scripts/bedDB_to_gtf_gff.py BESTMODELS-FINAL.bedDB --gff --genom
 #Convert to NCBI RefSeq-like gff including mRNA and CDS sequence in gff and fasta files
 python /path_to_scripts/bedDB_to_gtf_gff.py BESTMODELS-FINAL.bedDB --gff --fasta --genome assembly.fasta -o refSeq-like.gff
 #CDS fasta can be translated to protein fasta (uses sed to keep additional infos in fasta header, which otherwise would be lost)
-cat CDS_sequences.fasta | sed "s/ /::/g" | perl /path_to_scripts/translate.pl | sed "s/::/ /g"> AA_sequences.fasta
+cat CDS_sequences.fasta | sed "s/ /::/g" | perl /path_to_scripts/translate.perl | sed "s/::/ /g"> AA_sequences.fasta
 
 #You can also do the above for "ALLMODELS-FINAL.bedDB", if you are interested in alternative gene models / isoforms
 ```
