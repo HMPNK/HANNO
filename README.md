@@ -350,7 +350,7 @@ To make HANNO run on their cluster, they had to change "source path/to/activate"
 
 ### POLISH MULTI-EXON UTRs
 
-Sometimes fragmented 5'UTRs and 3'UTRs occur (if too divergend mRNAs are used for gene-modeling, or due to RNAseq mapping noise), polishing the transcripts by removing end standing UTR exons can be done by a script. We might integrate this in the HANNO pipeline in the future.
+Sometimes fragmented 5'UTRs and 3'UTRs occur (if too divergend mRNAs are used for gene-modeling, frameshifts in the genome sequence occur, or due to RNAseq mapping noise), polishing the transcripts by removing end standing UTR exons can be done by a script. We might integrate this in the HANNO pipeline in the future.
 
 ```sh
 awk -v cdsdist=300 -f /path_to_scripts/clean-bed12-utrs.awk BESTMODELS-FINAL.bedDB > BESTMODELS-FINAL.cleanUTR.bedDB
