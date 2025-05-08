@@ -348,11 +348,17 @@ To make HANNO run on their cluster, they had to change "source path/to/activate"
 <img src="https://github.com/user-attachments/assets/221ba526-aff5-4089-9005-fb3c01003f28" width="100%" height="100%">
 </p>
 
+### POLISH MULTI-EXON UTRs
 
+Sometimes fragmented 5'UTRs and 3'UTRs occur (if too divergend mRNAs are used for gene-modeling, or due to RNAseq mapping noise), polishing the transcripts by removing end standing UTR exons can be done by a script. We might integrate this in the HANNO pipeline in the future.
+
+```sh
+awk -v cdsdist=300 -f ../scripts/clean-bed12-utrs.awk BESTMODELS-FINAL.bedDB > BESTMODELS-FINAL.cleanUTR.bedDB
+#use "python /path_to_scripts/bedDB_to_gtf_gff.py BESTMODELS-FINAL.cleanUTR.bedDB ..." to get gff/gtf and annotated sequences from the cleaned bedDB
+```
 
 ### UNDER DEVELOPMENT
 
-* filter some strange gene models that appear (introns spanning multiple gene models)
 * improve annotation of tandem gene copies
 
 ### HISTORY AND ACKNOWLEDGEMENTS
