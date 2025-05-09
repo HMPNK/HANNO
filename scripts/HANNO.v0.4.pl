@@ -7,7 +7,7 @@
 
 ##define path to HANNO scripts and MAMBA installation (depend on your system, change before first run!)
 my $scr = "/data2/HANNO/scripts";
-my $mamba="/home/kuhl/miniconda2/envs/MAMBA/bin";
+my $mamba="/home/$USER/miniconda3/envs/MAMBA/bin";
 my $eggnog="/data2/HANNO/EGGNOGG-DBs";
 
 ##VARIABLES
