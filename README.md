@@ -145,7 +145,7 @@ awk 'BEGIN{OFS="\t";FS="\t"} {if($26!="-" || $39!="-" || ($21>60 || $17>300)){pr
 awk 'BEGIN{FS="\t";OFS="\t"} {$4=$26" | "$15" | "$4;print}' BESTMODELS-FINAL.bedDB | cut -f1-12 > BESTMODELS-FINAL.for-IGV.bed
 ```     
 ### bedDB to NCBI refSeq-like GFF3/GTF conversion
-A more convinient way to view annotations in IGV and for usage in other tools is the conversion of the *bedDB files to NCBI compatible gff or gtf. This is now possible with the script "bedDB_to_gtf_gff.py". Here you will also have options to extract annotated fasta files of mRNA and CDS sequences, if a genome fasta file is provided. This also allows for viewing mRNA and CDS sequences in IGV, when clicking on a transcript model.
+A more convinient way to view annotations in IGV and for usage in other tools is the conversion of the *bedDB files to NCBI compatible gff or gtf. This is now possible with the script "bedDB_to_gtf_gff.py". Here you will also have options to extract annotated fasta files of mRNA and CDS sequences, if a genome fasta file is provided. This also allows for viewing mRNA and CDS sequences in IGV, when clicking on a transcript model. This conversion script has been integrated in HANNO version 0.5, recently.
 
 ```sh
 #Examples for bedDB_to_gtf_gff.py
@@ -167,6 +167,14 @@ cat CDS_sequences.fasta | sed "s/ /::/g" | perl /path_to_scripts/translate.perl 
 #You can also do the above for "ALLMODELS-FINAL.bedDB", if you are interested in alternative gene models / isoforms
 ```
 
+### POLISH MULTI-EXON UTRs
+
+Sometimes fragmented 5'UTRs and 3'UTRs occur (if too diverged mRNAs are used for gene-modeling, frameshifts in the genome sequence occur, or due to RNAseq mapping noise), polishing the transcripts by removing end-standing UTR exons can be done by a script. This has been integrated by default since HANNO pipeline version 0.5 (switch off by "-U false" parameter).
+
+```sh
+awk -v cdsdist=300 -f /path_to_scripts/clean-bed12-utrs.awk BESTMODELS-FINAL.bedDB > BESTMODELS-FINAL.cleanUTR.bedDB
+#use "python /path_to_scripts/bedDB_to_gtf_gff.py BESTMODELS-FINAL.cleanUTR.bedDB ..." to get gff/gtf and annotated sequences from the cleaned bedDB
+```
 
 ### BENCHMARKING HANNO BY TEST-RUNS ON VERTEBRATE GENOMES
 
@@ -348,15 +356,6 @@ To make HANNO run on their cluster, they had to change "source path/to/activate"
 <p align="center">
 <img src="https://github.com/user-attachments/assets/221ba526-aff5-4089-9005-fb3c01003f28" width="100%" height="100%">
 </p>
-
-### POLISH MULTI-EXON UTRs
-
-Sometimes fragmented 5'UTRs and 3'UTRs occur (if too divergend mRNAs are used for gene-modeling, frameshifts in the genome sequence occur, or due to RNAseq mapping noise), polishing the transcripts by removing end standing UTR exons can be done by a script. We might integrate this in the HANNO pipeline in the future.
-
-```sh
-awk -v cdsdist=300 -f /path_to_scripts/clean-bed12-utrs.awk BESTMODELS-FINAL.bedDB > BESTMODELS-FINAL.cleanUTR.bedDB
-#use "python /path_to_scripts/bedDB_to_gtf_gff.py BESTMODELS-FINAL.cleanUTR.bedDB ..." to get gff/gtf and annotated sequences from the cleaned bedDB
-```
 
 ### UNDER DEVELOPMENT
 
