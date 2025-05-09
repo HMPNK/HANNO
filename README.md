@@ -76,7 +76,7 @@ which run_BUSCO.py
 ## now it should be ready to run, try to execute:
 scripts/HANNO.v0.5.pl
 
-HANNO version 0.4 (High-throughput ANNOtation for eukaryote genomes)
+HANNO version 0.5 (High-throughput ANNOtation for eukaryote genomes)
 Author: Heiner Kuhl, Phd (heiner.kuhl@igb-berlin.de)
 
 THIS SCRIPT CREATES THE PIPELINE AS A BASH script
@@ -96,6 +96,7 @@ ALWAYS USE RELATIVE PATH (e.g. "../../assembly/asm.fasta"), IF INPUT data is not
   		-P PROTEIN DB for functional annotation (fasta)
   		-t number of threads to use (default 8)
 		-E skip EGGNOG functional annotation (0 or 1=skip, default=0)
+		-U polish UTRs (default=true, no=false), recommended if using diverged mRNA evidence (will remove surplus UTR exons far fom CDS)
 
 This script generates a bash script for running the pipeline! Write script to file and run by: nohup bash <script> & !
 ERROR: NEED an assembly to annotate!!!
