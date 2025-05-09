@@ -276,7 +276,7 @@ python $scr/bedDB_to_gtf_gff.py BESTMODELS-FINAL.bedDB --fasta --genome asm.fa -
 mv BESTMODELS-FINAL.gff3 BESTMODELS-FINAL-including-mRNA+CDS.gff3
 python $scr/bedDB_to_gtf_gff.py BESTMODELS-FINAL.bedDB --gff -o BESTMODELS-FINAL.gff3
 python $scr/bedDB_to_gtf_gff.py BESTMODELS-FINAL.bedDB -o BESTMODELS-FINAL.gtf
-sed \"s/ /:::/g\" BESTMODELS-FINAL_CDS_sequences.fasta | perl $scr//translate.perl | grep -v \^\$ | sed \"s/:::/ /g\" > BESTMODELS-FINAL_AA_sequences.faa
+sed \"s/ /:::/g\" BESTMODELS-FINAL_CDS_sequences.fasta | perl $scr//translate.perl | grep -v \^\$ | sed \"s/:::/ /g\" | seqtk seq -l 80 - > BESTMODELS-FINAL_AA_sequences.faa
 rm asm.fa asm.fa.fai
 
 date
