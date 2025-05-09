@@ -6,9 +6,9 @@
   use Getopt::Std;
 
 ##define path to HANNO scripts and MAMBA installation (depend on your system, change before first run!)
-my $scr = "/data/HEINER/HANNO/scripts";
-my $mamba="/home/kuhl/miniconda3/envs/MAMBA/bin";
-my $eggnog="/data/HEINER/HANNO/EGGNOGG-DBs";
+my $scr = "/data2/HANNO/scripts";
+my $mamba="/home/$USER/miniconda3/envs/MAMBA/bin";
+my $eggnog="/data2/HANNO/EGGNOGG-DBs";
 
 ##VARIABLES
 my $asm = "";
