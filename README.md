@@ -57,7 +57,7 @@ wget https://busco-data.ezlab.org/v5/data/lineages/actinopterygii_odb10.2024-01-
 tar xvf actinopterygii_odb10.2024-01-08.tar.gz
 rm actinopterygii_odb10.2024-01-08.tar.gz
 
-##change paths in main script "HANNO.v0.4.pl" to fit to your system:
+##change paths in main script "HANNO.v0.5.pl" to fit to your system:
 
 my $scr = "/path_to/HANNO/scripts";
 my $mamba="/path_to/miniconda2/envs/MAMBA/bin";
@@ -74,7 +74,7 @@ cp /home/user/miniconda2/envs/MAMBA/envs/HANNO/lib/python3.7/site-packages/busco
 which run_BUSCO.py
 
 ## now it should be ready to run, try to execute:
-scripts/HANNO.v0.4.pl
+scripts/HANNO.v0.5.pl
 
 HANNO version 0.4 (High-throughput ANNOtation for eukaryote genomes)
 Author: Heiner Kuhl, Phd (heiner.kuhl@igb-berlin.de)
@@ -195,52 +195,52 @@ mamba activate HANNO
 #remove non-coding RNAs from input:
 seqtk comp GCF_905171765.1_aBufBuf1.1_rna_from_genomic.fna.gz | grep  -vE 'miscrna|ncrna|precursorrna|rrna|trna' | cut -f 1 | seqtk subseq GCF_905171765.1_aBufBuf1.1_rna_from_genomic.fna.gz /dev/stdin | gzip -c > GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz
 #AMPHIBIANS                 
-../scripts/HANNO.v0.4.pl -t 12 -d HANNO-BUFVIR-v0.4-mRNA -a GCA_037900795.1_ASM3790079v1_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-BUFVIR-v0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 12 -d HANNO-LEPFUS-v0.4-mRNA -a GCA_031893025.1_aLepFus1.hap1_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-LEPFUS-v0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 12 -d HANNO-XENTRO-v0.4-mRNA -a GCF_000004195.4_UCB_Xtro_10.0_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-XENTROP-v0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 12 -d HANNO-SPEBOM-v0.4-mRNA -a GCF_027358695.1_aSpeBom1.2.pri_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-SPEBOM-v0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 12 -d HANNO-BOMBOM-v0.4-mRNA -a GCF_027579735.1_aBomBom1.pri_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-BOMBOM-v0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 12 -d HANNO-BUFBUF-v0.4-mRNA -a GCF_905171765.1_aBufBuf1.1_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-BUFBUF-v0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 12 -d HANNO-BUFVIR-v0.4-mRNA -a GCA_037900795.1_ASM3790079v1_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-BUFVIR-v0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 12 -d HANNO-LEPFUS-v0.4-mRNA -a GCA_031893025.1_aLepFus1.hap1_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-LEPFUS-v0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 12 -d HANNO-XENTRO-v0.4-mRNA -a GCF_000004195.4_UCB_Xtro_10.0_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-XENTROP-v0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 12 -d HANNO-SPEBOM-v0.4-mRNA -a GCF_027358695.1_aSpeBom1.2.pri_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-SPEBOM-v0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 12 -d HANNO-BOMBOM-v0.4-mRNA -a GCF_027579735.1_aBomBom1.pri_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-BOMBOM-v0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 12 -d HANNO-BUFBUF-v0.4-mRNA -a GCF_905171765.1_aBufBuf1.1_genomic.fna.gz -p GCF_905171765.1_aBufBuf1.1_protein.faa.gz -r GCF_905171765.1_aBufBuf1.1_mRNA_from_genomic.fna.gz -b vertebrata_odb9 | bash > HANNO-BUFBUF-v0.4-mRNA.log 2>&1
                  
 #BIRDS
 #remove non-coding RNAs from input:
 seqtk comp GCF_003957565.2_bTaeGut1.4.pri_rna_from_genomic.fna.gz | grep  -vE 'miscrna|ncrna|precursorrna|rrna|trna' | cut -f 1 | seqtk subseq GCF_003957565.2_bTaeGut1.4.pri_rna_from_genomic.fna.gz /dev/stdin | gzip -c > GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz
 #                 
-../scripts/HANNO.v0.4.pl -t 12 -d HANNO-TAEGUT-V0.4-mRNA -a GCF_003957565.2_bTaeGut1.4.pri_genomic.fna.gz -p GCF_003957565.2_bTaeGut1.4.pri_protein.faa.gz -r GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz -b aves_odb9 | bash > HANNO-TAEGUT-V0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 12 -d HANNO-SERCAN-V0.4-mRNA -a GCF_022539315.1_serCan2020_genomic.fna.gz -p GCF_003957565.2_bTaeGut1.4.pri_protein.faa.gz -r GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz -b aves_odb9 | bash > HANNO-SERCAN-V0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 12 -d HANNO-MYICAY-V0.4-mRNA -a GCF_022539395.1_myiCay2020_genomic.fna.gz -p GCF_003957565.2_bTaeGut1.4.pri_protein.faa.gz -r GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz -b aves_odb9 | bash > HANNO-MYICAY-V0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 12 -d HANNO-PHASUP-V0.4-mRNA -a GCA_023637945.1_DD_ASM_B1_genomic.fna.gz -p GCF_003957565.2_bTaeGut1.4.pri_protein.faa.gz -r GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz -b aves_odb9 | bash > HANNO-PHASUP-V0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 12 -d HANNO-GALGAL-V0.4-mRNA -a GCF_016699485.2_bGalGal1.mat.broiler.GRCg7b_genomic.fna.gz -p GCF_003957565.2_bTaeGut1.4.pri_protein.faa.gz -r GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz -b aves_odb9 | bash > HANNO-GALGAL-V0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 12 -d HANNO-DROHOL-V0.4-mRNA -a GCA_016128335.2_ZJU2.0_genomic.fna.gz -p GCF_003957565.2_bTaeGut1.4.pri_protein.faa.gz -r GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz -b aves_odb9 | bash > HANNO-DROHOL-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 12 -d HANNO-TAEGUT-V0.4-mRNA -a GCF_003957565.2_bTaeGut1.4.pri_genomic.fna.gz -p GCF_003957565.2_bTaeGut1.4.pri_protein.faa.gz -r GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz -b aves_odb9 | bash > HANNO-TAEGUT-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 12 -d HANNO-SERCAN-V0.4-mRNA -a GCF_022539315.1_serCan2020_genomic.fna.gz -p GCF_003957565.2_bTaeGut1.4.pri_protein.faa.gz -r GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz -b aves_odb9 | bash > HANNO-SERCAN-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 12 -d HANNO-MYICAY-V0.4-mRNA -a GCF_022539395.1_myiCay2020_genomic.fna.gz -p GCF_003957565.2_bTaeGut1.4.pri_protein.faa.gz -r GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz -b aves_odb9 | bash > HANNO-MYICAY-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 12 -d HANNO-PHASUP-V0.4-mRNA -a GCA_023637945.1_DD_ASM_B1_genomic.fna.gz -p GCF_003957565.2_bTaeGut1.4.pri_protein.faa.gz -r GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz -b aves_odb9 | bash > HANNO-PHASUP-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 12 -d HANNO-GALGAL-V0.4-mRNA -a GCF_016699485.2_bGalGal1.mat.broiler.GRCg7b_genomic.fna.gz -p GCF_003957565.2_bTaeGut1.4.pri_protein.faa.gz -r GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz -b aves_odb9 | bash > HANNO-GALGAL-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 12 -d HANNO-DROHOL-V0.4-mRNA -a GCA_016128335.2_ZJU2.0_genomic.fna.gz -p GCF_003957565.2_bTaeGut1.4.pri_protein.faa.gz -r GCF_003957565.2_bTaeGut1.4.pri_mRNA_from_genomic.fna.gz -b aves_odb9 | bash > HANNO-DROHOL-V0.4-mRNA.log 2>&1
                  
 #FISHES                 
 #remove non-coding RNAs from input:
 seqtk comp GCF_004354835.1_PFLA_1.0_rna_from_genomic.fna.gz | grep  -vE 'miscrna|ncrna|precursorrna|rrna|trna' | cut -f 1 | seqtk subseq GCF_004354835.1_PFLA_1.0_rna_from_genomic.fna.gz /dev/stdin | gzip -c > GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz
 #
-../scripts/HANNO.v0.4.pl -t 8 -d HANNO-PERFLA-V0.4-mRNA -a GCF_004354835.1_PFLA_1.0_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-PERFLA-V0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 8 -d HANNO-SANLUC-V0.4-mRNA -a GCF_008315115.2_SLUC_FBN_1.2_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-SANLUC-V0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 8 -d HANNO-EPIFUS-V0.4-mRNA -a GCF_011397635.1_E.fuscoguttatus.final_Chr_v1_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-EPIFUS-V0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 8 -d HANNO-DICLAB-V0.4-mRNA -a GCF_905237075.1_dlabrax2021_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-DICLAB-V0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 8 -d HANNO-ESOLUC-V0.4-mRNA -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-ESOLUC-V0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 8 -d HANNO-CLAGAR-V0.4-mRNA -a GCF_024256425.1_CGAR_prim_01v2_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-CLAGAR-V0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 8 -d HANNO-DANRER-V0.4-mRNA -a GCA_033170195.1_ASM3317019v1_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-DANRER-V0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 8 -d HANNO-ORENIL2-V0.4-mRNA -a GCF_001858045.2_O_niloticus_UMD_NMBU_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-ORENIL2-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 8 -d HANNO-PERFLA-V0.4-mRNA -a GCF_004354835.1_PFLA_1.0_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-PERFLA-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 8 -d HANNO-SANLUC-V0.4-mRNA -a GCF_008315115.2_SLUC_FBN_1.2_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-SANLUC-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 8 -d HANNO-EPIFUS-V0.4-mRNA -a GCF_011397635.1_E.fuscoguttatus.final_Chr_v1_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-EPIFUS-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 8 -d HANNO-DICLAB-V0.4-mRNA -a GCF_905237075.1_dlabrax2021_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-DICLAB-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 8 -d HANNO-ESOLUC-V0.4-mRNA -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-ESOLUC-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 8 -d HANNO-CLAGAR-V0.4-mRNA -a GCF_024256425.1_CGAR_prim_01v2_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-CLAGAR-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 8 -d HANNO-DANRER-V0.4-mRNA -a GCA_033170195.1_ASM3317019v1_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-DANRER-V0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 8 -d HANNO-ORENIL2-V0.4-mRNA -a GCF_001858045.2_O_niloticus_UMD_NMBU_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 | bash > HANNO-ORENIL2-V0.4-mRNA.log 2>&1
                  
 #MAMMALS
 #remove non-coding RNAs from input:
 seqtk comp GCF_009914755.1_T2T-CHM13v2.0_rna_from_genomic.fna.gz | grep  -vE 'miscrna|ncrna|precursorrna|rrna|trna' | cut -f 1 | seqtk subseq GCF_009914755.1_T2T-CHM13v2.0_rna_from_genomic.fna.gz /dev/stdin | gzip -c > GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz                 
 #run HANNO without ncRNA in -r input
-../scripts/HANNO.v0.4.pl -t 6 -d T2T-CHM13v2.0.0.4-mRNA -a GCF_009914755.1_T2T-CHM13v2.0_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > T2T-CHM13v2.0.0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 6 -d PanPan.0.4-mRNA -a GCF_029289425.1_NHGRI_mPanPan1-v1.1-0.1.freeze_pri_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > PanPan.0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 6 -d PonAbe1.0.4-mRNA -a GCF_028885655.1_NHGRI_mPonAbe1-v1.1-hic.freeze_pri_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > PonAbe1.0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 6 -d CalJa1.0.4-mRNA -a GCF_011100555.1_mCalJa1.2.pat.X_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > CalJa1.0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 6 -d GRCm39.0.4-mRNA -a GCF_000001635.27_GRCm39_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > GRCm39.0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 6 -d ARS-UCD2.0.0.4-mRNA -a GCF_002263795.3_ARS-UCD2.0_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > ARS-UCD2.0.0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 6 -d ARS1.2.0.4-mRNA -a GCF_001704415.2_ARS1.2_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > ARS1.2.0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 6 -d OrcOrc.0.4-mRNA -a GCF_937001465.1_mOrcOrc1.1_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > OrcOrc.0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 6 -d RhiFer1.0.4-mRNA -a GCF_004115265.2_mRhiFer1_v1.p_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > RhiFer1.0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 6 -d EleMax1.0.4-mRNA -a GCF_024166365.1_mEleMax1_primary_haplotype_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > EleMax1.0.4-mRNA.log 2>&1
-../scripts/HANNO.v0.4.pl -t 6 -d phaCin.0.4-mRNA -a GCF_002099425.1_phaCin_unsw_v4.1_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > phaCin.0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 6 -d T2T-CHM13v2.0.0.4-mRNA -a GCF_009914755.1_T2T-CHM13v2.0_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > T2T-CHM13v2.0.0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 6 -d PanPan.0.4-mRNA -a GCF_029289425.1_NHGRI_mPanPan1-v1.1-0.1.freeze_pri_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > PanPan.0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 6 -d PonAbe1.0.4-mRNA -a GCF_028885655.1_NHGRI_mPonAbe1-v1.1-hic.freeze_pri_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > PonAbe1.0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 6 -d CalJa1.0.4-mRNA -a GCF_011100555.1_mCalJa1.2.pat.X_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > CalJa1.0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 6 -d GRCm39.0.4-mRNA -a GCF_000001635.27_GRCm39_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > GRCm39.0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 6 -d ARS-UCD2.0.0.4-mRNA -a GCF_002263795.3_ARS-UCD2.0_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > ARS-UCD2.0.0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 6 -d ARS1.2.0.4-mRNA -a GCF_001704415.2_ARS1.2_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > ARS1.2.0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 6 -d OrcOrc.0.4-mRNA -a GCF_937001465.1_mOrcOrc1.1_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > OrcOrc.0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 6 -d RhiFer1.0.4-mRNA -a GCF_004115265.2_mRhiFer1_v1.p_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > RhiFer1.0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 6 -d EleMax1.0.4-mRNA -a GCF_024166365.1_mEleMax1_primary_haplotype_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > EleMax1.0.4-mRNA.log 2>&1
+../scripts/HANNO.v0.5.pl -t 6 -d phaCin.0.4-mRNA -a GCF_002099425.1_phaCin_unsw_v4.1_genomic.fna.gz -p GCF_009914755.1_T2T-CHM13v2.0_protein.faa.gz -r GCF_009914755.1_T2T-CHM13v2.0_mRNA_from_genomic.fna.gz -b mammalia_odb10 | bash > phaCin.0.4-mRNA.log 2>&1
 
 ```
 
@@ -287,11 +287,11 @@ cat ESOLUC.OVARY.gtf ESOLUC.TESTIS.gtf ESOLUC.BRAIN.gtf > ESOLUC.O+T+B.gtf
 #create "dummy.faa" first that contains only a single protein sequence (must be a mappable one otherwise HANNO will stop, because miniprot gtf is empty)
 seqtk seq -l 0 GCF_004354835.1_PFLA_1.0_protein.faa.gz | head -2 > dummy.faa
 #Run HANNO (use all proteins via "-P" in functional annotation only)
-../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4-TRANS-only -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p dummy.faa -b actinopterygii_odb9 -g ESOLUC.O+T+B.gtf -P GCF_004354835.1_PFLA_1.0_protein.faa.gz | bash > HANNO-ESOLUC-V0.4-TRANS-only.log 2>&1
+../scripts/HANNO.v0.5.pl -t 80 -d HANNO-ESOLUC-V0.4-TRANS-only -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p dummy.faa -b actinopterygii_odb9 -g ESOLUC.O+T+B.gtf -P GCF_004354835.1_PFLA_1.0_protein.faa.gz | bash > HANNO-ESOLUC-V0.4-TRANS-only.log 2>&1
 #Using 80 threads this took 34 minutes (mainly due to BUSCO and eggNog)!
 
 #Run HANNO with proteins and mRNA from a diverged species and reference guided transcript assemblies from same species:
-../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4-TRANS -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 -g ESOLUC.O+T+B.gtf | bash > HANNO-ESOLUC-V0.4-TRANS.log 2>&1
+../scripts/HANNO.v0.5.pl -t 80 -d HANNO-ESOLUC-V0.4-TRANS -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 -g ESOLUC.O+T+B.gtf | bash > HANNO-ESOLUC-V0.4-TRANS.log 2>&1
 
 #Using 80 threads HANNO finished in 48 minutes!
 #It was also tested to input denovo assembled instead of reference guided transcripts from the same species, but it delivers similar results and is much less efficient in terms of computing time (denovo transcript assembly takes too much time!)
@@ -305,11 +305,11 @@ seqtk seq -l 0 GCF_004354835.1_PFLA_1.0_protein.faa.gz | head -2 > dummy.faa
 awk -f ../scripts/helixergff3Togtf.awk HELIXER-GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gff3 |gtfToGenePred stdin stdout | genePredToBed stdin stdout | awk -f ../scripts/bed12ToGTF_addscore-tacoFake.awk > helixer-input.gtf
 
 #run HANNO with Helixer-annotation input via "-g"
-../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4+helixer -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 -g helixer-input.gtf | bash > HANNO-ESOLUC-V0.4+helixer.log 2>&1
+../scripts/HANNO.v0.5.pl -t 80 -d HANNO-ESOLUC-V0.4+helixer -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 -g helixer-input.gtf | bash > HANNO-ESOLUC-V0.4+helixer.log 2>&1
 
 #to also add RNAseq, just concatenate helixer and stringtie gtfs
 cat ESOLUC.O+T+B.gtf helixer-input.gtf > ESOLUC.O+T+B+Helixer.gtf
-../scripts/HANNO.v0.4.pl -t 80 -d HANNO-ESOLUC-V0.4-trans+helixer -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 -g ESOLUC.O+T+B+Helixer.gtf | bash > HANNO-ESOLUC-V0.4-trans+helixer.log 2>&1
+../scripts/HANNO.v0.5.pl -t 80 -d HANNO-ESOLUC-V0.4-trans+helixer -a GCF_011004845.1_fEsoLuc1.pri_genomic.fna.gz -p GCF_004354835.1_PFLA_1.0_protein.faa.gz -r GCF_004354835.1_PFLA_1.0_mRNA_from_genomic.fna.gz -b actinopterygii_odb9 -g ESOLUC.O+T+B+Helixer.gtf | bash > HANNO-ESOLUC-V0.4-trans+helixer.log 2>&1
 ```
 
 ### Merging gene-models from protein (miniprot) and mRNA(minimap2) evidence improves recall and precision
