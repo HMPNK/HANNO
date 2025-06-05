@@ -187,7 +187,7 @@ Find below a best-practise to incorporate isoforms from RNAseq in your HANNO ann
 # then re-assemble your RNAseq with stringtie using the HANNO BESTMODELS as reference:
 stringtie -G HANNO-V1/BESTMODELS-FINAL.gff3 -p 2 -o yourspecies.gtf yourspecies-RNAseq.bam
 #merge all assembled + reference transcripts
-stringtie --merge -T 0 -F 0 -G HANNO-V1/BESTMODELS-FINAL.gff3 -p 2 -o yourspecies-alliso.gtf yourspecies.gtf
+stringtie --merge -G HANNO-V1/BESTMODELS-FINAL.gff3 -p 2 -o yourspecies-alliso.gtf yourspecies.gtf
 #run special version for annotation of CDS on StringTie transcripts and do functional annotation
 path_to/HANNO/scripts/HANNO.StringTie-GTFonly.v0.5.pl -d HANNO-V2 -g yourspecies-alliso.gtf -a referencegenome.fa -P referenceprotein.faa -b buscodatabase -t 8 | bash > HANNO-V2.log 2>&1
 #Output will be for ALLMODELS (all isoforms) and BESTMODELS
