@@ -176,6 +176,25 @@ awk -v cdsdist=300 -f /path_to_scripts/clean-bed12-utrs.awk BESTMODELS-FINAL.bed
 #use "python /path_to_scripts/bedDB_to_gtf_gff.py BESTMODELS-FINAL.cleanUTR.bedDB ..." to get gff/gtf and annotated sequences from the cleaned bedDB
 ```
 
+### IMPROVING ISOFORM ANNOTATION (GTF only input)
+The HANNO pipeline tries to identify a best gene-model per gene by default. To annotate reliable isoforms for your organism one should use RNAseq of the same species ONLY.
+Find below a best-practise to incorporate isoforms: 
+
+```sh
+# first perform an annotation ("HANNO-V1") using HANNO for the different use cases as described above
+# then re-assemble your RNAseq with stringtie using the HANNO BESTMODELS as reference:
+stringtie -G HANNO-V1/BESTMODELS-FINAL.gff3 -p 2 -o yourspecies.gtf yourspecies-RNAseq.bam &
+#merge all assembled + reference transcripts
+stringtie --merge -T 0 -F 0 -G HANNO-V1/BESTMODELS-FINAL.gff3 -p 2 -o yourspecies-alliso.gtf yourspecies.gtf
+#run special version for annotation of CDS on StringTie transcripts and do functional annotation
+path_to/HANNO/scripts/HANNO.StringTie-GTFonly.v0.5.pl -d HANNO-V2 -g yourspecies-alliso.gtf -a referencegenome.fa -P referenceprotein.faa -b buscodatabase -t 8 | bash > HANNO-V2.log 2>&1
+#Output will be for ALLMODELS (all isoforms) and BESTMODELS
+#as before you may filter out spurious gene-models, that have no protein or EGGNOG matches
+awk 'BEGIN{OFS="\t";FS="\t"} {if($26!="-" || $39!="-" || ($21>60 || $17>300)){print}}' HANNO-V2/ALLMODELS-FINAL.bedDB > HANNO-V2/ALLMODELS-FINAL-with-DB-hits.bedDB
+awk 'BEGIN{OFS="\t";FS="\t"} {if($26!="-" || $39!="-" || ($21>60 || $17>300)){print}}' HANNO-V2/BESTMODELS-FINAL.bedDB > HANNO-V2/BESTMODELS-FINAL-with-DB-hits.bedDB
+
+```
+
 ### BENCHMARKING HANNO BY TEST-RUNS ON VERTEBRATE GENOMES
 
 HANNO benchmark runtimes on different vertebrate clades (HPC-server: Intel(R) Xeon(R) CPU E7-8890 v4 @ 2.20GHz; 96-threads; 1TB RAM). Note that 6 (Birds, Amphibians), 8 (Fish) and 11 (Mammals) genome annotations were run in parallel.
