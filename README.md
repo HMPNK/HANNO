@@ -166,6 +166,7 @@ python /path_to_scripts/bedDB_to_gtf_gff.py BESTMODELS-FINAL.bedDB --gff --fasta
 cat CDS_sequences.fasta | sed "s/ /::/g" | perl /path_to_scripts/translate.perl | sed "s/::/ /g" > AA_sequences.fasta
 
 #You can also do the above for "ALLMODELS-FINAL.bedDB", if you are interested in alternative gene models / isoforms
+#CHECK UPDATE ON "IMPROVING ISOFORM ANNOTATION (GTF only input)" section below!
 ```
 
 ### POLISH MULTI-EXON UTRs
