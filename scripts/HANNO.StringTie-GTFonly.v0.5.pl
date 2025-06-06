@@ -197,7 +197,7 @@ wc -l ALLMODELS-FINAL.bedDB
 python $scr/bedDB_to_gtf_gff.py ALLMODELS-FINAL.bedDB -o ALLMODELS-FINAL.gtf
 awk \'{if(\$3==\"CDS\"){print}}\' ALLMODELS-FINAL.gtf | gtfToGenePred stdin stdout | genePredToBed stdin stdout | mawk \'BEGIN{OFS=\"\\t\";FS=OFS}{print \$1\$2\$3\$10\$11\$12\"\\t\"\$0}\' | sort -k1,1 | mawk \'{if(o!=\$1){print \$5};o=\$1}\' > ALLMODELS-FINAL.bedDB.keeplist
 head -1 ALLMODELS-FINAL.bedDB > ALLMODELS-FINAL.bedDB.tmp
-grep -wFf ALLMODELS-FINAL.bedDB.keeplist ALLMODELS-FINAL.bedDB > ALLMODELS-FINAL.bedDB.tmp
+grep -wFf ALLMODELS-FINAL.bedDB.keeplist ALLMODELS-FINAL.bedDB >> ALLMODELS-FINAL.bedDB.tmp
 mv ALLMODELS-FINAL.bedDB.tmp ALLMODELS-FINAL.bedDB
 rm ALLMODELS-FINAL.gtf ALLMODELS-FINAL.bedDB.keeplist
 echo;echo \"After duplicate CDS removal:\"
