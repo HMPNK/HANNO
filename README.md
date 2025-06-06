@@ -187,10 +187,11 @@ Find below a best-practise to incorporate isoforms from RNAseq in your HANNO ann
 # then re-assemble your RNAseq with stringtie using the HANNO BESTMODELS as reference:
 stringtie -G HANNO-V1/BESTMODELS-FINAL.gff3 -p 2 -o yourspecies.gtf yourspecies-RNAseq.bam
 #merge all assembled + reference transcripts
-stringtie --merge -G HANNO-V1/BESTMODELS-FINAL.gff3 -p 2 -o yourspecies-alliso.gtf yourspecies.gtf
+#you may adjust minimum FPKM and TPM here (-T 1 -F 1 (default), lower values will call more isoforms, but also more noisy gene models)
+stringtie --merge -T 1 -F 1 -G HANNO-V1/BESTMODELS-FINAL.gff3 -p 2 -o yourspecies-alliso.gtf yourspecies.gtf
 #run special version for annotation of CDS on StringTie transcripts and do functional annotation
 path_to/HANNO/scripts/HANNO.StringTie-GTFonly.v0.5.pl -d HANNO-V2 -g yourspecies-alliso.gtf -a referencegenome.fa -P referenceprotein.faa -b buscodatabase -t 8 | bash > HANNO-V2.log 2>&1
-#Output will be for ALLMODELS (all isoforms) and BESTMODELS
+#Output will be for ALLMODELS (all isoforms with different protein products) and BESTMODELS
 #as before you may filter out spurious gene-models, that have no protein or EGGNOG matches
 awk 'BEGIN{OFS="\t";FS="\t"} {if($26!="-" || $39!="-" || ($21>60 || $17>300)){print}}' HANNO-V2/ALLMODELS-FINAL.bedDB > HANNO-V2/ALLMODELS-FINAL-with-DB-hits.bedDB
 awk 'BEGIN{OFS="\t";FS="\t"} {if($26!="-" || $39!="-" || ($21>60 || $17>300)){print}}' HANNO-V2/BESTMODELS-FINAL.bedDB > HANNO-V2/BESTMODELS-FINAL-with-DB-hits.bedDB
