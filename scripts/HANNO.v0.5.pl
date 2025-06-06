@@ -255,13 +255,16 @@ $COMMAND = "$COMMAND
 bash $scr/CREATE-DB.sh ALLMODELS.bed12 ALLMODELS.bed12.model_clusters.tsv ALLMODELS.lastp.description.txt ALLMODELS.eggnog.description.txt ALLMODELS.BUSCO.tsv > ALLMODELS-FINAL.bedDB
 rm -f ALLMODELS.bed12 ALLMODELS.bed12.model_clusters.tsv ALLMODELS.cds.fa ALLMODELS.eggnog.description.txt ALLMODELS.faa ALLMODELS.lastp.description.txt ALLMODELS.mRNA.fa ALLMODELS.BUSCO.tsv orf.length
 
-#remove duplicate identical models from ALLMODELS-FINAL.bedDB
-echo \"Before duplicate removal:\"
+#remove duplicate identical CDS models from ALLMODELS-FINAL.bedDB
+echo;echo \"Before duplicate CDS removal:\"
 wc -l ALLMODELS-FINAL.bedDB
-head -n 1 ALLMODELS-FINAL.bedDB > ALLMODELS-FINAL.bedDB.tmp
-mawk \'BEGIN{OFS=\"\\t\";FS=OFS}{print \$1\$2\$3\$10\$11\$12\"\\t\"\$0}\' ALLMODELS-FINAL.bedDB | sort -k1,1 | mawk \'{if(o!=\$1){print};o=\$1}\' | grep -v \'^#\' | cut -f 2- | sort -k4,4V >> ALLMODELS-FINAL.bedDB.tmp
+python $scr/bedDB_to_gtf_gff.py ALLMODELS-FINAL.bedDB -o ALLMODELS-FINAL.gtf
+awk \'{if(\$3==\"CDS\"){print}}\' ALLMODELS-FINAL.gtf | gtfToGenePred stdin stdout | genePredToBed stdin stdout | mawk \'BEGIN{OFS=\"\\t\";FS=OFS}{print \$1\$2\$3\$10\$11\$12\"\\t\"\$0}\' | sort -k1,1 | mawk \'{if(o!=\$1){print \$5};o=\$1}\' > ALLMODELS-FINAL.bedDB.keeplist
+head -1 ALLMODELS-FINAL.bedDB > ALLMODELS-FINAL.bedDB.tmp
+grep -wFf ALLMODELS-FINAL.bedDB.keeplist ALLMODELS-FINAL.bedDB > ALLMODELS-FINAL.bedDB.tmp
 mv ALLMODELS-FINAL.bedDB.tmp ALLMODELS-FINAL.bedDB
-echo \"After duplicate removal:\"
+rm ALLMODELS-FINAL.gtf ALLMODELS-FINAL.bedDB.keeplist
+echo;echo \"After duplicate CDS removal:\"
 wc -l ALLMODELS-FINAL.bedDB
 
 sort -k14,14n -k5,5rn ALLMODELS-FINAL.bedDB | awk \'{if(o!=\$14){print};o=\$14}\' > BESTMODELS-FINAL.bedDB
