@@ -183,7 +183,7 @@ The HANNO pipeline tries to identify a best gene-model per gene by default. To a
 Find below a best-practise to incorporate isoforms from RNAseq in your HANNO annotation: 
 
 ```sh
-# first perform an annotation ("HANNO-V1") using HANNO for the different use cases as described above
+# first perform an annotation ("HANNO-V1") using HANNO for the different use cases as described above/below
 # then re-assemble your RNAseq with stringtie using the HANNO BESTMODELS as reference:
 stringtie -G HANNO-V1/BESTMODELS-FINAL.gff3 -p 2 -o yourspecies.gtf yourspecies-RNAseq.bam
 #merge all assembled + reference transcripts
