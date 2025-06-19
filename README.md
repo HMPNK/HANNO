@@ -139,6 +139,7 @@ awk 'BEGIN{OFS="\t";FS="\t"} {if($26!="-" || $39!="-" || ($21>60 || $17>300)){pr
 * BESTMODELS-FINAL.mRNA.fa -> corresponding mRNA sequences as fasta
 * BESTMODELS-FINAL.CDS.fa -> corresponding CDS sequences as fasta   
 * BESTMODELS-FINAL.AA.faa -> corresponding aminoacid sequences as fasta
+* tandemdup-issues.bedDB -> transcript models with putative fused genes, removed from final output (since v0.6)
   
   Note that "\*.bedDB" files can be viewed in IGV, after renaming them to "\*.bed". Due to the one-line format, they can also be browsed and edited in a table calculation software. For instance one can add fields of functional annotations (fields 13 to xy) to the bed name field (field 4) to add more information to the IGV visualization.
 ```sh
@@ -197,6 +198,8 @@ awk 'BEGIN{OFS="\t";FS="\t"} {if($26!="-" || $39!="-" || ($21>60 || $17>300)){pr
 awk 'BEGIN{OFS="\t";FS="\t"} {if($26!="-" || $39!="-" || ($21>60 || $17>300)){print}}' HANNO-V2/BESTMODELS-FINAL.bedDB > HANNO-V2/BESTMODELS-FINAL-with-DB-hits.bedDB
 
 ```
+### IMPROVING ANNOTATION OF TANDEM DUPLICATED GENES
+Since version 0.6 HANNO tries to improve annotations of gene clusters and tandem gene duplications by identifying transcript models that fuse tandem duplicated genes. These models are removed, but stored in the file "tandemdup-issues.bedDB".
 
 ### BENCHMARKING HANNO BY TEST-RUNS ON VERTEBRATE GENOMES
 
