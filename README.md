@@ -76,7 +76,7 @@ which run_BUSCO.py
 ## now it should be ready to run, try to execute:
 scripts/HANNO.v0.6.pl
 
-HANNO version 0.5 (High-throughput ANNOtation for eukaryote genomes)
+HANNO version 0.6 (High-throughput ANNOtation for eukaryote genomes)
 Author: Heiner Kuhl, Phd (heiner.kuhl@igb-berlin.de)
 
 THIS SCRIPT CREATES THE PIPELINE AS A BASH script
