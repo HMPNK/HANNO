@@ -50,6 +50,7 @@ mamba create -n TACO -c conda-forge -c bioconda taco
 mkdir EGGNOGG-DBs
 export EGGNOG_DATA_DIR=$PWD/EGGNOGG-DBs/
 download_eggnog_data.py
+##It seems the server domain for database changed to "http://eggnog5.embl.de/", one might have to change that in the "download_eggnog_data.py" script!
 
 ## get BUSCO databases from https://busco-data.ezlab.org/v5/data/lineages/
 ## For example fishes:
