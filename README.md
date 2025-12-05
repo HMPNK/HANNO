@@ -111,7 +111,7 @@ bash TTN-TEST-RUNS.sh
 ##Do not wonder that BUSCO results are 0%, the TTN gene tested is not present in the BUSCO db used.
 ##If an error like "gtf_to_alignment_gff3.pl not found" occurs in the log files. The transdecoder util directory files need to be linked into the miniforge or miniconda envs/HANNO/bin directory. This error occured on a new Ubuntu 2024 installation.
 ##If awk errors related to "asort" occur install gawk on the system (by "sudo apt install gawk"). This error occured on a new Ubuntu 2024 installation.
-##If the runs with eggnog do not finish correctly, some issue with the eggnog DB download might persist. Sometimes happens due to server connection issues.
+##If the runs with eggnog do not finish correctly, some issue with the eggnog DB download might persist. Sometimes happens due to server connection issues. Try a manual download from http://eggnog5.embl.de/download/
 ```
 
 ### Input files
