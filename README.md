@@ -50,7 +50,7 @@ mamba create -n TACO -c conda-forge -c bioconda taco
 mkdir EGGNOGG-DBs
 export EGGNOG_DATA_DIR=$PWD/EGGNOGG-DBs/
 download_eggnog_data.py
-##It seems the server domain for database changed to "http://eggnog5.embl.de/", one might have to change that in the "download_eggnog_data.py" script!
+##It seems the server domain for database changed to "http://eggnog5.embl.de/. If downloads fail, one might have to change that in the "download_eggnog_data.py" script!
 
 ## get BUSCO databases from https://busco-data.ezlab.org/v5/data/lineages/
 ## For example fishes:
@@ -110,7 +110,7 @@ bash TTN-TEST-RUNS.sh
 ##CHECK the logs for early stops
 ##If the pipeline finishes successfully all logs will start and end with a date
 ##Do not wonder that BUSCO results are 0%, the TTN gene tested is not present in the BUSCO db used.
-##If an error like "gtf_to_alignment_gff3.pl not found" occurs in the log files. The transdecoder util directory files need to be linked into the miniforge or miniconda envs/HANNO/bin directory. This error occured on a new Ubuntu 2024 installation.
+##If an error like "gtf_to_alignment_gff3.pl not found" occurs in the log files. The transdecoder util directory files need to be linked into the miniforge or miniconda envs/HANNO/bin directory. This error occured on a new Ubuntu 2024 installation with miniforge3 install.
 ##If awk errors related to "asort" occur install gawk on the system (by "sudo apt install gawk"). This error occured on a new Ubuntu 2024 installation.
 ##If the runs with eggnog do not finish correctly, some issue with the eggnog DB download might persist. Sometimes happens due to server connection issues. Try a manual download from http://eggnog5.embl.de/download/
 ```
