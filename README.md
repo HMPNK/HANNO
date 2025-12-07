@@ -116,6 +116,9 @@ ln -s ../opt/transdecoder/util/* .
 ##The error above occured on a new Ubuntu 2024 installation with miniforge3 install.
 ##If awk errors related to "asort" occur install gawk on the system (by "sudo apt install gawk"). This error occured on a new Ubuntu 2024 installation.
 ##If the runs with eggnog do not finish correctly, some issue with the eggnog DB download might persist. Sometimes happens due to server connection issues. Try a manual download from http://eggnog5.embl.de/download/
+##If errors ocurred remove prior outputs of test runs and rerun the tests:
+rm RUN-TEST1-p* -rf
+grep RUN-TEST1-p RUN-TEST1-p | bash
 ```
 
 ### Input files
