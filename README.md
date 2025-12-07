@@ -118,7 +118,7 @@ ln -s ../opt/transdecoder/util/* .
 ##If the runs with eggnog do not finish correctly, some issue with the eggnog DB download might persist. Sometimes happens due to server connection issues. Try a manual download from http://eggnog5.embl.de/download/
 ##If errors ocurred remove prior outputs of test runs and rerun the tests:
 rm RUN-TEST1-p* -rf
-grep RUN-TEST1-p RUN-TEST1-p | bash
+grep RUN-TEST1-p TTN-TEST-RUNS.sh | bash
 ```
 
 ### Input files
