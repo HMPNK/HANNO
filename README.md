@@ -41,7 +41,7 @@ mamba create -n HANNO -c conda-forge -c bioconda python=3.11.8 bedtools=2.27.1 s
 mamba activate HANNO
 
 pip install pandas==2.2.3
-#library needed for "bedDB_to_gtf_gff.py" the new bedDB to NCBI refSeq-like gff/gtf converter
+#library needed for "bedDB_to_gtf_gff.py" the new bedDB to NCBI refSeq-like gff/gtf converter (pandas version 3.0.2, is not working!)
 
 ## TACO is not compatible with the environment create its own:
 mamba create -n TACO -c conda-forge -c bioconda taco
